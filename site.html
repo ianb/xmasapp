@@ -1,82 +1,124 @@
 <!DOCTYPE html>
-<!-- The original (unminified) source is at http://xmasapp.ianbicking.org/site.html -->
-<html><head><meta charset=UTF-8><title>Christmas Carols</title><script type="text/javascript">window.addEventListener("load",function(){var b=[];var d={};var m=document.querySelectorAll(".song");for(var l=0;l<m.length;l++){var c=m[l];var a=c.querySelector("h1").textContent;if(!a){continue}var f={name:a,el:c};var k=document.createElement("div");k.innerHTML="back";k.className="back";c.insertBefore(k,c.childNodes[0]);k.addEventListener("click",function(){j()},false);c.querySelector(".about").setAttribute("target","_blank");b.push(f);d[f.name]=f}b.sort(function(n,i){return n.name>i.name?1:-1});var e=document.getElementById("song-list");b.forEach(function(i){var n=document.createElement("div");n.className="song-select";n.appendChild(document.createTextNode(i.name));n.addEventListener("click",function(){h(i)},false);e.appendChild(n)});function j(){b.forEach(function(i){i.el.classList.add("hidden")});document.getElementById("controls").style.display="";location.hash=""}function h(i){document.getElementById("controls").style.display="none";i.el.classList.remove("hidden");location.hash="#"+encodeURIComponent(i.name)}function g(){var i=location.hash;if((!i)||i=="#"){j();return}i=decodeURIComponent(i.substr(1));var n=d[i];if(n){h(n)}}window.addEventListener("hashchange",g,false);g()},false);</script><style type="text/css">body{font-family:sans-serif;}.stanza{white-space:pre-wrap;}.indented{padding-left:1em;}.hidden{display:none;}.back{float:right;}.song-select{cursor:pointer;padding:3px;}.song-select:hover{background-color:#000;color:#fff;}.back{cursor:pointer;border:2px solid #000;padding:3px;}.back:hover{background-color:#000;color:#fff;}</style></head><body> <div id=body> <div id=controls> <div id=song-list> </div> </div> <div id=songs> <div class="song hidden"> <h1>Angels from the Realms of Glory</h1> <div class=lyrics> <div class=stanza>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Christmas Carols</title>
+    <script src="carols.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="body">
+
+      <div id="controls">
+        <div id="song-list">
+        </div>
+      </div>
+
+      <div id="songs">
+
+        <div class="song hidden">
+          <h1>Angels from the Realms of Glory</h1>
+
+          <div class="lyrics">
+
+<div class="stanza">
 Angels from the realms of glory
 Wing your flight o'er all the earth;
 Ye who sang creation's story
 Now proclaim Messiah's birth:
-</div><div class=stanza>
+</div><div class="stanza">
 Come and worship, come and worship
 Worship Christ, the newborn King.
-</div><div class=stanza>
+</div><div class="stanza">
 Shepherds, in the fields abiding,
 Watching o'er your flocks by night,
 God with man is now residing,
 Yonder shines the infant light:
-</div><div class=stanza>
+</div><div class="stanza">
 Come and worship, come and worship
 Worship Christ, the newborn King.
-</div><div class=stanza>
+</div><div class="stanza">
 Sages, leave your contemplations
 Brighter visions beam afar,
 Seek the great Desire of nations,
 Ye have seen his natal star:
-</div><div class=stanza>
+</div><div class="stanza">
 Come and worship, come and worship
 Worship Christ, the newborn King.
-</div><div class=stanza>
+</div><div class="stanza">
 Though an infant now we view him,
 He shall fill his Father's throne,
 Gather all the nations to him,
 Every knee shall then bow down:
-</div><div class=stanza>
+</div><div class="stanza">
 Come and worship, come and worship
 Worship Christ, the newborn King.
-</div><div class=stanza>
+</div><div class="stanza">
 All creation, join in praising
 God the Father, Spirit, Son,
 Evermore your voices raising,
 To eternal Three in One:
-</div><div class=stanza>
+</div><div class="stanza">
 Come and worship, come and worship
 Worship Christ, the newborn King.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Angels_from_the_Realms_of_Glory" class=about>about</a></p> </div> <div class="song hidden"> <h1>Angels We Have Heard on High</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+
+          </div><!-- /lyrics -->
+
+          <p><a href="http://en.wikipedia.org/wiki/Angels_from_the_Realms_of_Glory" class="about">about</a></p>
+
+        </div><!-- /song -->
+
+        <div class="song hidden">
+          <h1>Angels We Have Heard on High</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Angels we have heard on high
-Sweetly singing o&#226;&#128;&#153;er the plains
+Sweetly singing o’er the plains
 And the mountains in reply
 Echoing their joyous strains
-</div><div class=stanza>
-CHORUS:
-</div><div class=stanza>
+</div><div class="stanza">
+CHORUS:<!-- FIXME: figure out how to markup -->
+</div><div class="stanza">
 Gloria, in excelsis Deo!
 Gloria, in excelsis Deo!
-</div><div class=stanza>
+</div><div class="stanza">
 Shepherds, why this jubilee?
 Why your joyous strains prolong?
 What the gladsome tidings be
 Which inspire your heavenly song? <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 Come to Bethlehem and see
 Him Whose birth the angels sing;
 Come, adore on bended knee,
 Christ the Lord, the newborn King. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 See Him in a manger laid
 Jesus Lord of heaven and earth;
 Mary, Joseph, lend your aid,
 With us sing our Savior's birth. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Angels_We_Have_Heard_on_High" class=about>about</a></p> </div> <div class="song hidden"> <h1>What Child Is This?</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Angels_We_Have_Heard_on_High" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>What Child Is This?</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 What child is this, who, laid to rest,
-On Mary's lap is sleeping,
+On Mary’s lap is sleeping,
 Whom angels greet with anthems sweet
 While shepherds watch are keeping?
 This, this is Christ the King,
 Whom shepherds guard and angels sing;
 Haste, haste to bring Him praise
 The babe, the son of Mary!
-</div><div class=stanza>
+</div><div class="stanza">
 Why lies He in such mean estate
 Where ox and ass are feeding?
 Good Christian, fear: for sinners here
@@ -85,7 +127,7 @@ Nails, spear shall pierce him through,
 The Cross be borne for me, for you;
 Hail, hail, the Saviour comes,
 The babe, the son of Mary!
-</div><div class=stanza>
+</div><div class="stanza">
 So bring Him incense, gold, and myrrh;
 All tongues and peoples own him,
 The King of Kings salvation brings;
@@ -94,79 +136,114 @@ Raise, raise the song on high!
 While Mary sings a lullaby,
 Joy! joy! for Christ is born,
 The babe, the son of Mary!
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/What_Child_Is_This%3F" class=about>about</a></p> </div> <div class="song hidden"> <h1>We Three Kings of Orient Are</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/What_Child_Is_This%3F" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>We Three Kings of Orient Are</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 We three kings of Orient are;
 Bearing gifts we traverse afar,
 Field and fountain, moor and mountain,
 Following yonder star.
-</div><div class=stanza>
+</div><div class="stanza">
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza">
 O star of wonder, star of light,
 Star with royal beauty bright,
 Westward leading, still proceeding,
 Guide us to thy perfect light.
-</div><div class=stanza>
-Born a King on Bethlehem&#226;&#128;&#153;s plain
+</div><div class="stanza">
+Born a King on Bethlehem’s plain
 Gold I bring to crown Him again,
 King forever, ceasing never,
 Over us all to reign. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 Frankincense to offer have I;
 Incense owns a Deity nigh;
 Prayer and praising, voices raising,
 Worshipping God on high. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 Myrrh is mine, its bitter perfume
 Breathes a life of gathering gloom;
 Sorrowing, sighing, bleeding, dying,
 Sealed in the stone cold tomb. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/We_Three_Kings_of_Orient_Are" class=about>about</a></p> </div> <div class="song hidden"> <h1>We Wish You a Merry Christmas</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/We_Three_Kings_of_Orient_Are" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>We Wish You a Merry Christmas</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 We wish you a Merry Christmas (x3)
 and a Happy New Year.
-</div><div class=stanza>
+</div><div class="stanza">
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza">
 Good tidings we bring to you and your kin
 We wish you a Merry Christmas and a Happy New Year.
-</div><div class=stanza>
+</div><div class="stanza">
 Now! bring us some figgy pudding (x3)
 and bring some out here. (or, and bring it us here) <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 For we all like figgy pudding (x3)
 so bring some out here. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 And we won't go until we've got some (x3)
 so bring some out here. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 It's a season for music (x3)
 and a time of good Cheer. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/We_Wish_You_a_Merry_Christmas" class=about>about</a></p> </div> <div class="song hidden"> <h1>Silent Night</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/We_Wish_You_a_Merry_Christmas" class="about">about</a></p>
+        </div><!-- /song -->
+
+        <div class="song hidden">
+          <h1>Silent Night</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Silent night holy night
 All is calm, all is bright
 Round yon virgin mother and child.
 Holy infant so tender and mild,
 Sleep in heavenly peace.
 Sleep in heavenly peace.
-</div><div class=stanza>
+</div><div class="stanza">
 Silent night holy night
 Shepherds quake at the sight,
 Glories stream from heaven afar,
 Heavenly hosts sing alleluia;
 Christ the Savior, is born
 Christ the Savior, is born.
-</div><div class=stanza>
+</div><div class="stanza">
 Silent night holy night
 Son of God, love's pure light
 Radiant beams from thy holy face,
 With the dawn of redeeming grace,
 Jesus, Lord, at thy birth.
 Jesus, Lord, at thy birth.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Silent_Night_%28song%29" class=about>about</a></p> </div> <div class="song hidden"> <h1>O Little Town of Bethlehem</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Silent_Night_%28song%29" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>O Little Town of Bethlehem</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 O little town of Bethlehem
 How still we see thee lie
 Above thy deep and dreamless sleep
@@ -175,7 +252,7 @@ Yet in thy dark streets shineth
 The everlasting Light
 The hopes and fears of all the years
 Are met in thee tonight
-</div><div class=stanza>
+</div><div class="stanza">
 For Christ is born of Mary
 And gathered all above
 While mortals sleep, the angels keep
@@ -184,7 +261,7 @@ O morning stars together
 Proclaim the holy birth
 And praises sing to God the King
 And Peace to men on earth
-</div><div class=stanza>
+</div><div class="stanza">
 How silently, how silently
 The wondrous gift is given!
 So God imparts to human hearts
@@ -193,7 +270,7 @@ No ear may his His coming,
 But in this world of sin,
 Where meek souls will receive him still,
 The dear Christ enters in.
-</div><div class=stanza>
+</div><div class="stanza">
 O holy Child of Bethlehem
 Descend to us, we pray
 Cast out our sin and enter in
@@ -202,8 +279,18 @@ We hear the Christmas angels
 The great glad tidings tell
 O come to us, abide with us
 Our Lord Emmanuel
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/O_Little_Town_of_Bethlehem" class=about>about</a></p> </div> <div class="song hidden"> <h1>O Holy Night</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/O_Little_Town_of_Bethlehem" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+
+        <div class="song hidden">
+          <h1>O Holy Night</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 O holy night! The stars are brightly shining,
 It is the night of our dear Saviour's birth.
 Long lay the world in sin and error pining,
@@ -214,7 +301,7 @@ For yonder breaks a new and glorious morn.
 Fall on your knees! O hear the angel voices!
 O night divine, O night when Christ was born;
 O night divine, O night, O night Divine.
-</div><div class=stanza>
+</div><div class="stanza">
 Led by the light of Faith serenely beaming,
 With glowing hearts by His cradle we stand.
 So led by light of a star sweetly gleaming,
@@ -225,7 +312,7 @@ In all our trials born to be our friend.
 He knows our need, to our weakness is no stranger,
 Behold your King! Before Him lowly bend!
 Behold your King, Before Him lowly bend!
-</div><div class=stanza>
+</div><div class="stanza">
 Truly He taught us to love one another;
 His law is love and His gospel is peace.
 Chains shall He break for the slave is our brother;
@@ -236,37 +323,57 @@ Let all within us praise His holy name.
 Christ is the Lord! O praise His Name forever,
 His power and glory evermore proclaim.
 His power and glory evermore proclaim.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/O_Holy_Night" class=about>about</a></p> </div> <div class="song hidden"> <h1>Joy to the World</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/O_Holy_Night" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+
+        <div class="song hidden">
+          <h1>Joy to the World</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Joy to the world! the Lord is come;
 Let earth receive her King;
 Let every heart prepare him room,
 And heaven and nature sing,
 And heaven and nature sing,
 And heaven, and heaven, and nature sing.
-</div><div class=stanza>
+</div><div class="stanza">
 Joy to the world! the Saviour reigns;
 Let men their songs employ;
 While fields and floods, rocks, hills, and plains
 Repeat the sounding joy,
 Repeat the sounding joy,
 Repeat, repeat the sounding joy.
-</div><div class=stanza>
+</div><div class="stanza">
 No more let sins and sorrows grow,
 Nor thorns infest the ground;
 He comes to make His blessings flow
 Far as the curse is found,
 Far as the curse is found,
 Far as, far as, the curse is found.
-</div><div class=stanza>
+</div><div class="stanza">
 He rules the world with truth and grace,
 And makes the nations prove
 The glories of His righteousness,
 And wonders of His love,
 And wonders of His love,
 And wonders, wonders, of His love.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Joy_to_the_World" class=about>about</a></p> </div> <div class="song hidden"> <h1>Jingle Bells</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Joy_to_the_World" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+
+        <div class="song hidden">
+          <h1>Jingle Bells</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Dashing through the snow
 In a one-horse open sleigh
 O'er the fields we go
@@ -275,9 +382,9 @@ Bells on bobtail ring[a]
 Making spirits bright
 What fun it is to ride and sing
 A sleighing song tonight!
-</div><div class=stanza>
+</div><div class="stanza">
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza">
 Jingle bells, jingle bells,
 Jingle all the way.
 Oh! what fun it is to ride
@@ -286,7 +393,7 @@ Jingle bells, jingle bells,
 Jingle all the way;
 Oh! what fun it is to ride
 In a one-horse open sleigh.
-</div><div class=stanza>
+</div><div class="stanza">
 A day or two ago
 I thought I'd take a ride
 And soon, Miss Fanny Bright
@@ -295,8 +402,17 @@ The horse was lean and lank
 Misfortune seemed his lot
 He got into a drifted bank
 And then we got upsot. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Jingle_Bells" class=about>about</a></p> </div> <div class="song hidden"> <h1>It Came Upon the Midnight Clear</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Jingle_Bells" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>It Came Upon the Midnight Clear</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 It came upon a midnight clear,
 That glorious song of old,
 From angels bending near the earth,
@@ -305,7 +421,7 @@ To touch their harps of gold:
 From heaven's all-gracious King."
 The world in solemn stillness lay,
 To hear the angels sing.
-</div><div class=stanza>
+</div><div class="stanza">
 Still through the cloven skies they come,
 With peaceful wings unfurled,
 And still their heavenly music floats
@@ -313,8 +429,8 @@ O'er all the weary world;
 Above its sad and lowly plains,
 They bend on hovering wing,
 And ever o'er its Babel sounds
-The bless&#195;&#168;d angels sing.
-</div><div class=stanza>
+The blessèd angels sing.
+</div><div class="stanza">
 Yet with the woes of sin and strife
 The world has suffered long;
 Beneath the heavenly hymn have rolled
@@ -323,7 +439,7 @@ And man, at war with man, hears not
 The love-song which they bring;
 O hush the noise, ye men of strife,
 And hear the angels sing.
-</div><div class=stanza>
+</div><div class="stanza">
 And you, beneath life's crushing load
 Whose forms are bending low,
 Who toil along the climbing way
@@ -332,7 +448,7 @@ Look now! for glad and golden hours
 come swiftly on the wing.
 O rest beside the weary road,
 And hear the angels sing!
-</div><div class=stanza>
+</div><div class="stanza">
 For lo!, the days are hastening on,
 By prophets seen of old
 When with the ever-circling years
@@ -341,8 +457,18 @@ When peace shall over all the earth
 Its ancient splendors fling,
 And the whole world give back the song
 Which now the angels sing.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/It_Came_Upon_the_Midnight_Clear" class=about>about</a></p> </div> <div class="song hidden"> <h1>Hark! The Herald Angels Sing</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/It_Came_Upon_the_Midnight_Clear" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+
+        <div class="song hidden">
+          <h1>Hark! The Herald Angels Sing</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 1. Hark! The Herald Angels sing,
 "Glory to the new-born King;
 Peace on earth, and mercy mild,
@@ -351,10 +477,10 @@ Joyful, all ye nations, rise.
 Join the triumph of the skies.
 With th' Angelic Hosts proclaim,
 "Christ is born in Bethlehem!"1
-<div class=indent>
+<div class="indent">
 Hark! the herald angels sing,
 "Glory to the new-born King."
-</div></div><div class=stanza>
+</div></div><div class="stanza">
 2. Christ, by highest heaven adored,
 Christ, the everlasting lord
 Late in time behold Him come,
@@ -363,10 +489,10 @@ Veiled in flesh the Godhead see,
 Hail, the incarnate deity
 Pleased as Man with men to dwell,4
 Jesus, our Emmanuel.
-<div class=indent>
+<div class="indent">
 Hark! the herald angels sing,
 "Glory to the New-born king!"
-</div></div><div class=stanza>
+</div></div><div class="stanza">
 3. Hail the heav'n-born Prince of Peace,5
 Hail, the Sun6 of Righteousness
 Light and life to all He brings,
@@ -375,10 +501,10 @@ Now He lays His Glory by,7
 Born that man no more may die
 Born to raise the sons of earth,
 Born to give them second birth.
-<div class=indent>
+<div class="indent">
 Hark! the herald angels sing,
 "Glory to the New-born king!"
-</div></div><div class=stanza>
+</div></div><div class="stanza">
 4. Come, Desire of nations come,
 Fix in us Thy humble home;
 Oh, to all Thyself impart,
@@ -387,10 +513,10 @@ Hark! the herald angels sing,
 "Glory to the new-born king;
 Peace on earth and mercy mild,
 God and sinners reconciled!"
-<div class=indent>
+<div class="indent">
 Hark! the herald angels sing,
 "Glory to the New-born king!"
-</div></div><div class=stanza>
+</div></div><div class="stanza">
 5. Adam's likeness, Lord, efface,
 Stamp Thine image in its place:
 Second Adam from above,
@@ -399,153 +525,220 @@ Let us Thee, though lost, regain,
 Thee, the Life, the inner man:
 O, to all Thyself impart,
 Formed in each believing heart.
-<div class=indent>
+<div class="indent">
 Hark! the herald angels sing,
 "Glory to the New-born king!"
-</div></div> </div> <p><a href="http://en.wikipedia.org/wiki/Hark!_The_Herald_Angels_Sing" class=about>about</a></p> </div> <div class="song hidden"> <h1>Good King Wenceslas</h1> <div class=lyrics>
-<div class=stanza>
+</div></div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Hark!_The_Herald_Angels_Sing" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>Good King Wenceslas</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Good King Wenceslas looked out, on the Feast of Stephen,
 When the snow lay round about, deep and crisp and even;
 Brightly shone the moon that night, tho' the frost was cruel,
 When a poor man came in sight, gath'ring winter fuel.
-</div><div class=stanza>
+</div><div class="stanza">
 "Hither, page, and stand by me, if thou know'st it, telling,
 Yonder peasant, who is he? Where and what his dwelling?"
 "Sire, he lives a good league hence, underneath the mountain;
 Right against the forest fence, by Saint Agnes' fountain."
-</div><div class=stanza>
+</div><div class="stanza">
 "Bring me flesh, and bring me wine, bring me pine logs hither:
 Thou and I shall see him dine, when we bear them thither."
 Page and monarch, forth they went, forth they went together;
 Through the rude wind's wild lament and the bitter weather.
-</div><div class=stanza>
+</div><div class="stanza">
 "Sire, the night is darker now, and the wind blows stronger;
 Fails my heart, I know not how; I can go no longer."
 "Mark my footsteps, good my page. Tread thou in them boldly
 Thou shalt find the winter's rage freeze thy blood less coldly."
-</div><div class=stanza>
+</div><div class="stanza">
 In his master's steps he trod, where the snow lay dinted;
 Heat was in the very sod which the saint had printed.
 Therefore, Christian men, be sure, wealth or rank possessing,
 Ye who now will bless the poor, shall yourselves find blessing.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Good_King_Wenceslas" class=about>about</a></p> </div> <div class="song hidden"> <h1>God rest you merry, gentlemen</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Good_King_Wenceslas" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>God rest you merry, gentlemen</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 God rest you merry, gentlemen,
 Let nothing you dismay,
 For Jesus Christ our Saviour
 Was born upon this day,
 To save us all from Satan's power
 When we were gone astray:
-</div><div class=stanza>
+</div><div class="stanza">
 CHORUS:
 </div><div class="stanza indented">
 O tidings of comfort and joy,
 comfort and joy,
 O tidings of comfort and joy.
-</div><div class=stanza>
+</div><div class="stanza">
 From God our heavenly Father
 A blessed angel came,
 And unto certain shepherds
 Brought tidings of the same,
 How that in Bethlehem was born
 The Son of God by name: <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 The shepherds at those tidings
 Rejoiced much in mind,
 And left their flocks a-feeding
 In tempest, storm and wind,
 And went to Bethlehem straightway,
 This blessed Babe to find: <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 But when to Bethlehem they came,
 Whereat this Infant lay,
 They found Him in a manger,
 Where oxen feed on hay;
 His mother Mary kneeling,
 Unto the Lord did pray: <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 Now to the Lord sing praises,
 All you within this place,
 And with true love and brotherhood
 Each other now embrace;
 This holy tide of Christmas
 All other doth efface: <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/God_Rest_Ye_Merry,_Gentlemen" class=about>about</a></p> </div> <div class="song hidden"> <h1>The First No&#235;l</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/God_Rest_Ye_Merry,_Gentlemen" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>The First No&#235;l</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 The first Noel, the angels say
 To Bethlehem's shepherds as they lay.
 At midnight watch, when keeping sheep,
 The winter wild, the light snow deep.
-</div><div class=stanza>
+</div><div class="stanza">
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza">
 Noel, Noel, Noel, Noel
 Born is the King of Israel.
-</div><div class=stanza>
+</div><div class="stanza">
 The shepherds rose, and saw a star
 Bright in the East, beyond them far,
 Its beauty gave them great delight,
 This star it set now day nor night. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 Now by the light of this bright star
 Three wise men came from country far;
 They sought a king, such their intent,
 The star their guide where'er it went. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 Then drawing nigh to the northwest,
 O'er Bethlehem town it took its rest;
 The wise men learnt its cause of stay,
 And found the place where Jesus lay. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/The_First_Nowell" class=about>about</a></p> </div> <div class="song hidden"> <h1>Away in a Manger</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/The_First_Nowell" class="about">about</a></p>
+        </div><!-- /song -->
+
+
+        <div class="song hidden">
+          <h1>Away in a Manger</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Away in a manger, no crib for a bed,
 The little Lord Jesus laid down His sweet head.
 The stars in the bright sky looked down where He lay,
 The little Lord Jesus asleep on the hay.
-</div><div class=stanza>
+</div><div class="stanza">
 The cattle are lowing, the baby awakes,
 But little Lord Jesus no crying He makes.
 I love Thee, Lord Jesus, look down from the sky
 And stay by my cradle till morning is nigh.
-</div><div class=stanza>
+</div><div class="stanza">
 Be near me, Lord Jesus, I ask Thee to stay
 Close by me forever, and love me, I pray.
 Bless all the dear children in thy tender care,
 And fit us for heaven, to live with Thee there.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Away_in_a_Manger" class=about>about</a></p> </div> <div class="song hidden"> <h1>Auld Lang Syne</h1> <div class=lyrics>
-<div class=stanza>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Away_in_a_Manger" class="about">about</a></p>
+        </div><!-- /song -->
+
+        <div class="song hidden">
+          <h1>Auld Lang Syne</h1>
+
+          <div class="lyrics">
+<div class="stanza">
 Should old acquaintance be forgot,
 and never brought to mind?
 Should old acquaintance be forgot,
 and auld lang syne?
-</div><div class=stanza>
+</div><div class="stanza">
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza">
 For auld lang syne, my dear,
 for auld lang syne,
 we'll take a cup of kindness yet,
 for auld lang syne.
-</div><div class=stanza>
-And surely you&#226;&#128;&#153;ll buy your pint cup!
-and surely I&#226;&#128;&#153;ll buy mine!
-And we'll take a cup o&#226;&#128;&#153; kindness yet,
+</div><div class="stanza">
+And surely you’ll buy your pint cup!
+and surely I’ll buy mine!
+And we'll take a cup o’ kindness yet,
 for auld lang syne. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 We two have run about the slopes,
 and picked the daisies fine ;
-But we&#226;&#128;&#153;ve wandered many a weary foot,
+But we’ve wandered many a weary foot,
 since auld lang syne. <i>Chorus</i>
-</div><div class=stanza>
+</div><div class="stanza">
 We two have paddled in the stream,
 from morning sun till dine;
 But seas between us broad have roared
 since auld lang syne. <i>Chorus</i>
-</div><div class=stanza>
-And there&#226;&#128;&#153;s a hand my trusty friend!
-And give us a hand o&#226;&#128;&#153; thine!
-And we&#226;&#128;&#153;ll take a right good-will draught,
+</div><div class="stanza">
+And there’s a hand my trusty friend!
+And give us a hand o’ thine!
+And we’ll take a right good-will draught,
 for auld lang syne. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Auld_Lang_Syne" class=about>about</a></p> </div> </div> </div> <div style="display: none"> <div class="song hidden"> <h1></h1> <div class=lyrics>
-<div class=stanza>
-</div><div class=stanza>
-</div> </div> <p><a href="" class=about>about</a></p> </div> </div> </body></html>
+</div>
+          </div>
+          <p><a href="http://en.wikipedia.org/wiki/Auld_Lang_Syne" class="about">about</a></p>
+        </div><!-- /song -->
+
+      </div><!-- /songs -->
+    </div><!-- /#page -->
+
+<!-- TEMPLATE -->
+<div style="display: none">
+
+        <div class="song hidden">
+          <h1></h1>
+
+          <div class="lyrics">
+<div class="stanza">
+</div><div class="stanza">
+</div>
+          </div>
+          <p><a href="" class="about">about</a></p>
+        </div><!-- /song -->
+
+</div>
+
+  </body>
+</html>
