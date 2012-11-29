@@ -31,5 +31,5 @@ if [ ! -e "$COMP_DIR" ] ; then
 fi
 
 echo "Creating minified index.html"
-cp ${SITE}/index.html ${SITE}/comp.html
-${SITE}/bin/compress_html.py ${SITE}/comp.html -o ${SITE}/comp.html --remote --compress --compressor-dir "$COMP_DIR" --comment "The original (unminified) source is at ${HOST}/index.html"
+cp ${SITE}/site.html ${SITE}/index.html
+${SITE}/bin/compress_html.py ${SITE}/index.html -o ${SITE}/index.html --remote --compress --compressor-dir "$COMP_DIR" --html5-doctype --comment "The original (unminified) source is at ${HOST}/site.html"

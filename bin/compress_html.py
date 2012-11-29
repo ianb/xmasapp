@@ -35,6 +35,10 @@ parser.add_option(
     metavar="TEXT",
     help="Include the given comment in the generated HTML")
 parser.add_option(
+    "--html5-doctype",
+    action="store_true",
+    help="Include the HTML5 doctype")
+parser.add_option(
     '--compressor-dir',
     metavar="DIR",
     help="Directory in which to find htmlcompressor and yuicompressor jar files")
@@ -51,10 +55,10 @@ def main(args=None):
     if options.compressor_dir:
         compressor_dir = options.compressor_dir
     for arg in args:
-        inline_page(arg, options.output, options.remote, options.compress, options.comment)
+        inline_page(arg, options.output, options.remote, options.compress, options.comment, options.html5_doctype)
 
 
-def inline_page(filename, output, remote, compress, comment):
+def inline_page(filename, output, remote, compress, comment, html5_doctype):
     page = html.parse(filename).getroot()
     for el in page.xpath('//link[@rel="stylesheet"]'):
         if el.get('type', '').lower() not in ('text/css', ''):
@@ -103,6 +107,8 @@ def inline_page(filename, output, remote, compress, comment):
         text = run_compressor(text)
     if comment:
         text = '<!-- %s -->\n%s' % (comment, text)
+    if html5_doctype:
+        text = '<!DOCTYPE html>\n' + text
     if not output or output == '-':
         sys.stdout.write(text)
     else:
