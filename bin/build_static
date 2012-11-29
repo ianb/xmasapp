@@ -13,15 +13,15 @@ regex_escape () {
     python -c "import re, sys; print re.escape(sys.argv[1])" "$1"
 }
 
-SITE="$(dirname $(abspath $BASH_SOURCE))"
+SITE="$(dirname $(dirname $(abspath $BASH_SOURCE)))"
 HOST="http://xmasapp.ianbicking.org"
 
 help () {
     echo "Usage: $(basename $0)"
-    echo "Builds the site in $SITE and puts it in DEST"
+    echo "Builds the compressed source"
 }
 
-COMP_DIR="${SITE}/tools/build-compressor"
+COMP_DIR="${SITE}/bin/build-compressor"
 if [ ! -e "$COMP_DIR" ] ; then
     mkdir -p "$COMP_DIR"
     echo "Fetching compressor tools"
@@ -32,4 +32,4 @@ fi
 
 echo "Creating minified index.html"
 cp ${SITE}/index.html ${SITE}/comp.html
-${SITE}/bin/compress_html.py ${SITE}/comp.html -o ${DEST}/comp.html --compress --compressor-dir "$COMP_DIR" --comment "The original (unminified) source is at ${HOST}/index.html"
+${SITE}/bin/compress_html.py ${SITE}/comp.html -o ${SITE}/comp.html --remote --compress --compressor-dir "$COMP_DIR" --comment "The original (unminified) source is at ${HOST}/index.html"

@@ -1,43 +1,54 @@
-$(function () {
+window.addEventListener("load", function () {
   var songs = [];
   var songsByName = {};
-  $(".song").each(function () {
-    var el = $(this);
-    el.name = el.find("h1").text();
-    if (! el.name) {
-      return;
+  var songEls = document.querySelectorAll(".song");
+  for (var i=0; i<songEls.length; i++) {
+    var el = songEls[i];
+    var name = el.querySelector("h1").textContent;
+    if (! name) {
+      continue;
     }
-    console.log("found", el.name);
-    var control = $('<div class="back">back</div>');
-    el.prepend(control);
-    el.find(".about").attr("target", "_blank");
-    control.click(function () {
+    var song = {
+      name: name,
+      el: el
+    };
+    var control = document.createElement("div");
+    control.innerHTML = "back";
+    control.className = "back";
+    el.insertBefore(control, el.childNodes[0]);
+    control.addEventListener("click", function () {
       back();
-    });
-    songs.push(el);
-    songsByName[el.name] = el;
-  });
+    }, false);
+    el.querySelector(".about").setAttribute("target", "_blank");
+    songs.push(song);
+    songsByName[song.name] = song;
+  }
   songs.sort(function (a, b) {
     return a.name > b.name ? 1 : -1;
   });
-  songs.forEach(function (el) {
-    var div = $('<div class="song-select"></div>').text(el.name);
-    div.click(function () {
-      selectSong(el);
-    });
-    $("#song-list").append(div);
+  var songList = document.getElementById("song-list");
+  songs.forEach(function (song) {
+    var div = document.createElement("div");
+    div.className = "song-select";
+    div.appendChild(document.createTextNode(song.name));
+    div.addEventListener("click", function () {
+      selectSong(song);
+    }, false);
+    songList.appendChild(div);
   });
 
   function back() {
-    $(".song").addClass("hidden");
-    $("#controls").show();
+    songs.forEach(function (song) {
+      song.el.classList.add("hidden");
+    });
+    document.getElementById("controls").style.display = "";
     location.hash = "";
   }
 
-  function selectSong(el) {
-    $("#controls").hide();
-    el.removeClass("hidden");
-    location.hash = "#" + encodeURIComponent(el.name);
+  function selectSong(song) {
+    document.getElementById("controls").style.display = "none";
+    song.el.classList.remove("hidden");
+    location.hash = "#" + encodeURIComponent(song.name);
   }
 
   function hashChange() {
@@ -56,4 +67,4 @@ $(function () {
   window.addEventListener("hashchange", hashChange, false);
   hashChange();
 
-});
+}, false);
