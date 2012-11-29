@@ -16,12 +16,23 @@ $(function () {
   };
   result.onerror = function () {
     $('#installed').show();
-    $('#installed').append($('<div></div>').text('Unexpected error: ' + result.error));
+    $('#installed').append($('<div></div>').text('Unexpected error: ' + result.error.name));
   };
   $('#install').click(function () {
     var url = location.protocol + "://" + location.host + "/manifest.webapp";
     console.log('Installing', url);
-    navigator.mozApps.install(url);
+    try {
+      var result = navigator.mozApps.install(url);
+    } catch (e) {
+      $("#installer").append($('<div></div>').text("Error: " + e));
+      return;
+    }
+    result.onsuccess = function () {
+      $("#install").text("Installed!");
+    };
+    result.onerror = function () {
+      $("#installer").append($('<div></div>').text("Error: " + result.error.name));
+    };
   });
 });
 
@@ -30,8 +41,8 @@ $(function () {
   </head>
   <body>
 
-<div id="installer">
-  <button id="install">Install</button>
+<div id="installer" style="text-align: center">
+  <button id="install" style="font-size: 240%; padding: 3em;">Install</button>
 </div>
 
 <div id="installed" style="display: none">
