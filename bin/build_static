@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# quit if there are any errors:
+set -e
+# show each command as it is executed:
+#set -x
+
+abspath () {
+    python -c "import os, sys; print os.path.abspath(sys.argv[1])" "$1"
+}
+
+regex_escape () {
+    python -c "import re, sys; print re.escape(sys.argv[1])" "$1"
+}
+
+SITE="$(dirname $(abspath $BASH_SOURCE))"
+HOST="http://xmasapp.ianbicking.org"
+
+help () {
+    echo "Usage: $(basename $0)"
+    echo "Builds the site in $SITE and puts it in DEST"
+}
+
+COMP_DIR="${SITE}/tools/build-compressor"
+if [ ! -e "$COMP_DIR" ] ; then
+    mkdir -p "$COMP_DIR"
+    echo "Fetching compressor tools"
+    wget http://htmlcompressor.googlecode.com/files/htmlcompressor-0.9.8.jar -O "${COMP_DIR}/htmlcompressor-0.9.8.jar"
+    wget http://yui.zenfs.com/releases/yuicompressor/yuicompressor-2.4.2.zip -O "${COMP_DIR}/yuicompressor-2.4.2.zip"
+    (cd $COMP_DIR ; unzip -j yuicompressor-2.4.2.zip yuicompressor-2.4.2/build/yuicompressor-2.4.2.jar)
+fi
+
+echo "Creating minified index.html"
+cp ${SITE}/index.html ${SITE}/comp.html
+${SITE}/bin/compress_html.py ${SITE}/comp.html -o ${DEST}/comp.html --compress --compressor-dir "$COMP_DIR" --comment "The original (unminified) source is at ${HOST}/index.html"
