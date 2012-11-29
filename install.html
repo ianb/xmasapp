@@ -19,8 +19,9 @@ $(function () {
     $('#installed').append($('<div></div>').text('Unexpected error: ' + result.error));
   };
   $('#install').click(function () {
-    navigator.mozApps.install(
-      location.protocol + "://" + location.host + "/manifest.webapp");
+    var url = location.protocol + "://" + location.host + "/manifest.webapp";
+    console.log('Installing', url);
+    navigator.mozApps.install(url);
   });
 });
 
@@ -30,7 +31,7 @@ $(function () {
   <body>
 
 <div id="installer">
-  <button class="install">Install</button>
+  <button id="install">Install</button>
 </div>
 
 <div id="installed" style="display: none">
