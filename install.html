@@ -16,7 +16,7 @@ $(function () {
   };
   result.onerror = function () {
     $('#installed').show();
-    $('#installed').append($('<div></div>').text('Unexpected error: ' + result.error);
+    $('#installed').append($('<div></div>').text('Unexpected error: ' + result.error));
   };
   $('#install').click(function () {
     navigator.mozApps.install(
