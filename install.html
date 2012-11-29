@@ -19,7 +19,7 @@ $(function () {
     $('#installed').append($('<div></div>').text('Unexpected error: ' + result.error.name));
   };
   $('#install').click(function () {
-    var url = location.protocol + "://" + location.host + "/manifest.webapp";
+    var url = location.protocol + "//" + location.host + "/manifest.webapp";
     console.log('Installing', url);
     try {
       var result = navigator.mozApps.install(url);
