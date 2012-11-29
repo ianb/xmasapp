@@ -20,7 +20,7 @@ body {
 
 .song-select {
     cursor: pointer;
-    padding: 3px;
+    padding: 0.3em;
 }
 
 .song-select:hover {
@@ -31,7 +31,7 @@ body {
 .back {
     cursor: pointer;
     border: 2px solid #000;
-    padding: 3px;
+    padding: 0.3em 0.8em 0.3em 0.8em;
 }
 
 .back:hover {
