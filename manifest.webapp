@@ -4,5 +4,9 @@
   "developer": {
     "name": "Ian Bicking",
     "url": "http://ianbicking.org"
+  },
+  "icons": {
+    "128": "icon_128.png",
+    "32": "icon_32.png"
   }
 }
