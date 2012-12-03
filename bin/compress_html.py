@@ -59,7 +59,14 @@ def main(args=None):
 
 
 def inline_page(filename, output, remote, compress, comment, html5_doctype):
-    page = html.parse(filename).getroot()
+    with open(filename, 'rb') as fp:
+        content = fp.read()
+    try:
+        content = content.decode("UTF-8")
+    except UnicodeDecodeError:
+        print 'Error in file:', filename
+        raise
+    page = html.fromstring(content)
     for el in page.xpath('//link[@rel="stylesheet"]'):
         if el.get('type', '').lower() not in ('text/css', ''):
             continue
