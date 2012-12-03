@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- The original (unminified) source is at http://xmasapp.ianbicking.org/site.html -->
-<html><head><meta charset=UTF-8><title>Christmas Carols</title><script type="text/javascript">window.addEventListener("load",function(){var b=[];var d={};var m=document.querySelectorAll(".song");for(var l=0;l<m.length;l++){var c=m[l];var a=c.querySelector("h1").textContent;if(!a){continue}var f={name:a,el:c};var k=document.createElement("div");k.innerHTML="back";k.className="back";c.insertBefore(k,c.childNodes[0]);k.addEventListener("click",function(){j()},false);c.querySelector(".about").setAttribute("target","_blank");b.push(f);d[f.name]=f}b.sort(function(n,i){return n.name>i.name?1:-1});var e=document.getElementById("song-list");b.forEach(function(i){var n=document.createElement("div");n.className="song-select";n.appendChild(document.createTextNode(i.name));n.addEventListener("click",function(){h(i)},false);e.appendChild(n)});function j(){b.forEach(function(i){i.el.classList.add("hidden")});document.getElementById("controls").style.display="";location.hash=""}function h(i){document.getElementById("controls").style.display="none";i.el.classList.remove("hidden");location.hash="#"+encodeURIComponent(i.name)}function g(){var i=location.hash;if((!i)||i=="#"){j();return}i=decodeURIComponent(i.substr(1));var n=d[i];if(n){h(n)}}window.addEventListener("hashchange",g,false);g()},false);</script><style type="text/css">body{font-family:sans-serif;}.stanza{white-space:pre-wrap;}.indented{padding-left:1em;}.hidden{display:none;}.back{float:right;}.song-select{cursor:pointer;padding:.3em;}.song-select:hover{background-color:#000;color:#fff;}.back{cursor:pointer;border:2px solid #000;padding:.3em .8em .3em .8em;}.back:hover{background-color:#000;color:#fff;}</style></head><body> <div id=body> <div id=controls> <div id=song-list> </div> </div> <div id=songs> <div class="song hidden"> <h1>Angels from the Realms of Glory</h1> <div class=lyrics> <div class=stanza>
+<html><head><meta charset=UTF-8><title>Christmas Carols</title><script type="text/javascript">window.addEventListener("load",function(){var b=[];var d={};var n=document.querySelectorAll(".song");for(var m=0;m<n.length;m++){var c=n[m];var a=c.querySelector("h1").textContent;if(!a){continue}var g={name:a,el:c};var l=document.createElement("div");l.innerHTML="back";l.className="back";c.insertBefore(l,c.childNodes[0]);l.addEventListener("click",function(){k()},false);var f=c.querySelector(".about");if(f){f.setAttribute("target","_blank")}b.push(g);d[g.name]=g}b.sort(function(o,i){return o.name>i.name?1:-1});var e=document.getElementById("song-list");b.forEach(function(i){var o=document.createElement("div");o.className="song-select";o.appendChild(document.createTextNode(i.name));o.addEventListener("click",function(){j(i)},false);e.appendChild(o)});function k(){b.forEach(function(i){i.el.classList.add("hidden")});document.getElementById("controls").style.display="";location.hash=""}function j(i){document.getElementById("controls").style.display="none";i.el.classList.remove("hidden");location.hash="#"+encodeURIComponent(i.name)}function h(){var i=location.hash;if((!i)||i=="#"){k();return}i=decodeURIComponent(i.substr(1));var o=d[i];if(o){j(o)}}window.addEventListener("hashchange",h,false);h()},false);</script><style type="text/css">body{font-family:sans-serif;}.stanza{white-space:pre-wrap;}.indented{padding-left:1em;}.hidden{display:none;}.back{float:right;}.song-select{cursor:pointer;padding:.4em;}.song-select:hover{background-color:#000;color:#fff;}.back{cursor:pointer;border:2px solid #000;padding:.3em .8em .3em .8em;font-size:100%;}.back:hover{background-color:#000;color:#fff;}</style></head><body> <div id=body> <div id=controls> <div id=song-list> </div> </div> <div id=songs> <div class="song hidden"> <h1>Angels from the Realms of Glory</h1> <div class=lyrics> <div class=stanza>
 Angels from the realms of glory
 Wing your flight o'er all the earth;
 Ye who sang creation's story
@@ -48,7 +48,7 @@ And the mountains in reply
 Echoing their joyous strains
 </div><div class=stanza>
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza indented">
 Gloria, in excelsis Deo!
 Gloria, in excelsis Deo!
 </div><div class=stanza>
@@ -102,7 +102,7 @@ Field and fountain, moor and mountain,
 Following yonder star.
 </div><div class=stanza>
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza indented">
 O star of wonder, star of light,
 Star with royal beauty bright,
 Westward leading, still proceeding,
@@ -128,7 +128,7 @@ We wish you a Merry Christmas (x3)
 and a Happy New Year.
 </div><div class=stanza>
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza indented">
 Good tidings we bring to you and your kin
 We wish you a Merry Christmas and a Happy New Year.
 </div><div class=stanza>
@@ -277,7 +277,7 @@ What fun it is to ride and sing
 A sleighing song tonight!
 </div><div class=stanza>
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza indented">
 Jingle bells, jingle bells,
 Jingle all the way.
 Oh! what fun it is to ride
@@ -343,7 +343,7 @@ And the whole world give back the song
 Which now the angels sing.
 </div> </div> <p><a href="http://en.wikipedia.org/wiki/It_Came_Upon_the_Midnight_Clear" class=about>about</a></p> </div> <div class="song hidden"> <h1>Hark! The Herald Angels Sing</h1> <div class=lyrics>
 <div class=stanza>
-1. Hark! The Herald Angels sing,
+Hark! The Herald Angels sing,
 "Glory to the new-born King;
 Peace on earth, and mercy mild,
 God and sinners reconciled!"
@@ -355,23 +355,23 @@ With th' Angelic Hosts proclaim,
 Hark! the herald angels sing,
 "Glory to the new-born King."
 </div></div><div class=stanza>
-2. Christ, by highest heaven adored,
+Christ, by highest heaven adored,
 Christ, the everlasting lord
 Late in time behold Him come,
-Off-spring of a2 Virgin's womb3
+Off-spring of a Virgin's womb
 Veiled in flesh the Godhead see,
 Hail, the incarnate deity
-Pleased as Man with men to dwell,4
+Pleased as Man with men to dwell,
 Jesus, our Emmanuel.
 <div class=indent>
 Hark! the herald angels sing,
 "Glory to the New-born king!"
 </div></div><div class=stanza>
-3. Hail the heav'n-born Prince of Peace,5
+Hail the heav'n-born Prince of Peace,
 Hail, the Sun6 of Righteousness
 Light and life to all He brings,
 Risen with healing in His Wings.
-Now He lays His Glory by,7
+Now He lays His Glory by,
 Born that man no more may die
 Born to raise the sons of earth,
 Born to give them second birth.
@@ -379,7 +379,7 @@ Born to give them second birth.
 Hark! the herald angels sing,
 "Glory to the New-born king!"
 </div></div><div class=stanza>
-4. Come, Desire of nations come,
+Come, Desire of nations come,
 Fix in us Thy humble home;
 Oh, to all Thyself impart,
 Formed in each believing heart!
@@ -391,7 +391,7 @@ God and sinners reconciled!"
 Hark! the herald angels sing,
 "Glory to the New-born king!"
 </div></div><div class=stanza>
-5. Adam's likeness, Lord, efface,
+Adam's likeness, Lord, efface,
 Stamp Thine image in its place:
 Second Adam from above,
 Reinstate us in Thy love.
@@ -428,7 +428,7 @@ In his master's steps he trod, where the snow lay dinted;
 Heat was in the very sod which the saint had printed.
 Therefore, Christian men, be sure, wealth or rank possessing,
 Ye who now will bless the poor, shall yourselves find blessing.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Good_King_Wenceslas" class=about>about</a></p> </div> <div class="song hidden"> <h1>God rest you merry, gentlemen</h1> <div class=lyrics>
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Good_King_Wenceslas" class=about>about</a></p> </div> <div class="song hidden"> <h1>God Rest You Merry Gentlemen</h1> <div class=lyrics>
 <div class=stanza>
 God rest you merry, gentlemen,
 Let nothing you dismay,
@@ -478,7 +478,7 @@ At midnight watch, when keeping sheep,
 The winter wild, the light snow deep.
 </div><div class=stanza>
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza indented">
 Noel, Noel, Noel, Noel
 Born is the King of Israel.
 </div><div class=stanza>
@@ -520,7 +520,7 @@ Should old acquaintance be forgot,
 and auld lang syne?
 </div><div class=stanza>
 CHORUS:
-</div><div class=stanza>
+</div><div class="stanza indented">
 For auld lang syne, my dear,
 for auld lang syne,
 we'll take a cup of kindness yet,
@@ -545,7 +545,495 @@ And there's a hand my trusty friend!
 And give us a hand o' thine!
 And we'll take a right good-will draught,
 for auld lang syne. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Auld_Lang_Syne" class=about>about</a></p> </div> </div> </div> <div style="display: none"> <div class="song hidden"> <h1></h1> <div class=lyrics>
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Auld_Lang_Syne" class=about>about</a></p> </div> <div class="song hidden"> <h1>White Christmas</h1> <div class=lyrics>
+<div class=stanza>
+I'm dreaming of a white Christmas
+Just like the ones I used to know
+Where the treetops glisten,
+and children listen
+To hear sleigh bells in the snow
+</div><div class=stanza>
+I'm dreaming of a white Christmas
+With every Christmas card I write
+May your days be merry and bright
+And may all your Christmases be white
+</div><div class=stanza>
+I'm dreaming of a white Christmas
+With every Christmas card I write
+May your days be merry and bright
+And may all your Christmases be white
+</div> </div> <p><a href="" class=about>http://www.carols.org.uk/white_christmas.htm</a></p> </div> <div class="song hidden"> <h1>Do You Hear What I Hear?</h1> <div class=lyrics>
+<div class=stanza>
+Said the night wind to the little lamb
+Do you see what I see
+Way up in the sky little lamb
+Do you see what I see
+A star, a star
+Dancing in the night
+With a tail as big as a kite
+With a tail as big as a kite
+</div><div class=stanza>
+Said the little lamb to the shepard boy
+Do you hear what I hear
+Ringing through the sky shepard boy
+Do you hear what I hear
+A song, a song
+High above the tree
+With a voice as big as the sea
+With a voice as big as the sea
+</div><div class=stanza>
+Said the shepard boy to the mighty king
+Do you know what I know
+In your palace wall mighty king
+Do you know what I know
+A child, a child
+Shivers in the cold
+Let us bring him silver and gold
+Let us bring him silver and gold
+</div><div class=stanza>
+Said the king to the people everywhere
+Listen to what I say
+Pray for peace people everywhere
+Listen to what I say
+The child, the child
+Sleeping in the night
+He will bring us goodness and light
+He will bring us goodness and light
+</div><div class=stanza>
+The child, the child
+Sleeping in the night
+He will bring us goodness and light
+</div> </div> </div> <div class="song hidden"> <h1>Frosty The Snowman</h1> <div class=lyrics>
+<div class=stanza>
+Frosty the snowman was a jolly happy soul,
+With a corncob pipe and a button nose,
+And two eyes made out of coal.
+</div><div class=stanza>
+Frosty the snowman is a fairy tale, they say,
+He was made of snow but the children
+know how he came to life one day.
+</div><div class=stanza>
+There must have been some magic in that
+Old silk hat they found.
+For when they placed it on his head,
+He began to dance around.
+</div><div class=stanza>
+Oh, Frosty the snowman
+Was alive as he could be,
+And the children say he could laugh
+And play just the same as you and me.
+</div><div class=stanza>
+Thumpetty thump thump, (x2)
+Look at Frosty go.
+Thumpetty thump thump, (x2)
+Over the hills of snow.
+</div><div class=stanza>
+Frosty the snowman knew
+The sun was hot that day,
+So he said, 'Let's run and
+we'll have some fun
+now before I melt away.'
+Down to the village,
+With a broomstick in his hand,
+Running here and there all
+Around the square saying,
+Catch me if you can.
+He led them down the streets of town
+Right to the traffic cop.
+And he only paused a moment when
+He heard him holler 'Stop!'
+</div><div class=stanza>
+For Frosty the snowman
+Had to hurry on his way,
+But he waved goodbye saying,
+'Don't you cry,
+I'll be back again some day.'
+</div><div class=stanza>
+Thumpetty thump thump, (x2)
+Look at Frosty go.
+</div><div class=stanza>
+Thumpetty thump thump, (x2)
+Over the hills of snow.
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Frosty_the_Snowman" class=about>about</a></p> </div> <div class="song hidden"> <h1>Jingle Bell Rock</h1> <div class=lyrics>
+<div class=stanza>
+Jingle bell, jingle bell, jingle bell rock
+Jingle bells swing and jingle bells ring
+Snowing and blowing up bushels of fun
+Now the jingle hop has begun.
+</div><div class=stanza>
+Jingle bell (x3)
+rock
+Jingle bells chime in jingle bell time
+Dancing and prancing in Jingle bell Square
+In the frosty air.
+</div><div class=stanza>
+What a bright time, its the right time
+To rock the night away
+Jingle bell time is a swell time
+To go gliding in a one-horse sleigh.
+</div><div class=stanza>
+Giddy-up jingle horse, pick up your feet
+Jingle around the clock
+Mix and a-mingle in the jingling feet
+That's the jingle bell (x3)
+rock.
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Jingle_Bell_Rock" class=about>about</a></p> </div> <div class="song hidden"> <h1>Let It Snow</h1> <div class=lyrics>
+<div class=stanza>
+Oh the weather outside is frightful,
+But the fire is so delightful,
+And since we've no place to go,
+Let It Snow (x3).
+</div><div class=stanza>
+It doesn't show signs of stopping,
+And I've bought some corn for popping,
+The lights are turned way down low,
+Let It Snow (x3).
+When we finally kiss goodnight,
+How I'll hate going out in the storm.
+But if you'll really hold me tight,
+All the way home I'll be warm.
+</div><div class=stanza>
+The fire is slowly dying,
+And, my dear, we're still good-bying,
+But as long as you love me so,
+Let It Snow (x3).
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Let_It_Snow" class=about>about</a></p> </div> <div class="song hidden"> <h1>Little Drummer Boy</h1> <div class=lyrics>
+<div class=stanza>
+Come they told me, pa rum pum pum pum
+A new born King to see, pa rum pum pum pum
+Our finest gifts we bring, pa rum pum pum pum
+To lay before the King, pa rum pum pum pum,
+rum pum pum pum, rum pum pum pum,
+</div><div class=stanza>
+So to honor Him, pa rum pum pum pum,
+When we come.
+</div><div class=stanza>
+Little Baby, pa rum pum pum pum
+I am a poor boy too, pa rum pum pum pum
+I have no gift to bring, pa rum pum pum pum
+That's fit to give the King, pa rum pum pum pum,
+rum pum pum pum, rum pum pum pum,
+</div><div class=stanza>
+Shall I play for you, pa rum pum pum pum,
+On my drum?
+</div><div class=stanza>
+Mary nodded, pa rum pum pum pum
+The ox and lamb kept time, pa rum pum pum pum
+I played my drum for Him, pa rum pum pum pum
+I played my best for Him, pa rum pum pum pum,
+rum pum pum pum, rum pum pum pum,
+</div><div class=stanza>
+Then He smiled at me, pa rum pum pum pum
+Me and my drum.
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/The_Little_Drummer_Boy" class=about>about</a></p> </div> <div class="song hidden"> <h1>Rudolph the Red-Nosed Reindeer</h1> <div class=lyrics>
+<div class=stanza>
+Rudolph, the red-nosed reindeer
+had a very shiny nose.
+And if you ever saw him,
+you would even say it glows.
+</div><div class=stanza>
+All of the other reindeer
+used to laugh and call him names.
+They never let poor Rudolph
+join in any reindeer games.
+</div><div class=stanza>
+Then one foggy Christmas Eve
+Santa came to say:
+"Rudolph with your nose so bright,
+won't you guide my sleigh tonight?"
+</div><div class=stanza>
+Then all the reindeer loved him
+as they shouted out with glee,
+Rudolph the red-nosed reindeer,
+you'll go down in history!
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer_(song)" class=about>about</a></p> </div> <div class="song hidden"> <h1>Santa Claus Is Coming to Town</h1> <div class=lyrics>
+<div class=stanza>
+Oh! You better watch out,
+You better not cry,
+You better not pout,
+I'm telling you why:
+</div><div class=stanza>
+Santa Claus is coming to town!
+</div><div class=stanza>
+He's making a list,
+He's checking it twice,
+He's gonna find out
+who's naughty or nice.
+</div><div class=stanza>
+Santa Claus is coming to town!
+</div><div class=stanza>
+He sees you when you're sleeping,
+He knows when you're awake.
+He knows when you've been bad or good,
+So be good for goodness sake!
+</div><div class=stanza>
+So...You better watch out,
+You better not cry
+You better not pout,
+I'm telling you why.
+</div><div class=stanza>
+Santa Claus is coming to town.
+</div><div class=stanza>
+Little tin horns,
+Little toy drums.
+Rudy-toot-toot
+and rummy tum tums.
+</div><div class=stanza>
+Santa Claus is coming to town.
+</div><div class=stanza>
+Little toy dolls
+that cuddle and coo,
+Elephants, boats
+and Kiddie cars too.
+</div><div class=stanza>
+Santa Claus is coming to town.
+</div><div class=stanza>
+The kids in Girl and Boy Land
+will have a jubilee.
+They're gonna build a toyland town
+all around the Christmas tree.
+</div><div class=stanza>
+Oh....You better watch out,
+You better not cry.
+You better not pout,
+I'm telling you why.
+</div><div class=stanza>
+Santa Claus is comin'
+Santa Claus is comin'
+Santa Claus is comin'
+To town.
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Santa_Claus_Is_Coming_to_Town" class=about>about</a></p> </div> <div class="song hidden"> <h1>The Twelve Days of Christmas</h1> <div class=lyrics>
+<div class="stanza indented">
+On the twelfth day of Christmas,
+my true love sent to me
+Twelve drummers drumming,
+Eleven pipers piping,
+Ten lords a-leaping,
+Nine ladies dancing,
+Eight maids a-milking,
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree!
+</div><div class=stanza>
+On the first day of Christmas,
+my true love sent to me
+A partridge in a pear tree.
+</div><div class=stanza>
+On the second day of Christmas,
+my true love sent to me
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the third day of Christmas,
+my true love sent to me
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the fourth day of Christmas,
+my true love sent to me
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the fifth day of Christmas,
+my true love sent to me
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the sixth day of Christmas,
+my true love sent to me
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the seventh day of Christmas,
+my true love sent to me
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the eighth day of Christmas,
+my true love sent to me
+Eight maids a-milking,
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the ninth day of Christmas,
+my true love sent to me
+Nine ladies dancing,
+Eight maids a-milking,
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the tenth day of Christmas,
+my true love sent to me
+Ten lords a-leaping,
+Nine ladies dancing,
+Eight maids a-milking,
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the eleventh day of Christmas,
+my true love sent to me
+Eleven pipers piping,
+Ten lords a-leaping,
+Nine ladies dancing,
+Eight maids a-milking,
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree.
+</div><div class=stanza>
+On the twelfth day of Christmas,
+my true love sent to me
+Twelve drummers drumming,
+Eleven pipers piping,
+Ten lords a-leaping,
+Nine ladies dancing,
+Eight maids a-milking,
+Seven swans a-swimming,
+Six geese a-laying,
+Five golden rings,
+Four calling birds,
+Three French hens,
+Two turtle doves,
+And a partridge in a pear tree!
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)" class=about>about</a></p> </div> <div class="song hidden"> <h1>Winter Wonderland</h1> <div class=lyrics>
+<div class=stanza>
+Sleigh bells ring, are you listening,
+In the lane, snow is glistening
+A beautiful sight,
+We're happy tonight.
+Walking in a winter wonderland.
+</div><div class=stanza>
+Gone away is the bluebird,
+Here to stay is a new bird
+He sings a love song,
+As we go along,
+Walking in a winter wonderland.
+</div><div class=stanza>
+In the meadow we can build a snowman,
+Then pretend that he is Parson Brown
+</div><div class=stanza>
+He'll say: Are you married?
+We'll say: No man,
+But you can do the job
+When you're in town.
+</div><div class=stanza>
+Later on, we'll conspire,
+As we dream by the fire
+To face unafraid,
+The plans that we've made,
+Walking in a winter wonderland.
+</div><div class=stanza>
+In the meadow we can build a snowman,
+And pretend that he's a circus clown
+We'll have lots of fun with mister snowman,
+Until the other kids knock him down.
+</div><div class=stanza>
+When it snows, ain't it thrilling,
+Though your nose gets a chilling
+We'll frolic and play, the Eskimo way,
+Walking in a winter wonderland.
+</div> </div> <p><a href="http://en.wikipedia.org/wiki/Winter_Wonderland" class=about>about</a></p> </div> <div class="song hidden"> <h1>The Christmas Song (Chestnuts Roasting on an Open Fire)</h1> <div class=lyrics>
+<div class=stanza>
+Chestnuts roasting on an open fire,
+Jack Frost nipping on your nose,
+Yuletide carols being sung by a choir,
+And folks dressed up like Eskimos.
+</div><div class=stanza>
+Everybody knows a turkey and some mistletoe,
+Help to make the season bright.
+Tiny tots with their eyes all aglow,
+Will find it hard to sleep tonight.
+</div><div class=stanza>
+They know that Santa's on his way;
+He's loaded lots of toys and goodies on his sleigh.
+And every mother's child is going to spy,
+To see if reindeer really know how to fly.
+</div><div class=stanza>
+And so I'm offering this simple phrase,
+To kids from one to ninety-two,
+Although its been said many times, many ways,
+A very Merry Christmas to you
+</div> </div> </div> <div class="song hidden"> <h1>Have Yourself A Merry Little Christmas</h1> <div class=lyrics>
+<div class=stanza>
+Have yourself a merry little Christmas,
+Let your heart be light
+From now on,
+our troubles will be out of sight
+</div><div class=stanza>
+Have yourself a merry little Christmas,
+Make the Yule-tide gay,
+From now on,
+our troubles will be miles away.
+</div><div class=stanza>
+Here we are as in olden days,
+Happy golden days of yore.
+Faithful friends who are dear to us
+Gather near to us once more.
+</div><div class=stanza>
+Through the years
+We all will be together,
+If the Fates allow
+Hang a shining star upon the highest bough.
+And have yourself A merry little Christmas now.
+</div> </div> </div> <div class="song hidden"> <h1>Let It Snow</h1> <div class=lyrics>
+<div class=stanza>
+Oh the weather outside is frightful,
+But the fire is so delightful,
+And since we've no place to go,
+Let It Snow! Let It Snow! Let It Snow!
+</div><div class=stanza>
+It doesn't show signs of stopping,
+And I've bought some corn for popping,
+The lights are turned way down low,
+Let It Snow! Let It Snow! Let It Snow!
+</div><div class=stanza>
+When we finally kiss goodnight,
+How I'll hate going out in the storm!
+But if you'll really hold me tight,
+All the way home I'll be warm.
+</div><div class=stanza>
+The fire is slowly dying,
+And, my dear, we're still good-bying,
+But as long as you love me so,
+Let It Snow! Let It Snow! Let It Snow!
+</div> </div> </div> </div> </div> <div style="display: none"> <div class="song hidden"> <h1></h1> <div class=lyrics>
 <div class=stanza>
 </div><div class=stanza>
 </div> </div> <p><a href="" class=about>about</a></p> </div> </div> </body></html>
