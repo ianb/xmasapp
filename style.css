@@ -39,3 +39,73 @@ body {
     background-color: #000;
     color: #fff;
 }
+
+.song-number {
+    display: none;
+}
+
+@media print {
+    .hidden {
+        display: block;
+    }
+
+    .back {
+        display: none;
+    }
+
+    .song {
+        /*page-break-after: always;*/
+        page-break-inside: avoid;
+    }
+
+    .song-select {
+        padding: 0;
+        margin-bottom: 0.2em;
+    }
+
+    #controls {
+        page-break-after: always;
+    }
+
+    /* FIXME: doesn't match page numbers
+    .song-number {
+        display: block;
+        float: right;
+    }
+    */
+
+    .no-print {
+        display: none;
+    }
+
+    .about-block {
+        display: none;
+    }
+
+    /*
+    .lyrics {
+        columns: 2;
+        -moz-columns: 2;
+        -webkit-columns: 2;
+    }
+
+    .lyrics.longlines {
+        columns: 1;
+        -moz-columns: 1;
+        -webkit-columns: 1;
+    }
+    */
+
+    .lyrics.columns {
+        columns: 2;
+        -moz-columns: 2;
+        -webkit-columns: 2;
+    }
+
+    .stanza {
+        break-inside: avoid-column;
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
+    }
+
+}

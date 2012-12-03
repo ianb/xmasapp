@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- The original (unminified) source is at http://xmasapp.ianbicking.org/site.html -->
-<html><head><meta charset=UTF-8><title>Christmas Carols</title><script type="text/javascript">window.addEventListener("load",function(){var b=[];var d={};var n=document.querySelectorAll(".song");for(var m=0;m<n.length;m++){var c=n[m];var a=c.querySelector("h1").textContent;if(!a){continue}var g={name:a,el:c};var l=document.createElement("div");l.innerHTML="back";l.className="back";c.insertBefore(l,c.childNodes[0]);l.addEventListener("click",function(){k()},false);var f=c.querySelector(".about");if(f){f.setAttribute("target","_blank")}b.push(g);d[g.name]=g}b.sort(function(o,i){return o.name>i.name?1:-1});var e=document.getElementById("song-list");b.forEach(function(i){var o=document.createElement("div");o.className="song-select";o.appendChild(document.createTextNode(i.name));o.addEventListener("click",function(){j(i)},false);e.appendChild(o)});function k(){b.forEach(function(i){i.el.classList.add("hidden")});document.getElementById("controls").style.display="";location.hash=""}function j(i){document.getElementById("controls").style.display="none";i.el.classList.remove("hidden");location.hash="#"+encodeURIComponent(i.name)}function h(){var i=location.hash;if((!i)||i=="#"){k();return}i=decodeURIComponent(i.substr(1));var o=d[i];if(o){j(o)}}window.addEventListener("hashchange",h,false);h()},false);</script><style type="text/css">body{font-family:sans-serif;}.stanza{white-space:pre-wrap;}.indented{padding-left:1em;}.hidden{display:none;}.back{float:right;}.song-select{cursor:pointer;padding:.4em;}.song-select:hover{background-color:#000;color:#fff;}.back{cursor:pointer;border:2px solid #000;padding:.3em .8em .3em .8em;font-size:100%;}.back:hover{background-color:#000;color:#fff;}</style></head><body> <div id=body> <div id=controls> <div id=song-list> </div> </div> <div id=songs> <div class="song hidden"> <h1>Angels from the Realms of Glory</h1> <div class=lyrics> <div class=stanza>
+<html><head><meta charset=UTF-8><title>Christmas Carols</title><script type="text/javascript">window.addEventListener("load",function(){var c=[];var e={};var o=document.querySelectorAll(".song");for(var n=0;n<o.length;n++){var d=o[n];var b=d.querySelector("h1").textContent;if(!b){continue}var h={name:b,el:d};var m=document.createElement("div");m.innerHTML="back";m.className="back";d.insertBefore(m,d.childNodes[0]);m.addEventListener("click",function(){l()},false);var g=d.querySelector(".about");if(g){g.setAttribute("target","_blank")}c.push(h);e[h.name]=h}c.sort(function(q,i){return q.name>i.name?1:-1});var f=document.getElementById("song-list");var p=2;c.forEach(function(q){var r=document.createElement("div");r.className="song-select";var i=document.createElement("span");i.className="song-number";i.appendChild(document.createTextNode(p));r.appendChild(document.createTextNode(q.name));r.addEventListener("click",function(){k(q)},false);r.appendChild(i);f.appendChild(r);p++;q.el.parentNode.removeChild(q.el)});var a=document.getElementById("songs");c.forEach(function(i){a.appendChild(i.el)});function l(){document.getElementById("songs").classList.add("hidden");c.forEach(function(i){i.el.style.display=""});document.getElementById("controls").style.display="";location.hash=""}function k(i){document.getElementById("controls").style.display="none";c.forEach(function(q){q.el.style.display="none"});i.el.style.display="";document.getElementById("songs").classList.remove("hidden");location.hash="#"+encodeURIComponent(i.name)}function j(){var i=location.hash;if((!i)||i=="#"){l();return}i=decodeURIComponent(i.substr(1));var q=e[i];if(q){k(q)}}window.addEventListener("hashchange",j,false);j()},false);</script><style type="text/css">body{font-family:sans-serif;}.stanza{white-space:pre-wrap;}.indented{padding-left:1em;}.hidden{display:none;}.back{float:right;}.song-select{cursor:pointer;padding:.4em;}.song-select:hover{background-color:#000;color:#fff;}.back{cursor:pointer;border:2px solid #000;padding:.3em .8em .3em .8em;font-size:100%;}.back:hover{background-color:#000;color:#fff;}.song-number{display:none;}@media print{.hidden{display:block;}.back{display:none;}.song{page-break-inside:avoid;}.song-select{padding:0;margin-bottom:.2em;}#controls{page-break-after:always;}.no-print{display:none;}.about-block{display:none;}.lyrics.columns{columns:2;-moz-columns:2;-webkit-columns:2;}.stanza{break-inside:avoid-column;-webkit-column-break-inside:avoid;-moz-column-break-inside:avoid;}}</style></head><body> <div id=body> <div id=controls> <h1 class=hidden>Christmas Songs</h1> <div id=song-list> </div> </div> <div id=songs class=hidden> <div class=song> <h1>Angels from the Realms of Glory</h1> <div class=lyrics> <div class=stanza>
 Angels from the realms of glory
 Wing your flight o'er all the earth;
 Ye who sang creation's story
@@ -40,7 +40,7 @@ To eternal Three in One:
 </div><div class=stanza>
 Come and worship, come and worship
 Worship Christ, the newborn King.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Angels_from_the_Realms_of_Glory" class=about>about</a></p> </div> <div class="song hidden"> <h1>Angels We Have Heard on High</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Angels_from_the_Realms_of_Glory" class=about>about</a></p> </div> <div class=song> <h1>Angels We Have Heard on High</h1> <div class=lyrics>
 <div class=stanza>
 Angels we have heard on high
 Sweetly singing o&#8217;er the plains
@@ -66,7 +66,7 @@ See Him in a manger laid
 Jesus Lord of heaven and earth;
 Mary, Joseph, lend your aid,
 With us sing our Savior's birth. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Angels_We_Have_Heard_on_High" class=about>about</a></p> </div> <div class="song hidden"> <h1>What Child Is This?</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Angels_We_Have_Heard_on_High" class=about>about</a></p> </div> <div class=song> <h1>What Child Is This?</h1> <div class=lyrics>
 <div class=stanza>
 What child is this, who, laid to rest,
 On Mary's lap is sleeping,
@@ -94,7 +94,7 @@ Raise, raise the song on high!
 While Mary sings a lullaby,
 Joy! joy! for Christ is born,
 The babe, the son of Mary!
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/What_Child_Is_This%3F" class=about>about</a></p> </div> <div class="song hidden"> <h1>We Three Kings of Orient Are</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/What_Child_Is_This%3F" class=about>about</a></p> </div> <div class=song> <h1>We Three Kings of Orient Are</h1> <div class=lyrics>
 <div class=stanza>
 We three kings of Orient are;
 Bearing gifts we traverse afar,
@@ -122,7 +122,7 @@ Myrrh is mine, its bitter perfume
 Breathes a life of gathering gloom;
 Sorrowing, sighing, bleeding, dying,
 Sealed in the stone cold tomb. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/We_Three_Kings_of_Orient_Are" class=about>about</a></p> </div> <div class="song hidden"> <h1>We Wish You a Merry Christmas</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/We_Three_Kings_of_Orient_Are" class=about>about</a></p> </div> <div class=song> <h1>We Wish You a Merry Christmas</h1> <div class=lyrics>
 <div class=stanza>
 We wish you a Merry Christmas (x3)
 and a Happy New Year.
@@ -143,7 +143,7 @@ so bring some out here. <i>Chorus</i>
 </div><div class=stanza>
 It's a season for music (x3)
 and a time of good Cheer. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/We_Wish_You_a_Merry_Christmas" class=about>about</a></p> </div> <div class="song hidden"> <h1>Silent Night</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/We_Wish_You_a_Merry_Christmas" class=about>about</a></p> </div> <div class=song> <h1>Silent Night</h1> <div class=lyrics>
 <div class=stanza>
 Silent night holy night
 All is calm, all is bright
@@ -165,7 +165,7 @@ Radiant beams from thy holy face,
 With the dawn of redeeming grace,
 Jesus, Lord, at thy birth.
 Jesus, Lord, at thy birth.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Silent_Night_%28song%29" class=about>about</a></p> </div> <div class="song hidden"> <h1>O Little Town of Bethlehem</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Silent_Night_%28song%29" class=about>about</a></p> </div> <div class=song> <h1>O Little Town of Bethlehem</h1> <div class=lyrics>
 <div class=stanza>
 O little town of Bethlehem
 How still we see thee lie
@@ -202,7 +202,7 @@ We hear the Christmas angels
 The great glad tidings tell
 O come to us, abide with us
 Our Lord Emmanuel
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/O_Little_Town_of_Bethlehem" class=about>about</a></p> </div> <div class="song hidden"> <h1>O Holy Night</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/O_Little_Town_of_Bethlehem" class=about>about</a></p> </div> <div class=song> <h1>O Holy Night</h1> <div class="lyrics longlines">
 <div class=stanza>
 O holy night! The stars are brightly shining,
 It is the night of our dear Saviour's birth.
@@ -236,7 +236,7 @@ Let all within us praise His holy name.
 Christ is the Lord! O praise His Name forever,
 His power and glory evermore proclaim.
 His power and glory evermore proclaim.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/O_Holy_Night" class=about>about</a></p> </div> <div class="song hidden"> <h1>Joy to the World</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/O_Holy_Night" class=about>about</a></p> </div> <div class=song> <h1>Joy to the World</h1> <div class=lyrics>
 <div class=stanza>
 Joy to the world! the Lord is come;
 Let earth receive her King;
@@ -265,7 +265,7 @@ The glories of His righteousness,
 And wonders of His love,
 And wonders of His love,
 And wonders, wonders, of His love.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Joy_to_the_World" class=about>about</a></p> </div> <div class="song hidden"> <h1>Jingle Bells</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Joy_to_the_World" class=about>about</a></p> </div> <div class=song> <h1>Jingle Bells</h1> <div class=lyrics>
 <div class=stanza>
 Dashing through the snow
 In a one-horse open sleigh
@@ -295,7 +295,7 @@ The horse was lean and lank
 Misfortune seemed his lot
 He got into a drifted bank
 And then we got upsot. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Jingle_Bells" class=about>about</a></p> </div> <div class="song hidden"> <h1>It Came Upon the Midnight Clear</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Jingle_Bells" class=about>about</a></p> </div> <div class=song> <h1>It Came Upon the Midnight Clear</h1> <div class=lyrics>
 <div class=stanza>
 It came upon a midnight clear,
 That glorious song of old,
@@ -341,7 +341,7 @@ When peace shall over all the earth
 Its ancient splendors fling,
 And the whole world give back the song
 Which now the angels sing.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/It_Came_Upon_the_Midnight_Clear" class=about>about</a></p> </div> <div class="song hidden"> <h1>Hark! The Herald Angels Sing</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/It_Came_Upon_the_Midnight_Clear" class=about>about</a></p> </div> <div class=song> <h1>Hark! The Herald Angels Sing</h1> <div class="lyrics columns">
 <div class=stanza>
 Hark! The Herald Angels sing,
 "Glory to the new-born King;
@@ -402,7 +402,7 @@ Formed in each believing heart.
 <div class=indent>
 Hark! the herald angels sing,
 "Glory to the New-born king!"
-</div></div> </div> <p><a href="http://en.wikipedia.org/wiki/Hark!_The_Herald_Angels_Sing" class=about>about</a></p> </div> <div class="song hidden"> <h1>Good King Wenceslas</h1> <div class=lyrics>
+</div></div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Hark!_The_Herald_Angels_Sing" class=about>about</a></p> </div> <div class=song> <h1>Good King Wenceslas</h1> <div class="lyrics longlines">
 <div class=stanza>
 Good King Wenceslas looked out, on the Feast of Stephen,
 When the snow lay round about, deep and crisp and even;
@@ -428,7 +428,7 @@ In his master's steps he trod, where the snow lay dinted;
 Heat was in the very sod which the saint had printed.
 Therefore, Christian men, be sure, wealth or rank possessing,
 Ye who now will bless the poor, shall yourselves find blessing.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Good_King_Wenceslas" class=about>about</a></p> </div> <div class="song hidden"> <h1>God Rest You Merry Gentlemen</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Good_King_Wenceslas" class=about>about</a></p> </div> <div class=song> <h1>God Rest You Merry Gentlemen</h1> <div class=lyrics>
 <div class=stanza>
 God rest you merry, gentlemen,
 Let nothing you dismay,
@@ -470,7 +470,7 @@ And with true love and brotherhood
 Each other now embrace;
 This holy tide of Christmas
 All other doth efface: <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/God_Rest_Ye_Merry,_Gentlemen" class=about>about</a></p> </div> <div class="song hidden"> <h1>The First No&#235;l</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/God_Rest_Ye_Merry,_Gentlemen" class=about>about</a></p> </div> <div class=song> <h1>The First No&#235;l</h1> <div class=lyrics>
 <div class=stanza>
 The first Noel, the angels say
 To Bethlehem's shepherds as they lay.
@@ -496,7 +496,7 @@ Then drawing nigh to the northwest,
 O'er Bethlehem town it took its rest;
 The wise men learnt its cause of stay,
 And found the place where Jesus lay. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/The_First_Nowell" class=about>about</a></p> </div> <div class="song hidden"> <h1>Away in a Manger</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/The_First_Nowell" class=about>about</a></p> </div> <div class=song> <h1>Away in a Manger</h1> <div class="lyrics longlines">
 <div class=stanza>
 Away in a manger, no crib for a bed,
 The little Lord Jesus laid down His sweet head.
@@ -512,7 +512,7 @@ Be near me, Lord Jesus, I ask Thee to stay
 Close by me forever, and love me, I pray.
 Bless all the dear children in thy tender care,
 And fit us for heaven, to live with Thee there.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Away_in_a_Manger" class=about>about</a></p> </div> <div class="song hidden"> <h1>Auld Lang Syne</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Away_in_a_Manger" class=about>about</a></p> </div> <div class=song> <h1>Auld Lang Syne</h1> <div class=lyrics>
 <div class=stanza>
 Should old acquaintance be forgot,
 and never brought to mind?
@@ -545,7 +545,7 @@ And there's a hand my trusty friend!
 And give us a hand o' thine!
 And we'll take a right good-will draught,
 for auld lang syne. <i>Chorus</i>
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Auld_Lang_Syne" class=about>about</a></p> </div> <div class="song hidden"> <h1>White Christmas</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Auld_Lang_Syne" class=about>about</a></p> </div> <div class=song> <h1>White Christmas</h1> <div class=lyrics>
 <div class=stanza>
 I'm dreaming of a white Christmas
 Just like the ones I used to know
@@ -562,7 +562,7 @@ I'm dreaming of a white Christmas
 With every Christmas card I write
 May your days be merry and bright
 And may all your Christmases be white
-</div> </div> <p><a href="" class=about>http://www.carols.org.uk/white_christmas.htm</a></p> </div> <div class="song hidden"> <h1>Do You Hear What I Hear?</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://www.carols.org.uk/white_christmas.htm" class=about>about</a></p> </div> <div class=song> <h1>Do You Hear What I Hear?</h1> <div class=lyrics>
 <div class=stanza>
 Said the night wind to the little lamb
 Do you see what I see
@@ -603,7 +603,7 @@ He will bring us goodness and light
 The child, the child
 Sleeping in the night
 He will bring us goodness and light
-</div> </div> </div> <div class="song hidden"> <h1>Frosty The Snowman</h1> <div class=lyrics>
+</div> </div> </div> <div class=song> <h1>Frosty The Snowman</h1> <div class="lyrics columns">
 <div class=stanza>
 Frosty the snowman was a jolly happy soul,
 With a corncob pipe and a button nose,
@@ -654,7 +654,7 @@ Look at Frosty go.
 </div><div class=stanza>
 Thumpetty thump thump, (x2)
 Over the hills of snow.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Frosty_the_Snowman" class=about>about</a></p> </div> <div class="song hidden"> <h1>Jingle Bell Rock</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Frosty_the_Snowman" class=about>about</a></p> </div> <div class=song> <h1>Jingle Bell Rock</h1> <div class=lyrics>
 <div class=stanza>
 Jingle bell, jingle bell, jingle bell rock
 Jingle bells swing and jingle bells ring
@@ -677,27 +677,7 @@ Jingle around the clock
 Mix and a-mingle in the jingling feet
 That's the jingle bell (x3)
 rock.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Jingle_Bell_Rock" class=about>about</a></p> </div> <div class="song hidden"> <h1>Let It Snow</h1> <div class=lyrics>
-<div class=stanza>
-Oh the weather outside is frightful,
-But the fire is so delightful,
-And since we've no place to go,
-Let It Snow (x3).
-</div><div class=stanza>
-It doesn't show signs of stopping,
-And I've bought some corn for popping,
-The lights are turned way down low,
-Let It Snow (x3).
-When we finally kiss goodnight,
-How I'll hate going out in the storm.
-But if you'll really hold me tight,
-All the way home I'll be warm.
-</div><div class=stanza>
-The fire is slowly dying,
-And, my dear, we're still good-bying,
-But as long as you love me so,
-Let It Snow (x3).
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Let_It_Snow" class=about>about</a></p> </div> <div class="song hidden"> <h1>Little Drummer Boy</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Jingle_Bell_Rock" class=about>about</a></p> </div> <div class=song> <h1>Little Drummer Boy</h1> <div class="lyrics longlines">
 <div class=stanza>
 Come they told me, pa rum pum pum pum
 A new born King to see, pa rum pum pum pum
@@ -725,7 +705,7 @@ rum pum pum pum, rum pum pum pum,
 </div><div class=stanza>
 Then He smiled at me, pa rum pum pum pum
 Me and my drum.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/The_Little_Drummer_Boy" class=about>about</a></p> </div> <div class="song hidden"> <h1>Rudolph the Red-Nosed Reindeer</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/The_Little_Drummer_Boy" class=about>about</a></p> </div> <div class=song> <h1>Rudolph the Red-Nosed Reindeer</h1> <div class=lyrics>
 <div class=stanza>
 Rudolph, the red-nosed reindeer
 had a very shiny nose.
@@ -746,7 +726,7 @@ Then all the reindeer loved him
 as they shouted out with glee,
 Rudolph the red-nosed reindeer,
 you'll go down in history!
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer_(song)" class=about>about</a></p> </div> <div class="song hidden"> <h1>Santa Claus Is Coming to Town</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer_(song)" class=about>about</a></p> </div> <div class=song> <h1>Santa Claus Is Coming to Town</h1> <div class="lyrics columns">
 <div class=stanza>
 Oh! You better watch out,
 You better not cry,
@@ -802,7 +782,7 @@ Santa Claus is comin'
 Santa Claus is comin'
 Santa Claus is comin'
 To town.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Santa_Claus_Is_Coming_to_Town" class=about>about</a></p> </div> <div class="song hidden"> <h1>The Twelve Days of Christmas</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Santa_Claus_Is_Coming_to_Town" class=about>about</a></p> </div> <div class=song> <h1>The Twelve Days of Christmas</h1> <div class=lyrics>
 <div class="stanza indented">
 On the twelfth day of Christmas,
 my true love sent to me
@@ -818,7 +798,7 @@ Four calling birds,
 Three French hens,
 Two turtle doves,
 And a partridge in a pear tree!
-</div><div class=stanza>
+</div><div class=no-print><div class=stanza>
 On the first day of Christmas,
 my true love sent to me
 A partridge in a pear tree.
@@ -932,7 +912,7 @@ Four calling birds,
 Three French hens,
 Two turtle doves,
 And a partridge in a pear tree!
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)" class=about>about</a></p> </div> <div class="song hidden"> <h1>Winter Wonderland</h1> <div class=lyrics>
+</div></div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)" class=about>about</a></p> </div> <div class=song> <h1>Winter Wonderland</h1> <div class=lyrics>
 <div class=stanza>
 Sleigh bells ring, are you listening,
 In the lane, snow is glistening
@@ -969,7 +949,7 @@ When it snows, ain't it thrilling,
 Though your nose gets a chilling
 We'll frolic and play, the Eskimo way,
 Walking in a winter wonderland.
-</div> </div> <p><a href="http://en.wikipedia.org/wiki/Winter_Wonderland" class=about>about</a></p> </div> <div class="song hidden"> <h1>The Christmas Song (Chestnuts Roasting on an Open Fire)</h1> <div class=lyrics>
+</div> </div> <p class=about-block><a href="http://en.wikipedia.org/wiki/Winter_Wonderland" class=about>about</a></p> </div> <div class=song> <h1>The Christmas Song (Chestnuts Roasting on an Open Fire)</h1> <div class=lyrics>
 <div class=stanza>
 Chestnuts roasting on an open fire,
 Jack Frost nipping on your nose,
@@ -990,7 +970,7 @@ And so I'm offering this simple phrase,
 To kids from one to ninety-two,
 Although its been said many times, many ways,
 A very Merry Christmas to you
-</div> </div> </div> <div class="song hidden"> <h1>Have Yourself A Merry Little Christmas</h1> <div class=lyrics>
+</div> </div> </div> <div class=song> <h1>Have Yourself A Merry Little Christmas</h1> <div class=lyrics>
 <div class=stanza>
 Have yourself a merry little Christmas,
 Let your heart be light
@@ -1012,7 +992,7 @@ We all will be together,
 If the Fates allow
 Hang a shining star upon the highest bough.
 And have yourself A merry little Christmas now.
-</div> </div> </div> <div class="song hidden"> <h1>Let It Snow</h1> <div class=lyrics>
+</div> </div> </div> <div class=song> <h1>Let It Snow</h1> <div class=lyrics>
 <div class=stanza>
 Oh the weather outside is frightful,
 But the fire is so delightful,
@@ -1033,7 +1013,7 @@ The fire is slowly dying,
 And, my dear, we're still good-bying,
 But as long as you love me so,
 Let It Snow! Let It Snow! Let It Snow!
-</div> </div> </div> </div> </div> <div style="display: none"> <div class="song hidden"> <h1></h1> <div class=lyrics>
+</div> </div> </div> </div> </div> <div style="display: none"> <div class=song> <h1></h1> <div class=lyrics>
 <div class=stanza>
 </div><div class=stanza>
-</div> </div> <p><a href="" class=about>about</a></p> </div> </div> </body></html>
+</div> </div> <p class=about-block><a href="" class=about>about</a></p> </div> </div> </body></html>

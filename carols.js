@@ -30,19 +30,31 @@ window.addEventListener("load", function () {
     return a.name > b.name ? 1 : -1;
   });
   var songList = document.getElementById("song-list");
+  var page = 2;
   songs.forEach(function (song) {
     var div = document.createElement("div");
     div.className = "song-select";
+    var number = document.createElement('span');
+    number.className = 'song-number';
+    number.appendChild(document.createTextNode(page));
     div.appendChild(document.createTextNode(song.name));
     div.addEventListener("click", function () {
       selectSong(song);
     }, false);
+    div.appendChild(number);
     songList.appendChild(div);
+    page++;
+    song.el.parentNode.removeChild(song.el);
+  });
+  var songsContainer = document.getElementById("songs");
+  songs.forEach(function (song) {
+    songsContainer.appendChild(song.el);
   });
 
   function back() {
+    document.getElementById("songs").classList.add("hidden");
     songs.forEach(function (song) {
-      song.el.classList.add("hidden");
+      song.el.style.display = "";
     });
     document.getElementById("controls").style.display = "";
     location.hash = "";
@@ -50,7 +62,11 @@ window.addEventListener("load", function () {
 
   function selectSong(song) {
     document.getElementById("controls").style.display = "none";
-    song.el.classList.remove("hidden");
+    songs.forEach(function (s) {
+      s.el.style.display = "none";
+    });
+    song.el.style.display = "";
+    document.getElementById("songs").classList.remove("hidden");
     location.hash = "#" + encodeURIComponent(song.name);
   }
 
