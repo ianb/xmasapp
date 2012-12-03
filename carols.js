@@ -19,7 +19,10 @@ window.addEventListener("load", function () {
     control.addEventListener("click", function () {
       back();
     }, false);
-    el.querySelector(".about").setAttribute("target", "_blank");
+    var about = el.querySelector(".about");
+    if (about) {
+      about.setAttribute("target", "_blank");
+    }
     songs.push(song);
     songsByName[song.name] = song;
   }
