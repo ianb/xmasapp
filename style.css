@@ -60,6 +60,11 @@ body {
         margin-bottom: 0.2em;
     }
 
+    .song-select:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
     #controls {
         page-break-after: always;
     }
