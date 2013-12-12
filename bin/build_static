@@ -32,4 +32,10 @@ fi
 
 echo "Creating minified index.html"
 cp ${SITE}/site.html ${SITE}/index.html
+sed -i "" 's/<html>/<html manifest="manifest.appcache">/g' ${SITE}/index.html
 ${SITE}/bin/compress_html.py ${SITE}/index.html -o ${SITE}/index.html --remote --compress --compressor-dir "$COMP_DIR" --html5-doctype --comment "The original (unminified) source is at ${HOST}/site.html"
+
+echo "Incrementing manifest.appcache"
+cur="$(awk '/version/ {print $3}' < ${SITE}/manifest.appcache)"
+next="$((cur + 1))"
+sed -i "" "s/# version $cur/# version $next/g" ${SITE}/manifest.appcache

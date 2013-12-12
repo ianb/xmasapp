@@ -14,6 +14,10 @@ body {
     display: none;
 }
 
+#favorite-list {
+    border-bottom: 2px solid #000;
+}
+
 .song-select {
     cursor: pointer;
     padding: 0.4em;
@@ -38,6 +42,18 @@ body {
     color: #fff;
 }
 
+.favorite {
+    float: right;
+    cursor: pointer;
+    font-size: 180%;
+    padding: 0 0.8em 0 0.8em;
+    vertical-align: center;
+}
+
+.favorite:hover {
+    background-color: #dd0;
+}
+
 .song-number {
     display: none;
 }
@@ -48,6 +64,10 @@ body {
     }
 
     .back {
+        display: none;
+    }
+
+    #favorite-list {
         display: none;
     }
 
