@@ -49,7 +49,6 @@ window.addEventListener("load", function () {
       event.target.innerHTML = charForFavorite(song.favorite);
       refreshList();
     });
-    console.log("ok", favorite, favorite.parentNode);
     var about = el.querySelector(".about");
     if (about) {
       about.setAttribute("target", "_blank");
@@ -86,6 +85,7 @@ window.addEventListener("load", function () {
       page++;
       if (song.favorite) {
         var clone = div.cloneNode();
+        clone.innerHTML = div.innerHTML;
         clone.addEventListener("click", function () {
           selectSong(song);
         });
