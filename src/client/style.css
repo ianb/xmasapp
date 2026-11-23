@@ -315,6 +315,28 @@ body.in-session .song:not(.now-singing) .session-hint {
   padding-top: 0;
 }
 
+button.start-session {
+  white-space: nowrap;
+  flex: none;
+}
+
+/* On phones, a song's buttons share the top row and the title goes below. */
+@media (max-width: 40rem) {
+  .song-header {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+  }
+
+  .song-header .back {
+    flex: 1;
+  }
+
+  .song-header .song-title {
+    order: 1;
+    flex-basis: 100%;
+  }
+}
+
 button.start-session,
 .session-bar button {
   font-family: var(--font-ui);

@@ -36,6 +36,35 @@ function favoriteButton(song: Song): HTMLButtonElement {
   );
 }
 
+// The "Sing together" button at the top of the song list and of every song.
+// Outside a session it opens the start/join dialog; inside one it shows the
+// session's code and opens the invite.
+const sessionButtons: HTMLButtonElement[] = [];
+let session: SessionConnection | null = null;
+
+function sessionButton(): HTMLButtonElement {
+  const button = h("button", { type: "button", class: "start-session" });
+  sessionButtons.push(button);
+  renderSessionButton(button);
+  return button;
+}
+
+function renderSessionButton(button: HTMLButtonElement) {
+  if (session) {
+    const code = session.code.toUpperCase();
+    button.dataset.action = "invite";
+    button.setAttribute("aria-label", `Singing session ${code}: invite people`);
+    button.replaceChildren(
+      h("span", { class: `session-status ${session.status}` }),
+      h("span", { class: "session-code" }, code),
+    );
+  } else {
+    button.dataset.action = "sing-together";
+    button.removeAttribute("aria-label");
+    button.replaceChildren("Sing together");
+  }
+}
+
 function renderSong(song: Song): HTMLElement {
   return h(
     "article",
@@ -45,6 +74,7 @@ function renderSong(song: Song): HTMLElement {
       { class: "song-header" },
       h("a", { class: "back", href: "/", "aria-label": "Back to song list" }, "‹ Songs"),
       h("h2", { class: "song-title" }, song.title),
+      sessionButton(),
       favoriteButton(song),
     ),
     h("p", { class: "session-hint" }, "Tap a verse to show everyone where you are."),
@@ -174,8 +204,6 @@ const app = document.getElementById("app")!;
 // Replace the pre-rendered page (for link previews and search) with the app.
 app.replaceChildren();
 app.classList.remove("prerendered");
-// "Sing together" outside a session; the session's code inside one.
-const startButton = h("button", { type: "button", class: "start-session", "data-action": "sing-together" }, "Sing together");
 const favoriteList = h("ul", { class: "song-list" });
 const favoriteSection = h("section", { class: "favorites" }, h("h2", {}, "Favorites"), favoriteList);
 const index = h(
@@ -185,7 +213,7 @@ const index = h(
     "header",
     { class: "index-header" },
     h("h1", { class: "app-title" }, "Christmas Carols"),
-    startButton,
+    sessionButton(),
   ),
   favoriteSection,
   h("section", { class: "all-songs" }, h("h2", {}, "All songs"), h("ul", { class: "song-list" }, songs.map(songLink))),
@@ -451,7 +479,6 @@ refreshFavorites();
 // it's shared: everyone sees the active verse, and anyone "following" is taken
 // to that song and scrolled to the verse.
 
-let session: SessionConnection | null = null;
 let localNow: NowSinging | null = null;
 /** Whether this client automatically goes wherever the group is singing. */
 let following = true;
@@ -542,9 +569,7 @@ function leaveSession() {
   session = null;
   document.body.classList.remove("in-session");
   sessionBar.hidden = true;
-  startButton.dataset.action = "sing-together";
-  startButton.removeAttribute("aria-label");
-  startButton.replaceChildren("Sing together");
+  sessionButtons.forEach(renderSessionButton);
   applyNow(false);
 }
 
@@ -554,12 +579,7 @@ function renderSessionBar() {
   sessionStatus.className = `session-status ${session.status}`;
   sessionStatus.title = session.status === "open" ? "Connected" : "Reconnecting…";
   sessionCode.textContent = session.code.toUpperCase();
-  startButton.dataset.action = "invite";
-  startButton.setAttribute("aria-label", `Singing session ${session.code.toUpperCase()}: invite people`);
-  startButton.replaceChildren(
-    h("span", { class: `session-status ${session.status}` }),
-    h("span", { class: "session-code" }, session.code.toUpperCase()),
-  );
+  sessionButtons.forEach(renderSessionButton);
   const n = session.count;
   sessionCount.textContent = n ? `${n} ${n === 1 ? "person" : "people"}` : "";
 
