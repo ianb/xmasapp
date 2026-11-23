@@ -16,5 +16,5 @@ And stay by my cradle till morning is nigh.
 
 Be near me, Lord Jesus, I ask Thee to stay
 Close by me forever, and love me, I pray.
-Bless all the dear children in thy tender care,
+Bless all the dear children in Thy tender care,
 And fit us for heaven, to live with Thee there.

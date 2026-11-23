@@ -48,7 +48,7 @@ But he waved goodbye saying,
 'Don't you cry,
 I'll be back again some day.'
 
-Thumpetty thump thump,  (x2)
+Thumpetty thump thump, (x2)
 Look at Frosty go.
 
 Thumpetty thump thump, (x2)

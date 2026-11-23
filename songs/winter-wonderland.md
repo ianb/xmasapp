@@ -35,6 +35,6 @@ We'll have lots of fun with mister snowman,
 Until the other kids knock him down.
 
 When it snows, ain't it thrilling,
-Though your nose gets a chilling
+Though your nose gets a-chilling
 We'll frolic and play, the Eskimo way,
 Walking in a winter wonderland.

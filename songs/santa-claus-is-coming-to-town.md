@@ -21,9 +21,9 @@ Santa Claus is coming to town!
 He sees you when you're sleeping,
 He knows when you're awake.
 He knows when you've been bad or good,
-So be good for goodness sake!
+So be good for goodness' sake!
 
-So...You better watch out,
+So, you better watch out,
 You better not cry
 You better not pout,
 I'm telling you why.
@@ -32,7 +32,7 @@ Santa Claus is coming to town.
 
 Little tin horns,
 Little toy drums.
-Rudy-toot-toot
+Rooty-toot-toots
 and rummy tum tums.
 
 Santa Claus is coming to town.
@@ -49,7 +49,7 @@ will have a jubilee.
 They're gonna build a toyland town
 all around the Christmas tree.
 
-Oh....You better watch out,
+Oh, you better watch out,
 You better not cry.
 You better not pout,
 I'm telling you why.

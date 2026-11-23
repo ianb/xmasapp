@@ -5,7 +5,7 @@ about: http://www.carols.org.uk/white_christmas.htm
 
 I'm dreaming of a white Christmas
 Just like the ones I used to know
-Where the tree tops glisten
+Where the treetops glisten
 And children listen
 To hear sleigh bells in the snow
 
@@ -17,7 +17,7 @@ Your Christmases be white
 
 I'm dreaming of a white Christmas
 Just like the ones I used to know
-Where the tree tops glisten
+Where the treetops glisten
 And children listen
 To hear sleigh bells in the snow
 

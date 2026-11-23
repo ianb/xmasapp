@@ -16,9 +16,9 @@ With th' Angelic Hosts proclaim,
   "Glory to the new-born King."
 
 Christ, by highest heaven adored,
-Christ, the everlasting lord
+Christ, the everlasting Lord
 Late in time behold Him come,
-Off-spring of a Virgin's womb
+Offspring of a Virgin's womb
 Veiled in flesh the Godhead see,
 Hail, the incarnate deity
 Pleased as Man with men to dwell,
@@ -27,7 +27,7 @@ Jesus, our Emmanuel.
   "Glory to the New-born king!"
 
 Hail the heav'n-born Prince of Peace,
-Hail, the Sun6 of Righteousness
+Hail, the Sun of Righteousness
 Light and life to all He brings,
 Risen with healing in His Wings.
 Now He lays His Glory by,

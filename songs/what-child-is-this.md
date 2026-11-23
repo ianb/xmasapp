@@ -14,8 +14,8 @@ The babe, the son of Mary!
 
 Why lies He in such mean estate
 Where ox and ass are feeding?
-Good Christian, fear: for sinners here
-Come, have no fear; God's son is here,
+Good Christians, fear, for sinners here
+The silent Word is pleading.
 Nails, spear shall pierce him through,
 The Cross be borne for me, for you;
 Hail, hail, the Saviour comes,

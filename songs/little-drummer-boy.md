@@ -5,7 +5,7 @@ layout: longlines
 ---
 
 Come they told me, pa rum pum pum pum
-A new born King to see, pa rum pum pum pum
+A newborn King to see, pa rum pum pum pum
 Our finest gifts we bring, pa rum pum pum pum
 To lay before the King, pa rum pum pum pum,
 rum pum pum pum, rum pum pum pum,

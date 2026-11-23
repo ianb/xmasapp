@@ -33,7 +33,7 @@ Hear the snow crunch
 See the kids bunch
 This is Santa's big scene
 And above all
-This bustle you'll here
+This bustle you'll hear
 
 Silver Bells, Silver Bells
 It's Christmas time in the city

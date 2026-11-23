@@ -15,7 +15,7 @@ Born is the King of Israel.
 The shepherds rose, and saw a star
 Bright in the East, beyond them far,
 Its beauty gave them great delight,
-This star it set now day nor night. *Chorus*
+And so it continued both day and night. *Chorus*
 
 Now by the light of this bright star
 Three wise men came from country far;

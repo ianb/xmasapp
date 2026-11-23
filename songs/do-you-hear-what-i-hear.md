@@ -11,18 +11,18 @@ Dancing in the night
 With a tail as big as a kite
 With a tail as big as a kite
 
-Said the little lamb to the shepard boy
+Said the little lamb to the shepherd boy
 Do you hear what I hear
-Ringing through the sky shepard boy
+Ringing through the sky shepherd boy
 Do you hear what I hear
 A song, a song
 High above the tree
 With a voice as big as the sea
 With a voice as big as the sea
 
-Said the shepard boy to the mighty king
+Said the shepherd boy to the mighty king
 Do you know what I know
-In your palace wall mighty king
+In your palace warm, mighty king
 Do you know what I know
 A child, a child
 Shivers in the cold

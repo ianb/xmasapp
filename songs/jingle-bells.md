@@ -7,7 +7,7 @@ Dashing through the snow
 In a one-horse open sleigh
 O'er the fields we go
 Laughing all the way
-Bells on bobtail ring[a]
+Bells on bobtail ring
 Making spirits bright
 What fun it is to ride and sing
 A sleighing song tonight!

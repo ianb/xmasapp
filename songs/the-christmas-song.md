@@ -19,5 +19,5 @@ To see if reindeer really know how to fly.
 
 And so I'm offering this simple phrase,
 To kids from one to ninety-two,
-Although its been said many times, many ways,
+Although it's been said many times, many ways,
 A very Merry Christmas to you

@@ -21,4 +21,4 @@ Through the years
 We all will be together,
 If the Fates allow
 Hang a shining star upon the highest bough.
-And have yourself A merry little Christmas now.
+And have yourself a merry little Christmas now.

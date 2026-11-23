@@ -25,7 +25,7 @@ How silently, how silently
 The wondrous gift is given!
 So God imparts to human hearts
 The blessings of His heaven.
-No ear may his His coming,
+No ear may hear His coming,
 But in this world of sin,
 Where meek souls will receive him still,
 The dear Christ enters in.

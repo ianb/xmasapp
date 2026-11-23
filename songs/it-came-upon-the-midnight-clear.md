@@ -39,7 +39,7 @@ come swiftly on the wing.
 O rest beside the weary road,
 And hear the angels sing!
 
-For lo!, the days are hastening on,
+For lo! the days are hastening on,
 By prophets seen of old
 When with the ever-circling years
 Comes round the age of gold
