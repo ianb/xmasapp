@@ -7,7 +7,7 @@ const songs = loadSongs(
   import.meta.glob<string>("../../songs/*.md", { query: "?raw", import: "default", eager: true }),
 );
 const songsById = new Map(songs.map((s) => [s.id, s]));
-const favorites = new Favorites(songs);
+const favorites = new Favorites();
 
 // --- tiny DOM helper ------------------------------------------------------
 
@@ -191,13 +191,6 @@ document.addEventListener("click", (event) => {
 });
 
 window.addEventListener("popstate", route);
-
-// Legacy URLs looked like /#Silent%20Night
-if (location.hash.length > 1) {
-  const title = decodeURIComponent(location.hash.slice(1));
-  const song = songs.find((s) => s.title === title);
-  history.replaceState(null, "", song ? songPath(song) : "/");
-}
 
 route();
 

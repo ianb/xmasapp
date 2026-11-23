@@ -1,23 +1,10 @@
-import type { Song } from "./songs";
-
 const KEY = "favorites";
 
 export class Favorites {
   private ids: Set<string>;
 
-  constructor(songs: Song[]) {
+  constructor() {
     this.ids = new Set(read());
-    // Migrate the old "favorite.<Song Title>" keys from the original app.
-    let migrated = false;
-    for (const song of songs) {
-      const oldKey = `favorite.${song.title}`;
-      if (safeGet(oldKey)) {
-        this.ids.add(song.id);
-        safeRemove(oldKey);
-        migrated = true;
-      }
-    }
-    if (migrated) this.save();
   }
 
   has(id: string): boolean {
@@ -49,21 +36,5 @@ function read(): string[] {
     return Array.isArray(value) ? value.filter((v) => typeof v === "string") : [];
   } catch {
     return [];
-  }
-}
-
-function safeGet(key: string): string | null {
-  try {
-    return localStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-function safeRemove(key: string) {
-  try {
-    localStorage.removeItem(key);
-  } catch {
-    // ignore
   }
 }
