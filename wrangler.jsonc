@@ -13,7 +13,6 @@
     "bindings": [{ "name": "SESSIONS", "class_name": "Session" }]
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Session"] }],
+  "routes": [{ "pattern": "xmascarols.app", "custom_domain": true }],
   "observability": { "enabled": true }
-  // To serve on a custom domain, add e.g.:
-  // "routes": [{ "pattern": "example.com", "custom_domain": true }]
 }

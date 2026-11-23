@@ -1,6 +1,6 @@
 # xmasapp
 
-A little web app of Christmas carol lyrics, made for singing along on a phone.
+A little web app of Christmas carol lyrics, at https://xmascarols.app, made for singing along on a phone.
 It is an installable PWA and works offline once loaded.
 
 ## Songs
@@ -60,8 +60,7 @@ npm run deploy
 The site is a Worker with [static assets](https://developers.cloudflare.com/workers/static-assets/).
 Most requests are served as assets. Unknown paths fall back to `index.html`, and
 the client routes them. Only `/api/*` runs the Worker (`src/worker/`), which
-includes the session WebSockets. To use a
-custom domain, add a `routes` entry in `wrangler.jsonc`.
+includes the session WebSockets.
 
 ## Icons
 
