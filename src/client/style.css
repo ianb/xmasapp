@@ -401,6 +401,83 @@ body.in-session #app {
   margin-left: auto;
 }
 
+dialog.invite {
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 1.25rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  text-align: center;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.3);
+}
+
+dialog.invite::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+dialog.invite h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.invite-help {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.invite-qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Rounded corners stay outside the code itself, inside its blank margin. */
+  border-radius: 0.5rem;
+}
+
+.invite-code {
+  margin-top: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.invite-url {
+  font-size: 0.85rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.invite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.invite-actions button {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+}
+
+.invite-actions button:hover {
+  background: var(--hover);
+}
+
+.invite-actions button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 @media (max-width: 40rem) {
   .session-bar .now {
     order: -1;

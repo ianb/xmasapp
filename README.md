@@ -28,7 +28,8 @@ The file name is the song's URL: `/song/silent-night`.
 
 ## Singing together
 
-"Sing together" starts a session at `/s/<code>`. Share that link and everyone
+"Sing together" starts a session at `/s/<code>` and opens the invite panel. It
+shows a QR code to scan, the code itself, and the link to share or copy. Everyone
 in the session sees the same "now singing" song and verse:
 
 - Tap a verse to mark it as being sung now. It scrolls near the top for everyone.

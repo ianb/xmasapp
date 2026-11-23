@@ -1,6 +1,7 @@
 import "./style.css";
 import { registerSW } from "virtual:pwa-register";
 import { Favorites } from "./favorites";
+import { qrSvg } from "./qr";
 import { SessionConnection } from "./session";
 import { loadSongs, type Song, type Stanza } from "./songs";
 import { newCode, type NowSinging } from "../shared/protocol";
@@ -119,7 +120,7 @@ const sessionStatus = h("span", { class: "session-status" });
 const sessionCode = h("span", { class: "session-code" });
 const sessionCount = h("span", { class: "session-count" });
 const nowButton = h("button", { type: "button", class: "now", "data-action": "follow" });
-const shareButton = h("button", { type: "button", "data-action": "share" }, "Invite");
+const shareButton = h("button", { type: "button", "data-action": "invite" }, "Invite");
 const sessionBar = h(
   "aside",
   { class: "session-bar", "aria-label": "Singing session", hidden: true },
@@ -133,7 +134,32 @@ const sessionBar = h(
   ),
 );
 
-app.append(index, h("main", { class: "songs" }, [...songEls.values()]), sessionBar);
+const inviteQr = h("div", { class: "invite-qr" });
+const inviteCode = h("div", { class: "invite-code" });
+const inviteUrl = h("div", { class: "invite-url" });
+const copyButton = h("button", { type: "button", "data-action": "copy-link" }, "Copy link");
+const inviteDialog = h(
+  "dialog",
+  { class: "invite", "aria-label": "Invite people" },
+  h("h2", {}, "Sing together"),
+  h("p", { class: "invite-help" }, "Have people scan this with their phone camera, or send them the link."),
+  inviteQr,
+  inviteCode,
+  inviteUrl,
+  h(
+    "div",
+    { class: "invite-actions" },
+    "share" in navigator && h("button", { type: "button", "data-action": "share-link" }, "Share link\u2026"),
+    copyButton,
+    h("button", { type: "button", class: "primary", "data-action": "close-invite", autofocus: true }, "Done"),
+  ),
+);
+// Tapping the backdrop closes the dialog.
+inviteDialog.addEventListener("click", (e) => {
+  if (e.target === inviteDialog) inviteDialog.close();
+});
+
+app.append(index, h("main", { class: "songs" }, [...songEls.values()]), sessionBar, inviteDialog);
 
 function refreshFavorites() {
   const favs = songs.filter((s) => favorites.has(s.id));
@@ -239,6 +265,7 @@ function joinSession(code: string) {
 }
 
 function leaveSession() {
+  inviteDialog.close();
   session?.close();
   session = null;
   document.body.classList.remove("in-session");
@@ -280,24 +307,38 @@ function verseLabel(song: Song, index: number): string {
   return `verse ${verse}`;
 }
 
-async function share() {
+const sessionUrl = (code: string) => `${location.origin}/s/${code}`;
+
+function showInvite() {
   if (!session) return;
-  const url = `${location.origin}/s/${session.code}`;
-  if (navigator.share) {
-    try {
-      await navigator.share({ title: "Sing Christmas carols with me", url });
-    } catch {
-      // cancelled
-    }
-    return;
-  }
+  const url = sessionUrl(session.code);
+  // Upper case lets the QR code use its compact alphanumeric mode; the server
+  // and router treat codes case-insensitively.
+  inviteQr.replaceChildren(qrSvg(url.toUpperCase()));
+  inviteCode.textContent = session.code.toUpperCase();
+  inviteUrl.textContent = url.replace(/^https?:\/\//, "");
+  copyButton.textContent = "Copy link";
+  inviteDialog.showModal();
+}
+
+async function shareLink() {
+  if (!session) return;
   try {
-    await navigator.clipboard.writeText(url);
-    shareButton.textContent = "Link copied";
+    await navigator.share({ title: "Sing Christmas carols with me", url: sessionUrl(session.code) });
   } catch {
-    shareButton.textContent = url;
+    // cancelled
   }
-  setTimeout(() => (shareButton.textContent = "Invite"), 2500);
+}
+
+async function copyLink() {
+  if (!session) return;
+  try {
+    await navigator.clipboard.writeText(sessionUrl(session.code));
+    copyButton.textContent = "Copied!";
+  } catch {
+    copyButton.textContent = "Couldn't copy";
+  }
+  setTimeout(() => (copyButton.textContent = "Copy link"), 2500);
 }
 
 // --- routing --------------------------------------------------------------
@@ -316,7 +357,11 @@ interface NavState {
 let current: Song | null = null;
 
 function route() {
-  const m = /^(?:\/s\/([a-z0-9]{4,16}))?(?:\/song\/([^/]+))?\/?$/.exec(location.pathname.toLowerCase());
+  // QR codes use an upper-case URL (it encodes more compactly); tidy it up.
+  if (location.pathname !== location.pathname.toLowerCase()) {
+    history.replaceState(history.state, "", location.pathname.toLowerCase() + location.search);
+  }
+  const m = /^(?:\/s\/([a-z0-9]{4,16}))?(?:\/song\/([^/]+))?\/?$/.exec(location.pathname);
   const code = m?.[1];
   const song = m?.[2] ? songsById.get(m[2]) : undefined;
   if (!m || (m[2] && !song)) {
@@ -387,9 +432,19 @@ document.addEventListener("click", (event) => {
   const action = target.closest<HTMLElement>("[data-action]")?.dataset.action;
   if (action === "start-session") {
     navigate(`/s/${newCode()}`);
+    showInvite();
     return;
-  } else if (action === "share") {
-    void share();
+  } else if (action === "invite") {
+    showInvite();
+    return;
+  } else if (action === "share-link") {
+    void shareLink();
+    return;
+  } else if (action === "copy-link") {
+    void copyLink();
+    return;
+  } else if (action === "close-invite") {
+    inviteDialog.close();
     return;
   } else if (action === "leave") {
     navigate(current ? songPath(current) : "/");

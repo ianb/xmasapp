@@ -23,5 +23,8 @@
     "esbuild@0.28.2": true,
     "workerd@1.20261117.1": true,
     "workerd@1.20261119.1": true
+  },
+  "dependencies": {
+    "uqr": "^0.1.3"
   }
 }
