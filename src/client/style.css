@@ -1,0 +1,297 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fdfbf7;
+  --fg: #1d1b19;
+  --muted: #6b645c;
+  --accent: #b3261e;
+  --accent-2: #1f6b3a;
+  --rule: #e4ddd2;
+  --hover: #f3ece1;
+  --star: #d4a106;
+  --header-bg: color-mix(in srgb, var(--bg) 92%, transparent);
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --fg: #ece8e1;
+    --muted: #9a948b;
+    --accent: #ef6a5f;
+    --accent-2: #6fc28b;
+    --rule: #2c3035;
+    --hover: #22262b;
+    --star: #f2c230;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+#app {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem calc(3rem + env(safe-area-inset-bottom));
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- views --------------------------------------------------------------- */
+
+body[data-view="song"] .index,
+.song:not(.current) {
+  display: none;
+}
+
+/* --- index --------------------------------------------------------------- */
+
+.app-title {
+  font-family: var(--font-ui);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 1.25rem 0 0.75rem;
+  padding-top: env(safe-area-inset-top);
+}
+
+.index h2 {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.5rem 0 0.25rem;
+}
+
+.song-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.song-list a {
+  display: block;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.song-list a:hover,
+.song-list a:focus-visible {
+  background: var(--hover);
+}
+
+.favorites .song-list a::before {
+  content: "\2605";
+  color: var(--star);
+  margin-right: 0.5em;
+}
+
+/* --- song ---------------------------------------------------------------- */
+
+.song-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 -1rem 0.5rem;
+  padding: calc(0.5rem + env(safe-area-inset-top)) 1rem 0.5rem;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.song-title {
+  flex: 1;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.back {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.4rem 0.25rem;
+  white-space: nowrap;
+}
+
+.favorite {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  border-radius: 0.25rem;
+  color: var(--muted);
+}
+
+.favorite[aria-pressed="true"] {
+  color: var(--star);
+}
+
+.favorite:hover {
+  background: var(--hover);
+}
+
+.lyrics {
+  padding-top: 0.5rem;
+}
+
+.stanza {
+  margin: 0 0 1.25em;
+  break-inside: avoid;
+}
+
+.line {
+  /* Wrapped lines get a hanging indent so they read as one line. */
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+.line.indent {
+  padding-left: 2.5em;
+}
+
+.chorus {
+  border-left: 3px solid var(--accent-2);
+  padding-left: 0.75em;
+  margin-left: 0.25em;
+}
+
+.stanza-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.line em {
+  font-family: var(--font-ui);
+  font-size: 0.8em;
+  font-style: normal;
+  color: var(--accent-2);
+  margin-left: 0.25em;
+}
+
+.about {
+  margin-top: 2rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (min-width: 60rem) {
+  #app:has(.layout-columns.current) {
+    max-width: 60rem;
+  }
+
+  .layout-columns .lyrics {
+    columns: 2;
+    column-gap: 3rem;
+  }
+}
+
+/* --- print: a songbook with a table of contents and every song ------------ */
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  #app {
+    max-width: none;
+    padding: 0;
+  }
+
+  body[data-view="song"] .index,
+  .song:not(.current) {
+    display: block;
+  }
+
+  .favorites,
+  .back,
+  .favorite,
+  .about {
+    display: none !important;
+  }
+
+  .index {
+    break-after: page;
+  }
+
+  .app-title {
+    color: #000;
+  }
+
+  .song-list a {
+    padding: 0.1rem 0;
+    border: none;
+  }
+
+  .song {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+
+  .song-header {
+    position: static;
+    margin: 0 0 0.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .song-title {
+    text-align: left;
+    font-size: 14pt;
+  }
+
+  .layout-columns .lyrics {
+    columns: 2;
+  }
+
+  .chorus {
+    border-left-color: #000;
+  }
+
+  .stanza-label,
+  .line em {
+    color: #000;
+  }
+}

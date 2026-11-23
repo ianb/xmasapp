@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "xmasapp",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-11-17",
+  "assets": {
+    // Unknown paths (e.g. /song/silent-night) serve index.html; the client routes.
+    "not_found_handling": "single-page-application",
+    // Only API requests reach the Worker; everything else is served as static assets.
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": { "enabled": true }
+  // To serve on a custom domain, add e.g.:
+  // "routes": [{ "pattern": "xmasapp.ianbicking.org", "custom_domain": true }]
+}
