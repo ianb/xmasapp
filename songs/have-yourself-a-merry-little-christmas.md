@@ -1,24 +1,34 @@
 ---
-title: Have Yourself A Merry Little Christmas
+title: Have Yourself a Merry Little Christmas
+about: https://en.wikipedia.org/wiki/Have_Yourself_a_Merry_Little_Christmas
 ---
 
-Have yourself a merry little Christmas,
+Have yourself a merry little Christmas
 Let your heart be light
-From now on,
-our troubles will be out of sight
+From now on, our troubles will be out of sight
 
-Have yourself a merry little Christmas,
-Make the Yule-tide gay,
-From now on,
-our troubles will be miles away.
+Have yourself a merry little Christmas
+Make the Yuletide gay
+From now on, our troubles will be miles away
 
-Here we are as in olden days,
-Happy golden days of yore.
+Here we are, as in olden days
+Happy golden days of yore
 Faithful friends who are dear to us
-Gather near to us once more.
+Gather near to us once more
 
-Through the years
-We all will be together,
-If the Fates allow
-Hang a shining star upon the highest bough.
-And have yourself a merry little Christmas now.
+Through the years we all will be together
+If the fates allow
+Hang a shining star upon the highest bough
+And have yourself a merry little Christmas now
+
+Here we are, as in olden days
+Happy golden days of yore
+Faithful friends who are dear to us
+Gather near to us once more
+
+Through the years we all will be together
+If the fates allow
+Hang a shining star upon the highest bough
+And have yourself a merry little Christmas now
+
+Merry Christmas, Merry Christmas
