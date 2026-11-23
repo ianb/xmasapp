@@ -1,7 +1,7 @@
 # xmasapp
 
 A little web app of Christmas carol lyrics, made for singing along on a phone.
-It works offline once loaded, and you can install it as a PWA.
+It is an installable PWA and works offline once loaded.
 
 ## Songs
 
@@ -46,3 +46,14 @@ The site is a Worker with [static assets](https://developers.cloudflare.com/work
 Most requests are served as assets. Unknown paths fall back to `index.html`, and
 the client routes them. Only `/api/*` runs the Worker (`src/worker/`). To use a
 custom domain, add a `routes` entry in `wrangler.jsonc`.
+
+## Icons
+
+`assets/bell.svg` is the source for the icons. To regenerate the PNGs in `public/`:
+
+```sh
+sed 's|width="512" height="512" fill|width="512" height="512" rx="112" fill|' assets/bell.svg > public/icon.svg
+for s in 512 192 32; do magick -background none -density 384 public/icon.svg -resize ${s}x$s public/icon-$s.png; done
+magick -density 384 assets/bell.svg -resize 512x512 public/icon-maskable-512.png
+magick -density 384 assets/bell.svg -resize 180x180 public/apple-touch-icon.png
+```

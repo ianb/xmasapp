@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Bell glyph, drawn within the central 60% so it is safe for maskable icons. -->
+  <rect id="background" width="512" height="512" fill="#b3261e"/>
+  <g fill="#fdfbf7">
+    <circle cx="256" cy="148" r="20"/>
+    <path d="M256 160c-62 0-98 48-98 112v52c0 18-14 34-34 44v14h264v-14c-20-10-34-26-34-44v-52c0-64-36-112-98-112z"/>
+    <circle cx="256" cy="398" r="26"/>
+  </g>
+  <g fill="#f2c230">
+    <path d="M150 362h212v22H150z"/>
+  </g>
+</svg>
