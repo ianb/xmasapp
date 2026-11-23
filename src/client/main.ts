@@ -32,13 +32,15 @@ function h<K extends keyof HTMLElementTagNameMap>(
   return el;
 }
 
-/** Render text with *emphasis* markers. */
+/** Render a lyric line: *cues* and (x3) repeat markers get cue styling. */
 function inline(text: string): (Node | string)[] {
-  return text.split(/(\*[^*]+\*)/).map((part) =>
-    part.startsWith("*") && part.endsWith("*") && part.length > 2
-      ? h("em", {}, part.slice(1, -1))
-      : part,
-  );
+  return text.split(/(\*[^*]+\*|\(x\d+\))/).map((part) => {
+    if (part.length > 2 && part.startsWith("*") && part.endsWith("*")) {
+      return h("em", {}, part.slice(1, -1));
+    }
+    const repeat = /^\(x(\d+)\)$/.exec(part);
+    return repeat ? h("em", { class: "repeat", title: `Repeat ${repeat[1]} times` }, `\u00d7${repeat[1]}`) : part;
+  });
 }
 
 // --- rendering ------------------------------------------------------------

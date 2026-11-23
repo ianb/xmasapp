@@ -9,7 +9,7 @@ Snowing and blowing up bushels of fun
 Now the jingle hop has begun.
 
 Jingle bell (x3)
-rock
+Rock
 Jingle bells chime in jingle bell time
 Dancing and prancing in Jingle bell Square
 In the frosty air.
@@ -23,4 +23,4 @@ Giddy-up jingle horse, pick up your feet
 Jingle around the clock
 Mix and a-mingle in the jinglin' beat
 That's the jingle bell (x3)
-rock.
+Rock.

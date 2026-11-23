@@ -35,7 +35,9 @@ export interface Song {
  *     Chorus:
  *     A chorus stanza starts with a "Chorus:" line
  *
- * Stanzas are separated by blank lines; *text* is rendered as emphasis.
+ * Stanzas are separated by blank lines; *text* is a cue like *Chorus*, and
+ * (x3) marks a repeat. Files use plain ASCII punctuation (' " -- ...), which
+ * is turned into typographic quotes, dashes and ellipses here.
  */
 export function parseSong(id: string, source: string): Song {
   const match = /^---\n([\s\S]*?)\n---\n/.exec(source);
@@ -69,11 +71,21 @@ export function parseSong(id: string, source: string): Song {
     }
     stanzas.push({
       chorus,
-      lines: rawLines.map((l) => ({ text: l.trim(), indent: /^\s/.test(l) })),
+      lines: rawLines.map((l) => ({ text: typography(l.trim()), indent: /^\s/.test(l) })),
     });
   }
 
-  return { id, title: meta.title, about: meta.about || undefined, layout, stanzas };
+  return { id, title: typography(meta.title), about: meta.about || undefined, layout, stanzas };
+}
+
+/** Curly quotes, em dashes and ellipses from plain ASCII punctuation. */
+export function typography(text: string): string {
+  return text
+    .replace(/\s*--\s*/g, "\u2014")
+    .replace(/\.\.\./g, "\u2026")
+    .replace(/(^|[\s(\[\u2014])"/g, "$1\u201c")
+    .replace(/"/g, "\u201d")
+    .replace(/'/g, "\u2019");
 }
 
 /** Sort key that ignores a leading article ("The First Noël" sorts under F). */

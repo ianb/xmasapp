@@ -35,7 +35,7 @@ Whose forms are bending low,
 Who toil along the climbing way
 With painful steps and slow,
 Look now! for glad and golden hours
-come swiftly on the wing.
+Come swiftly on the wing.
 O rest beside the weary road,
 And hear the angels sing!
 

@@ -14,7 +14,7 @@ Santa Claus is coming to town!
 He's making a list,
 He's checking it twice,
 He's gonna find out
-who's naughty or nice.
+Who's naughty or nice.
 
 Santa Claus is coming to town!
 
@@ -33,21 +33,21 @@ Santa Claus is coming to town.
 Little tin horns,
 Little toy drums.
 Rooty-toot-toots
-and rummy tum tums.
+And rummy tum tums.
 
 Santa Claus is coming to town.
 
 Little toy dolls
-that cuddle and coo,
+That cuddle and coo,
 Elephants, boats
-and Kiddie cars too.
+And Kiddie cars too.
 
 Santa Claus is coming to town.
 
 The kids in Girl and Boy Land
-will have a jubilee.
+Will have a jubilee.
 They're gonna build a toyland town
-all around the Christmas tree.
+All around the Christmas tree.
 
 Oh, you better watch out,
 You better not cry.

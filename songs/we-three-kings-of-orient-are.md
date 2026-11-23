@@ -14,7 +14,7 @@ Star with royal beauty bright,
 Westward leading, still proceeding,
 Guide us to thy perfect light.
 
-Born a King on Bethlehem’s plain
+Born a King on Bethlehem's plain
 Gold I bring to crown Him again,
 King forever, ceasing never,
 Over us all to reign. *Chorus*

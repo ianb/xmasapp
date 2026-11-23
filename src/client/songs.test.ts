@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { loadSongs, parseSong } from "./songs";
+import { loadSongs, parseSong, typography } from "./songs";
 
 describe("parseSong", () => {
   it("parses header, stanzas, chorus and indented lines", () => {
@@ -32,6 +32,19 @@ describe("parseSong", () => {
   });
 });
 
+describe("typography", () => {
+  it("curls quotes and apostrophes", () => {
+    expect(typography(`He said, "Let's go" 'Tis "Stop!"`)).toBe("He said, \u201cLet\u2019s go\u201d \u2019Tis \u201cStop!\u201d");
+    expect(typography(`"Glory to the new-born King;`)).toBe("\u201cGlory to the new-born King;");
+    expect(typography(`God and sinners reconciled!"`)).toBe("God and sinners reconciled!\u201d");
+  });
+  it("makes dashes and ellipses", () => {
+    expect(typography("the wood--")).toBe("the wood\u2014");
+    expect(typography("slow -- so")).toBe("slow\u2014so");
+    expect(typography("Roasting...")).toBe("Roasting\u2026");
+  });
+});
+
 describe("songs/*.md", () => {
   const dir = new URL("../../songs/", import.meta.url);
   const files = Object.fromEntries(
@@ -43,6 +56,42 @@ describe("songs/*.md", () => {
     expect(songs.length).toBeGreaterThan(30);
     for (const song of songs) {
       expect(song.stanzas.length, song.id).toBeGreaterThan(0);
+    }
+  });
+
+  // House style, so every song reads the same. See README.
+  const lyricLines = Object.entries(files).flatMap(([path, source]) =>
+    source
+      .replace(/^---\n[\s\S]*?\n---\n/, "")
+      .split("\n")
+      .map((line, i) => ({ where: `${path} line ${i + 1}: ${line}`, line: line.trim() }))
+      .filter(({ line }) => line && !/^chorus:$/i.test(line)),
+  );
+
+  it("use plain ASCII punctuation", () => {
+    for (const { where, line } of lyricLines) {
+      expect(line, where).not.toMatch(/[\u2018\u2019\u201c\u201d\u2013\u2014\u2026]/);
+    }
+  });
+
+  it("start every line with a capital", () => {
+    for (const { where, line } of lyricLines) {
+      expect(line, where).not.toMatch(/^["(]?[a-z]/);
+    }
+  });
+
+  it("write repeats as (x3)", () => {
+    for (const { where, line } of lyricLines) {
+      expect(line.replace(/\(x\d+\)/g, ""), where).not.toMatch(/\bx\d+\b/);
+    }
+  });
+
+  it("put dialogue in double quotes", () => {
+    // A leading apostrophe is only allowed for elisions like 'Tis.
+    for (const { where, line } of lyricLines) {
+      expect(line.replace(/(^|[\s("])'(tis|til|twas|cause|em|round|neath)\b/gi, ""), where).not.toMatch(
+        /(^|[\s("])'[a-z]/i,
+      );
     }
   });
 

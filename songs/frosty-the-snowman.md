@@ -1,5 +1,5 @@
 ---
-title: Frosty The Snowman
+title: Frosty the Snowman
 about: https://en.wikipedia.org/wiki/Frosty_the_Snowman
 layout: columns
 ---
@@ -10,7 +10,7 @@ And two eyes made out of coal.
 
 Frosty the snowman is a fairy tale, they say,
 He was made of snow but the children
-know how he came to life one day.
+Know how he came to life one day.
 
 There must have been some magic in that
 Old silk hat they found.
@@ -29,9 +29,9 @@ Over the hills of snow.
 
 Frosty the snowman knew
 The sun was hot that day,
-So he said, 'Let's run and
-we'll have some fun
-now before I melt away.'
+So he said, "Let's run and
+We'll have some fun
+Now before I melt away."
 Down to the village,
 With a broomstick in his hand,
 Running here and there all
@@ -40,13 +40,13 @@ Catch me if you can.
 He led them down the streets of town
 Right to the traffic cop.
 And he only paused a moment when
-He heard him holler 'Stop!'
+He heard him holler "Stop!"
 
 For Frosty the snowman
 Had to hurry on his way,
 But he waved goodbye saying,
-'Don't you cry,
-I'll be back again some day.'
+"Don't you cry,
+I'll be back again some day."
 
 Thumpetty thump thump, (x2)
 Look at Frosty go.

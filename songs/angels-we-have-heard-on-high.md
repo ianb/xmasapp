@@ -4,7 +4,7 @@ about: https://en.wikipedia.org/wiki/Angels_We_Have_Heard_on_High
 ---
 
 Angels we have heard on high
-Sweetly singing o’er the plains
+Sweetly singing o'er the plains
 And the mountains in reply
 Echoing their joyous strains
 

@@ -45,4 +45,4 @@ It's Christmas time in the city
 Ring-a-ling, hear them sing
 Soon it will be Christmas Day
 
-Soon it will be Christmas Day x4
+Soon it will be Christmas Day (x4)

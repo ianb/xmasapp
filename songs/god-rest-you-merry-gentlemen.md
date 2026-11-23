@@ -12,7 +12,7 @@ When we were gone astray:
 
 Chorus:
 O tidings of comfort and joy,
-comfort and joy,
+Comfort and joy,
 O tidings of comfort and joy.
 
 From God our heavenly Father

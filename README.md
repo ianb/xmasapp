@@ -24,6 +24,15 @@ A stanza starting with "Chorus:" is shown as the chorus
 ```
 
 A blank line separates stanzas, and `*text*` becomes a small cue such as *Chorus*.
+
+House style, enforced by `npm test`:
+
+- Use plain ASCII punctuation: `'`, `"`, `--` for a dash, `...`. The app turns
+  these into curly quotes, em dashes and ellipses.
+- Put dialogue in double quotes. A leading `'` is only for elisions like `'Tis`.
+- Start every line with a capital letter, and use sentence case within lyrics.
+- Write repeats as `(x3)`. They show as a small "×3" cue.
+- Titles are in title case ("Frosty the Snowman", not "Frosty The Snowman").
 The file name is the song's URL: `/song/silent-night`.
 
 ## Singing together
