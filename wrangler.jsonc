@@ -14,5 +14,6 @@
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Session"] }],
   "routes": [{ "pattern": "xmascarols.app", "custom_domain": true }],
-  "observability": { "enabled": true }
+  // No request logging: the about page promises the site collects nothing.
+  "observability": { "enabled": false }
 }

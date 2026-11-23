@@ -62,7 +62,8 @@ button {
 
 /* --- views --------------------------------------------------------------- */
 
-body[data-view="song"] .index,
+body:not([data-view="index"]) .index,
+body:not([data-view="about"]) .about-page,
 .song:not(.current) {
   display: none;
 }
@@ -111,6 +112,45 @@ body[data-view="song"] .index,
   content: "\2605";
   color: var(--star);
   margin-right: 0.5em;
+}
+
+.index-footer {
+  margin: 2rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* --- about --------------------------------------------------------------- */
+
+.header-spacer {
+  /* Balances the back link so the title stays centered. */
+  width: 4.5rem;
+}
+
+.prose {
+  padding-top: 0.5rem;
+}
+
+.prose h3 {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  margin: 1.75rem 0 0.4rem;
+  color: var(--accent);
+}
+
+.prose p,
+.prose ul {
+  margin: 0 0 0.75rem;
+}
+
+.prose ul {
+  padding-left: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
 }
 
 /* --- song ---------------------------------------------------------------- */
@@ -499,9 +539,14 @@ dialog.invite h2 {
     padding: 0;
   }
 
-  body[data-view="song"] .index,
+  body:not([data-view="index"]) .index,
   .song:not(.current) {
     display: block;
+  }
+
+  .about-page,
+  .index-footer {
+    display: none !important;
   }
 
   .favorites,

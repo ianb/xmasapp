@@ -99,6 +99,89 @@ function songLink(song: Song): HTMLElement {
   return h("li", {}, h("a", { href: songPath(song), "data-song-link": song.id }, song.title));
 }
 
+// --- about page ---------------------------------------------------------
+
+function renderAbout(): HTMLElement {
+  const link = (href: string, text: string) => h("a", { href, target: "_blank", rel: "noopener" }, text);
+  return h(
+    "article",
+    { class: "about-page" },
+    h(
+      "header",
+      { class: "song-header" },
+      h("a", { class: "back", href: "/", "aria-label": "Back to song list" }, "\u2039 Songs"),
+      h("h2", { class: "song-title" }, "About"),
+      h("span", { class: "header-spacer" }),
+    ),
+    h(
+      "div",
+      { class: "prose" },
+      h(
+        "p",
+        {},
+        "Words to Christmas carols and holiday songs, for singing along from your phone. ",
+        "Made by ",
+        link("https://ianbicking.org", "Ian Bicking"),
+        ". I just hope it helps everyone sing together.",
+      ),
+      h("h3", {}, "Singing together"),
+      h(
+        "p",
+        {},
+        "Tap ",
+        h("strong", {}, "Sing together"),
+        " on the song list to start a session. Others join by scanning its QR code or opening the link you share.",
+      ),
+      h(
+        "ul",
+        {},
+        h("li", {}, "Tap a verse to mark it as being sung now. It lights up for everyone and scrolls near the top."),
+        h(
+          "li",
+          {},
+          "Everyone follows along automatically. If you scroll or look at another song, you stop following; tap ",
+          h("strong", {}, "Jump to"),
+          " at the bottom to catch up.",
+        ),
+        h("li", {}, "Anyone in the session can set the verse."),
+      ),
+      h("p", {}, "Outside a session, tapping a verse just highlights it for you."),
+      h("h3", {}, "Put it on your home screen"),
+      h(
+        "ul",
+        {},
+        h("li", {}, "iPhone or iPad: in Safari, tap Share, then ", h("strong", {}, "Add to Home Screen"), "."),
+        h("li", {}, "Android: in Chrome, open the \u22ee menu and tap ", h("strong", {}, "Install app"), "."),
+        h("li", {}, "Computer: in Chrome or Edge, click the install icon in the address bar."),
+      ),
+      h("p", {}, "Once it has loaded, the songs work offline. Sessions need a connection."),
+      h("h3", {}, "Privacy"),
+      h(
+        "p",
+        {},
+        "This site collects nothing: no accounts, no cookies, no analytics, no tracking. ",
+        "Your favorites are saved only on your own device. A singing session only knows ",
+        "which song and verse is up, and is forgotten after a week of no use.",
+      ),
+      h("h3", {}, "Corrections and requests"),
+      h(
+        "p",
+        {},
+        "Spot a wrong lyric or missing song? The ",
+        link("https://github.com/ianb/xmasapp", "source is on GitHub"),
+        ", where you can open an issue.",
+      ),
+      h("h3", {}, "Credits"),
+      h(
+        "p",
+        {},
+        "The traditional carols are in the public domain. Words to the newer songs belong to their writers ",
+        "and are included here for singing along. The \u201cAbout this song\u201d links go to Wikipedia.",
+      ),
+    ),
+  );
+}
+
 // --- page structure -------------------------------------------------------
 
 const app = document.getElementById("app")!;
@@ -115,7 +198,9 @@ const index = h(
   ),
   favoriteSection,
   h("section", { class: "all-songs" }, h("h2", {}, "All songs"), h("ul", { class: "song-list" }, songs.map(songLink))),
+  h("footer", { class: "index-footer" }, h("a", { href: "/about" }, "About this app")),
 );
+const aboutPage = renderAbout();
 const songEls = new Map(songs.map((s) => [s.id, renderSong(s)]));
 
 const sessionStatus = h("span", { class: "session-status" });
@@ -161,7 +246,7 @@ inviteDialog.addEventListener("click", (e) => {
   if (e.target === inviteDialog) inviteDialog.close();
 });
 
-app.append(index, h("main", { class: "songs" }, [...songEls.values()]), sessionBar, inviteDialog);
+app.append(index, h("main", { class: "songs" }, [...songEls.values()]), aboutPage, sessionBar, inviteDialog);
 
 function refreshFavorites() {
   const favs = songs.filter((s) => favorites.has(s.id));
@@ -363,9 +448,10 @@ function route() {
   if (location.pathname !== location.pathname.toLowerCase()) {
     history.replaceState(history.state, "", location.pathname.toLowerCase() + location.search);
   }
-  const m = /^(?:\/s\/([a-z0-9]{4,16}))?(?:\/song\/([^/]+))?\/?$/.exec(location.pathname);
+  const m = /^(?:\/s\/([a-z0-9]{4,16}))?(?:\/song\/([^/]+)|\/(about))?\/?$/.exec(location.pathname);
   const code = m?.[1];
   const song = m?.[2] ? songsById.get(m[2]) : undefined;
+  const about = !!m?.[3];
   if (!m || (m[2] && !song)) {
     history.replaceState(null, "", code ? `/s/${code}` : "/");
   }
@@ -374,7 +460,7 @@ function route() {
   } else if (session) {
     leaveSession();
   }
-  show(song ?? null);
+  show(song ?? null, about);
   // Navigating away from what the group is singing means you're browsing on your own.
   const now = getNow();
   if (session && following && now && current?.id !== now.songId && !navigatingToNow) {
@@ -383,11 +469,14 @@ function route() {
   applyNow(true);
 }
 
-function show(song: Song | null) {
+function show(song: Song | null, about = false) {
   if (current) songEls.get(current.id)!.classList.remove("current");
   current = song;
-  document.body.dataset.view = song ? "song" : "index";
-  if (song) {
+  document.body.dataset.view = song ? "song" : about ? "about" : "index";
+  if (about) {
+    document.title = "About \u2013 Christmas Carols";
+    window.scrollTo(0, 0);
+  } else if (song) {
     songEls.get(song.id)!.classList.add("current");
     document.title = `${song.title} – Christmas Carols`;
     window.scrollTo(0, 0);
