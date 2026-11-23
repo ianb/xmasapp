@@ -16,7 +16,7 @@ And bites the nose,
 As over the ground we go.
 
 Over the river and through the wood,
-To have first-rate play.
+To have a first-rate play—
 Hear the bells ring,
 "Ting-a-ling-ding!"
 Hurrah for Thanksgiving Day!
