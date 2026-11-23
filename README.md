@@ -72,3 +72,9 @@ for s in 512 192 32; do magick -background none -density 384 public/icon.svg -re
 magick -density 384 assets/bell.svg -resize 512x512 public/icon-maskable-512.png
 magick -density 384 assets/bell.svg -resize 180x180 public/apple-touch-icon.png
 ```
+
+## Old domain
+
+`redirect/` is a tiny separate Worker. It permanently redirects the app's old
+home, `xmasapp.ianbicking.org`, to `xmascarols.app`. Deploy it with
+`npx wrangler deploy -c redirect/wrangler.jsonc`.

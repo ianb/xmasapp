@@ -4,5 +4,5 @@
     "lib": ["ES2022"],
     "types": ["./worker-configuration.d.ts"]
   },
-  "include": ["src/worker", "src/shared"]
+  "include": ["src/worker", "src/shared", "redirect"]
 }

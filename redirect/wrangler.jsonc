@@ -1,0 +1,8 @@
+// Deploy with: npx wrangler deploy -c redirect/wrangler.jsonc
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "xmasapp-redirect",
+  "main": "index.ts",
+  "compatibility_date": "2026-11-17",
+  "routes": [{ "pattern": "xmasapp.ianbicking.org", "custom_domain": true }]
+}
