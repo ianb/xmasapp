@@ -26,6 +26,21 @@ A stanza starting with "Chorus:" is shown as the chorus
 A blank line separates stanzas, and `*text*` becomes a small cue such as *Chorus*.
 The file name is the song's URL: `/song/silent-night`.
 
+## Singing together
+
+"Sing together" starts a session at `/s/<code>`. Share that link and everyone
+in the session sees the same "now singing" song and verse:
+
+- Tap a verse to mark it as being sung now. It scrolls near the top for everyone.
+- Everyone follows the active verse by default: following takes you to the song
+  and scrolls with it. If you scroll or browse on your own, following stops and
+  the bar at the bottom shows **Jump to** so you can rejoin.
+- Anyone in the session can set the verse; there's no leader.
+
+Each session is a Durable Object (`src/worker/session.ts`) holding the current
+song and verse, using hibernating WebSockets. The message types are in
+`src/shared/protocol.ts`. A session that nobody joins for a week is deleted.
+
 ## Development
 
 ```sh
@@ -44,7 +59,8 @@ npm run deploy
 
 The site is a Worker with [static assets](https://developers.cloudflare.com/workers/static-assets/).
 Most requests are served as assets. Unknown paths fall back to `index.html`, and
-the client routes them. Only `/api/*` runs the Worker (`src/worker/`). To use a
+the client routes them. Only `/api/*` runs the Worker (`src/worker/`), which
+includes the session WebSockets. To use a
 custom domain, add a `routes` entry in `wrangler.jsonc`.
 
 ## Icons

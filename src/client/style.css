@@ -8,6 +8,7 @@
   --rule: #e4ddd2;
   --hover: #f3ece1;
   --star: #d4a106;
+  --active-bg: #fbe9d0;
   --header-bg: color-mix(in srgb, var(--bg) 92%, transparent);
   --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -23,6 +24,7 @@
     --rule: #2c3035;
     --hover: #22262b;
     --star: #f2c230;
+    --active-bg: #3a2a1c;
   }
 }
 
@@ -225,6 +227,187 @@ body[data-view="song"] .index,
   }
 }
 
+/* --- now singing / sessions ---------------------------------------------- */
+
+.stanza {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s;
+  /* Room for the active highlight without shifting text. */
+  padding: 0.15em 0.5em;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+
+.stanza.chorus {
+  padding-left: 0.75em;
+  margin-left: 0.25em;
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.stanza.active {
+  background: var(--active-bg);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.session-hint {
+  display: none;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+body.in-session .song:not(.now-singing) .session-hint {
+  display: block;
+}
+
+.index-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: env(safe-area-inset-top);
+}
+
+.index-header .app-title {
+  padding-top: 0;
+}
+
+button.start-session,
+.session-bar button {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+button.start-session {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+button.start-session:hover,
+.session-bar button:hover {
+  background: var(--hover);
+}
+
+body.in-session .start-session {
+  display: none;
+}
+
+body.in-session #app {
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+
+.session-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+
+.session-bar[hidden] {
+  display: none;
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.session-code {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+}
+
+.session-status {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.session-status.open {
+  background: var(--accent-2);
+}
+
+.session-status.closed {
+  background: var(--accent);
+}
+
+.session-bar .now {
+  flex: 1 1 12rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: 0.5rem;
+  border-color: var(--accent);
+  line-height: 1.25;
+}
+
+.session-bar .now.synced {
+  border-color: var(--rule);
+  cursor: default;
+}
+
+.session-bar .now[hidden] {
+  display: none;
+}
+
+.now-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.now.synced .now-label {
+  color: var(--accent-2);
+}
+
+.now-what {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+@media (max-width: 40rem) {
+  .session-bar .now {
+    order: -1;
+    flex-basis: 100%;
+  }
+}
+
 /* --- print: a songbook with a table of contents and every song ------------ */
 
 @media print {
@@ -245,6 +428,9 @@ body[data-view="song"] .index,
   }
 
   .favorites,
+  .session-bar,
+  .session-hint,
+  .start-session,
   .back,
   .favorite,
   .about {
@@ -288,6 +474,11 @@ body[data-view="song"] .index,
 
   .chorus {
     border-left-color: #000;
+  }
+
+  .stanza.active {
+    background: none;
+    box-shadow: none;
   }
 
   .stanza-label,

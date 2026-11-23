@@ -9,7 +9,11 @@
     // Only API requests reach the Worker; everything else is served as static assets.
     "run_worker_first": ["/api/*"]
   },
+  "durable_objects": {
+    "bindings": [{ "name": "SESSIONS", "class_name": "Session" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Session"] }],
   "observability": { "enabled": true }
   // To serve on a custom domain, add e.g.:
-  // "routes": [{ "pattern": "xmasapp.ianbicking.org", "custom_domain": true }]
+  // "routes": [{ "pattern": "example.com", "custom_domain": true }]
 }
