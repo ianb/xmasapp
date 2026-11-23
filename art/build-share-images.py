@@ -16,6 +16,7 @@ import argparse
 import json
 import subprocess
 import tempfile
+import time
 import urllib.request
 from pathlib import Path
 
@@ -58,8 +59,15 @@ def typography(text):
 def download(url, dest):
     # The museum's API asks for a descriptive User-Agent.
     req = urllib.request.Request(url, headers={"User-Agent": "xmascarols.app share image builder"})
-    with urllib.request.urlopen(req) as res:
-        dest.write_bytes(res.read())
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as res:
+                dest.write_bytes(res.read())
+            return
+        except OSError:
+            if attempt == 3:
+                raise
+            time.sleep(3 * (attempt + 1))
 
 
 def text_block(tmp, name, text, font, pointsize, color, width):

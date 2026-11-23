@@ -1,11 +1,25 @@
 {
-  "silent-night": {
-    "title": "The Nativity",
-    "artist": "Master of Pulkau",
-    "date": "1507–10",
+  "angels-from-the-realms-of-glory": {
+    "title": "Annunciation to the Shepherds",
+    "artist": "After Jacopo Bassano",
+    "date": "c. 1710",
     "museum": "Art Institute of Chicago",
-    "url": "https://www.artic.edu/artworks/15496",
-    "image": "https://www.artic.edu/iiif/2/c6962747-4875-eb15-f28c-523ce2d3d174/full/1686,/0/default.jpg"
+    "url": "https://www.artic.edu/artworks/109220",
+    "image": "https://www.artic.edu/iiif/2/ec272cba-5f5c-dcc1-00e3-00dfdb042a52/full/1686,/0/default.jpg"
+  },
+  "angels-we-have-heard-on-high": {
+    "title": "Annunciation to the Shepherds, from a Book of Hours",
+    "artist": "Boethius Illuminator",
+    "date": "c. 1410–20",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/2014.22.a",
+    "image": "https://openaccess-cdn.clevelandart.org/2014.22.a/2014.22.a_print.jpg",
+    "crop": [
+      0.2,
+      0.05,
+      0.58,
+      0.5
+    ]
   },
   "away-in-a-manger": {
     "title": "Nativity in an Initial H",
@@ -15,6 +29,150 @@
     "url": "https://www.artic.edu/artworks/149018",
     "image": "https://www.artic.edu/iiif/2/441fb550-8195-a00e-b1a0-44a66100e31b/full/1686,/0/default.jpg"
   },
+  "god-rest-you-merry-gentlemen": {
+    "title": "Approach to Christmas",
+    "artist": "George Hunt",
+    "date": "n.d.",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/105660",
+    "image": "https://www.artic.edu/iiif/2/818975c1-4802-d659-1c76-5418fac2f7d3/full/1686,/0/default.jpg",
+    "crop": [
+      0.07,
+      0.09,
+      0.86,
+      0.78
+    ]
+  },
+  "good-king-wenceslas": {
+    "title": "Winter Scene",
+    "artist": "Francisco José de Goya y Lucientes",
+    "date": "c. 1786",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/93450",
+    "image": "https://www.artic.edu/iiif/2/61c3e72f-b453-1ada-62a5-9539afbe0641/full/1686,/0/default.jpg"
+  },
+  "hark-the-herald-angels-sing": {
+    "title": "Annunciation to the Shepherds, from a Book of Hours",
+    "artist": "Henri d'Orquevaulx",
+    "date": "c. 1420–30",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1999.128",
+    "image": "https://openaccess-cdn.clevelandart.org/1999.128/1999.128_print.jpg",
+    "crop": [
+      0.24,
+      0.05,
+      0.62,
+      0.67
+    ]
+  },
+  "jingle-bell-rock": {
+    "title": "Love of Winter",
+    "artist": "George Wesley Bellows",
+    "date": "1914",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/109780",
+    "image": "https://www.artic.edu/iiif/2/18ab0c35-e35c-0216-9afd-f93357920db1/full/1686,/0/default.jpg"
+  },
+  "joy-to-the-world": {
+    "title": "Adoration of the Shepherds",
+    "artist": "Hans Leonhard Schäufelein",
+    "date": "c. 1510",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1916.807",
+    "image": "https://openaccess-cdn.clevelandart.org/1916.807/1916.807_print.jpg"
+  },
+  "let-it-snow": {
+    "title": "Snow Field, Morning, Roxbury",
+    "artist": "John La Farge",
+    "date": "1864",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/62393",
+    "image": "https://www.artic.edu/iiif/2/8e5f3773-9396-0fde-8547-490cca07b68b/full/1686,/0/default.jpg"
+  },
+  "o-christmas-tree": {
+    "title": "The Christmas Tree",
+    "artist": "Winslow Homer",
+    "date": "1858",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1942.1217.b",
+    "image": "https://openaccess-cdn.clevelandart.org/1942.1217.b/1942.1217.b_print.jpg",
+    "crop": [
+      0.02,
+      0.02,
+      0.6,
+      0.9
+    ]
+  },
+  "o-come-all-ye-faithful": {
+    "title": "Adoration of the Shepherds",
+    "artist": "Carlo Dolci",
+    "date": "c. 1670",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1968.22",
+    "image": "https://openaccess-cdn.clevelandart.org/1968.22/1968.22_print.jpg"
+  },
+  "o-holy-night": {
+    "title": "Adoration of the Shepherds",
+    "artist": "Bernardo Cavallino",
+    "date": "c. 1650",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1968.100",
+    "image": "https://openaccess-cdn.clevelandart.org/1968.100/1968.100_print.jpg"
+  },
+  "o-little-town-of-bethlehem": {
+    "title": "Bethlehem",
+    "artist": "David Roberts",
+    "date": "1839",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1927.131",
+    "image": "https://openaccess-cdn.clevelandart.org/1927.131/1927.131_print.jpg"
+  },
+  "over-the-river-and-through-the-wood": {
+    "title": "Byloke, Ghent",
+    "artist": "Thomas Shotter Boys",
+    "date": "1839",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/131188",
+    "image": "https://www.artic.edu/iiif/2/655b9bb8-6ec1-6a03-d7e6-cb11083e1a4a/full/1686,/0/default.jpg",
+    "crop": [
+      0,
+      0.18,
+      1,
+      0.74
+    ]
+  },
+  "silent-night": {
+    "title": "The Nativity",
+    "artist": "Master of Pulkau",
+    "date": "1507–10",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/15496",
+    "image": "https://www.artic.edu/iiif/2/c6962747-4875-eb15-f28c-523ce2d3d174/full/1686,/0/default.jpg"
+  },
+  "silver-bells": {
+    "title": "Paris Street; Rainy Day",
+    "artist": "Gustave Caillebotte",
+    "date": "1877",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/20684",
+    "image": "https://www.artic.edu/iiif/2/f8fd76e9-c396-5678-36ed-6a348c904d27/full/1686,/0/default.jpg"
+  },
+  "the-christmas-song": {
+    "title": "A Mother Feeding her Child (The Happy Mother)",
+    "artist": "Willem van Mieris",
+    "date": "1707",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/497",
+    "image": "https://www.artic.edu/iiif/2/a9a3e2fa-f7a4-2713-00ed-909062cb48d7/full/1686,/0/default.jpg"
+  },
+  "the-first-noel": {
+    "title": "The Nativity",
+    "artist": "Fra Bartolommeo",
+    "date": "1504–7",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/184371",
+    "image": "https://www.artic.edu/iiif/2/40fdb1d6-93fe-2916-78fb-f56a1ac261f1/full/1686,/0/default.jpg"
+  },
   "we-three-kings-of-orient-are": {
     "title": "Adoration of the Magi",
     "artist": "Jan van Scorel",
@@ -22,6 +180,36 @@
     "museum": "Art Institute of Chicago",
     "url": "https://www.artic.edu/artworks/21937",
     "image": "https://www.artic.edu/iiif/2/5f5b4009-7e1c-2e07-8b3e-ae59a3cf9c4c/full/1686,/0/default.jpg"
+  },
+  "we-wish-you-a-merry-christmas": {
+    "title": "A Merry Christmas",
+    "artist": "Henri de Toulouse-Lautrec",
+    "date": "1896",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/84458",
+    "image": "https://www.artic.edu/iiif/2/c09da1f4-09ff-04b5-6747-bfd54c3e71c4/full/1686,/0/default.jpg"
+  },
+  "what-child-is-this": {
+    "title": "Virgin and Child with Angels",
+    "artist": "Fra Filippo Lippi",
+    "date": "c. 1460",
+    "museum": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1916.802",
+    "image": "https://openaccess-cdn.clevelandart.org/1916.802/1916.802_print.jpg",
+    "crop": [
+      0,
+      0.12,
+      1,
+      0.73
+    ]
+  },
+  "white-christmas": {
+    "title": "Snow at Louveciennes",
+    "artist": "Camille Pissarro",
+    "date": "c. 1870",
+    "museum": "Art Institute of Chicago",
+    "url": "https://www.artic.edu/artworks/45838",
+    "image": "https://www.artic.edu/iiif/2/d4e43d76-594b-ce65-c1a3-45c865624f70/full/1686,/0/default.jpg"
   },
   "winter-wonderland": {
     "title": "Sandvika, Norway",
