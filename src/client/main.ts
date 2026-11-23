@@ -5,7 +5,8 @@ import { buildBook, loadSettings, paperLabel, saveSettings, type PrintSettings }
 import { qrSvg } from "./qr";
 import { SessionConnection } from "./session";
 import { h, renderStanza } from "./dom";
-import { loadSongs, type Song } from "./songs";
+import { loadSongs, type Art, type Song } from "./songs";
+import artJson from "../../art/art.json";
 import { newCode, type NowSinging } from "../shared/protocol";
 
 const songs = loadSongs(
@@ -62,6 +63,8 @@ function songLink(song: Song): HTMLElement {
 }
 
 // --- about page ---------------------------------------------------------
+
+const arts: Record<string, Art> = artJson;
 
 function renderAbout(): HTMLElement {
   const link = (href: string, text: string) => h("a", { href, target: "_blank", rel: "noopener" }, text);
@@ -141,6 +144,23 @@ function renderAbout(): HTMLElement {
         {},
         "The traditional carols are in the public domain. Words to the newer songs belong to their writers ",
         "and are included here for singing along. The \u201cAbout this song\u201d links go to Wikipedia.",
+      ),
+      h("p", {}, "Pictures shown when a song is shared are public domain artworks:"),
+      h(
+        "ul",
+        { class: "art-credits" },
+        songs
+          .filter((song) => arts[song.id])
+          .map((song) => {
+            const art = arts[song.id];
+            return h(
+              "li",
+              {},
+              `${song.title}: ${art.artist}, `,
+              link(art.url, art.title),
+              `, ${art.date}, ${art.museum}`,
+            );
+          }),
       ),
     ),
   );

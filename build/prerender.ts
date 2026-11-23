@@ -1,7 +1,8 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import type { Plugin } from "vite";
-import { loadSongs, type Song } from "../src/client/songs";
+import { loadSongs, type Art, type Song } from "../src/client/songs";
+import arts from "../art/art.json";
 
 /**
  * Writes a real HTML page for the home page, the about page and every song, so
@@ -38,10 +39,17 @@ interface PageInfo {
   description: string;
   body: string;
   jsonLd: object;
+  image?: { url: string; alt: string };
 }
+
+const DEFAULT_IMAGE = {
+  url: `${SITE}/og-image.png`,
+  alt: "A red and green bell icon with the words Christmas Carols and xmascarols.app",
+};
 
 function render(template: string, page: PageInfo): string {
   const url = SITE + page.path;
+  const image = page.image ?? DEFAULT_IMAGE;
   const head = `
     <link rel="canonical" href="${url}" />
     <meta property="og:type" content="website" />
@@ -49,10 +57,10 @@ function render(template: string, page: PageInfo): string {
     <meta property="og:title" content="${esc(page.shareTitle)}" />
     <meta property="og:description" content="${esc(page.description)}" />
     <meta property="og:url" content="${url}" />
-    <meta property="og:image" content="${SITE}/og-image.png" />
+    <meta property="og:image" content="${image.url}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="A red and green bell icon with the words Christmas Carols and xmascarols.app" />
+    <meta property="og:image:alt" content="${esc(image.alt)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">${JSON.stringify(page.jsonLd).replace(/</g, "\\u003c")}</script>
   `;
@@ -109,8 +117,13 @@ function songPage(song: Song): PageInfo {
   const lyrics = song.stanzas
     .map((st) => (st.chorus ? "Chorus:\n" : "") + st.lines.map((l) => lineText(l.text)).join("\n"))
     .join("\n\n");
+  const art = (arts as Record<string, Art>)[song.id];
   return {
     path: `/song/${song.id}`,
+    image: art && {
+      url: `${SITE}/og/${song.id}.jpg`,
+      alt: `${art.title} by ${art.artist}, with the title ${song.title}`,
+    },
     title: `${song.title} lyrics \u2013 ${SITE_NAME}`,
     shareTitle: song.title,
     description,

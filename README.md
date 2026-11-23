@@ -71,6 +71,12 @@ title, description, Open Graph/Twitter tags, structured data and the lyrics in
 plain HTML. Link previewers and search engines see that; the app replaces it
 once its script loads. The build also writes `sitemap.xml` and `robots.txt`.
 
+A song's preview picture is `public/og/<id>.jpg` if it has one, otherwise the
+general `public/og-image.png`. Song pictures are made from public domain art
+listed in `art/art.json` (credited on the about page): add an entry, run
+`python3 art/build-share-images.py <id>` (needs ImageMagick) and commit the
+image.
+
 Session links (`/s/<code>`) go through the Worker, which retitles the page
 "Sing Christmas carols with me" and marks it noindex.
 

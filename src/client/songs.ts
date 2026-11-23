@@ -8,6 +8,18 @@ export interface Stanza {
   lines: Line[];
 }
 
+/** Public domain artwork for a song's link preview; see art/art.json. */
+export interface Art {
+  title: string;
+  artist: string;
+  date: string;
+  museum: string;
+  /** The museum's page for the artwork. */
+  url: string;
+  /** Image the share picture is made from. */
+  image: string;
+}
+
 export type Layout = "normal" | "columns" | "longlines";
 
 export interface Song {
