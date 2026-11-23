@@ -63,6 +63,19 @@ each song at its printed size and packs songs into columns stanza by stanza. For
 a booklet it puts the pages on sheets in fold order. You can set the options in
 the URL, e.g. `/print?format=booklet&paper=a4&songs=all`.
 
+## Link previews and search
+
+`build/prerender.ts` runs at build time. It writes a real HTML page for the home
+page, `/about` and each song (`song/<id>.html`, served at `/song/<id>`), with a
+title, description, Open Graph/Twitter tags, structured data and the lyrics in
+plain HTML. Link previewers and search engines see that; the app replaces it
+once its script loads. The build also writes `sitemap.xml` and `robots.txt`.
+
+Session links (`/s/<code>`) go through the Worker, which retitles the page
+"Sing Christmas carols with me" and marks it noindex.
+
+The share image is `public/og-image.png`, built by `assets/build-og-image.sh`.
+
 ## Development
 
 ```sh

@@ -1,10 +1,12 @@
 import { cloudflare } from "@cloudflare/vite-plugin";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
+import { prerender } from "./build/prerender";
 
 export default defineConfig({
   plugins: [
     cloudflare(),
+    prerender("songs"),
     // The PWA plugin only applies to the browser build, not the Worker bundle.
     ...VitePWA({
       registerType: "autoUpdate",
@@ -28,6 +30,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,png,svg}"],
+        // Song and about pages are pre-rendered for link previews and search;
+        // offline, the app itself (index.html) handles every path.
+        globIgnores: ["song/**", "about.html"],
         navigateFallback: "/index.html",
         navigateFallbackDenylist: [/^\/api\//],
       },

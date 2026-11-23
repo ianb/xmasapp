@@ -6,8 +6,10 @@
   "assets": {
     // Unknown paths (e.g. /song/silent-night) serve index.html; the client routes.
     "not_found_handling": "single-page-application",
-    // Only API requests reach the Worker; everything else is served as static assets.
-    "run_worker_first": ["/api/*"]
+    // Only API requests and session links reach the Worker; everything else
+    // is served as static assets.
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/s/*"]
   },
   "durable_objects": {
     "bindings": [{ "name": "SESSIONS", "class_name": "Session" }]

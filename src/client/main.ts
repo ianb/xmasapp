@@ -149,6 +149,9 @@ function renderAbout(): HTMLElement {
 // --- page structure -------------------------------------------------------
 
 const app = document.getElementById("app")!;
+// Replace the pre-rendered page (for link previews and search) with the app.
+app.replaceChildren();
+app.classList.remove("prerendered");
 const favoriteList = h("ul", { class: "song-list" });
 const favoriteSection = h("section", { class: "favorites" }, h("h2", {}, "Favorites"), favoriteList);
 const index = h(
@@ -584,7 +587,7 @@ function show(song: Song | null, page: Page | null = null) {
     window.scrollTo(0, 0);
   } else if (song) {
     songEls.get(song.id)!.classList.add("current");
-    document.title = `${song.title} – Christmas Carols`;
+    document.title = `${song.title} lyrics – Christmas Carols`;
     window.scrollTo(0, 0);
   } else {
     document.title = "Christmas Carols";
