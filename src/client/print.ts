@@ -1,5 +1,7 @@
 import { h, renderStanza } from "./dom";
 import { qrSvg } from "./qr";
+// Inlined so it is there even when the book is built right as printing starts.
+import bellSvg from "../../assets/bell-rounded.svg?raw";
 import type { Song } from "./songs";
 
 /**
@@ -235,6 +237,24 @@ function pageEl(geo: Geometry, number: number | null, ...content: HTMLElement[])
   return page;
 }
 
+function backCover(geo: Geometry): HTMLElement {
+  const icon = h("div", { class: "p-back-icon", "aria-hidden": "true" });
+  icon.innerHTML = bellSvg; // our own static asset
+  return pageEl(
+    geo,
+    null,
+    h(
+      "div",
+      { class: "p-back-cover" },
+      icon,
+      h("h2", {}, "Christmas Carols"),
+      h("p", {}, "Sing along on your phone, on your own or together."),
+      h("div", { class: "p-qr" }, qrSvg("HTTPS://XMASCAROLS.APP")),
+      h("p", { class: "p-back-url" }, "xmascarols.app"),
+    ),
+  );
+}
+
 export interface Book {
   el: HTMLElement;
   pageCount: number;
@@ -295,9 +315,11 @@ export function buildBook(songs: Song[], settings: PrintSettings): Book {
   };
 
   if (settings.format === "booklet") {
-    // Pad to a multiple of 4, then impose: the outermost sheet carries the
-    // last and first pages, the next sheet in the next-outermost, and so on.
-    while (pages.length % 4) pages.push(pageEl(geo, null));
+    // The outside back is always a cover, so the book never ends mid-song.
+    // Blank pages go before it to make a multiple of 4. Then impose: the
+    // outermost sheet carries the last and first pages, and so on inward.
+    while ((pages.length + 1) % 4) pages.push(pageEl(geo, null));
+    pages.push(backCover(geo));
     const n = pages.length;
     for (let i = 0; i < n / 4; i++) {
       sheet(`Sheet ${i + 1}, front`, pages[n - 1 - 2 * i], pages[2 * i]);

@@ -801,6 +801,43 @@ body[data-view="print"] .print-view {
   font-variant-numeric: tabular-nums;
 }
 
+.p-back-cover {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-ui);
+}
+
+.p-back-icon svg {
+  width: 1.1in;
+  height: 1.1in;
+  display: block;
+}
+
+.p-back-cover h2 {
+  margin: 0.25in 0 0.08in;
+  font-size: 1.8em;
+  color: #b3261e;
+}
+
+.p-back-cover p {
+  margin: 0 0 0.3in;
+  color: #555;
+}
+
+.p-back-cover .p-qr {
+  width: 1.1in;
+}
+
+.p-back-cover .p-back-url {
+  margin: 0.1in 0 0;
+  font-weight: 600;
+  color: #1f6b3a;
+}
+
 /* --- print --------------------------------------------------------------- */
 
 @media print {
