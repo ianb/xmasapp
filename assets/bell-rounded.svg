@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Rounded-square icon: favicon and regular app icons. -->
+  <path d="M256 0H112A112 112 0 0 0 0 112V400A112 112 0 0 0 112 512H256Z" fill="#b3261e"/>
+  <path d="M256 0H400A112 112 0 0 1 512 112V400A112 112 0 0 1 400 512H256Z" fill="#1f6b3a"/>
+  <g fill="#fdfbf7">
+    <circle cx="256" cy="148" r="20"/>
+    <path d="M256 160c-62 0-98 48-98 112v52c0 18-14 34-34 44v14h264v-14c-20-10-34-26-34-44v-52c0-64-36-112-98-112z"/>
+    <circle cx="256" cy="398" r="26"/>
+  </g>
+  <path d="M150 362h212v22H150z" fill="#f2c230"/>
+</svg>

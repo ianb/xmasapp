@@ -64,14 +64,9 @@ includes the session WebSockets.
 
 ## Icons
 
-`assets/bell.svg` is the source for the icons. To regenerate the PNGs in `public/`:
-
-```sh
-sed 's|width="512" height="512" fill|width="512" height="512" rx="112" fill|' assets/bell.svg > public/icon.svg
-for s in 512 192 32; do magick -background none -density 384 public/icon.svg -resize ${s}x$s public/icon-$s.png; done
-magick -density 384 assets/bell.svg -resize 512x512 public/icon-maskable-512.png
-magick -density 384 assets/bell.svg -resize 180x180 public/apple-touch-icon.png
-```
+The icon sources are in `assets/`: `bell-rounded.svg` for the favicon and app
+icons, and `bell.svg`, a full-bleed version for maskable icons. To regenerate the
+PNGs in `public/` (needs ImageMagick), run `assets/build-icons.sh`.
 
 ## Old domain
 
