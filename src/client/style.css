@@ -336,8 +336,11 @@ button.start-session:hover,
   background: var(--hover);
 }
 
+/* In a session, the button shows the session's code and opens the invite. */
 body.in-session .start-session {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 body.in-session #app {
@@ -488,6 +491,67 @@ dialog.invite h2 {
   font-size: 0.85rem;
   color: var(--muted);
   word-break: break-all;
+}
+
+dialog.sing button.start {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.join-or {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.join-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.join-form input {
+  flex: 1;
+  min-width: 0;
+  font: 700 1.1rem var(--font-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.join-form input::placeholder {
+  letter-spacing: normal;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.join-form button {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--accent-2);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--accent-2);
+  cursor: pointer;
+}
+
+.join-error {
+  margin: 0.5rem 0 0;
+  color: var(--accent);
+  font-size: 0.85rem;
 }
 
 .invite-actions {

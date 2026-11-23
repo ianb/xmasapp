@@ -7,7 +7,7 @@ import { SessionConnection } from "./session";
 import { h, renderStanza } from "./dom";
 import { loadSongs, type Art, type Song } from "./songs";
 import artJson from "../../art/art.json";
-import { newCode, type NowSinging } from "../shared/protocol";
+import { newCode, parseCode, type NowSinging } from "../shared/protocol";
 
 const songs = loadSongs(
   import.meta.glob<string>("../../songs/*.md", { query: "?raw", import: "default", eager: true }),
@@ -95,7 +95,9 @@ function renderAbout(): HTMLElement {
         {},
         "Tap ",
         h("strong", {}, "Sing together"),
-        " on the song list to start a session. Others join by scanning its QR code or opening the link you share.",
+        " on the song list to start a session. Others join by scanning its QR code, opening the link you share, ",
+        "or tapping Sing together and entering its code. While you\u2019re in a session, the code shows at the top of ",
+        "the song list; tap it to invite more people.",
       ),
       h(
         "ul",
@@ -172,6 +174,8 @@ const app = document.getElementById("app")!;
 // Replace the pre-rendered page (for link previews and search) with the app.
 app.replaceChildren();
 app.classList.remove("prerendered");
+// "Sing together" outside a session; the session's code inside one.
+const startButton = h("button", { type: "button", class: "start-session", "data-action": "sing-together" }, "Sing together");
 const favoriteList = h("ul", { class: "song-list" });
 const favoriteSection = h("section", { class: "favorites" }, h("h2", {}, "Favorites"), favoriteList);
 const index = h(
@@ -181,7 +185,7 @@ const index = h(
     "header",
     { class: "index-header" },
     h("h1", { class: "app-title" }, "Christmas Carols"),
-    h("button", { type: "button", class: "start-session", "data-action": "start-session" }, "Sing together"),
+    startButton,
   ),
   favoriteSection,
   h("section", { class: "all-songs" }, h("h2", {}, "All songs"), h("ul", { class: "song-list" }, songs.map(songLink))),
@@ -234,12 +238,67 @@ const inviteDialog = h(
     h("button", { type: "button", class: "primary", "data-action": "close-invite", autofocus: true }, "Done"),
   ),
 );
-// Tapping the backdrop closes the dialog.
-inviteDialog.addEventListener("click", (e) => {
-  if (e.target === inviteDialog) inviteDialog.close();
+const joinInput = h("input", {
+  name: "code",
+  class: "join-code",
+  placeholder: "Code",
+  "aria-label": "Session code",
+  autocomplete: "off",
+  autocapitalize: "characters",
+  spellcheck: "false",
+  enterkeyhint: "go",
+}) as HTMLInputElement;
+const joinError = h("p", { class: "join-error", role: "alert", hidden: true }, "That doesn\u2019t look like a session code.");
+const joinForm = h(
+  "form",
+  { class: "join-form" },
+  joinInput,
+  h("button", { type: "submit" }, "Join"),
+) as HTMLFormElement;
+const singDialog = h(
+  "dialog",
+  { class: "invite sing", "aria-label": "Sing together" },
+  h("h2", {}, "Sing together"),
+  h(
+    "p",
+    { class: "invite-help" },
+    "Everyone sees the same song, and the verse being sung lights up on every phone.",
+  ),
+  h("button", { type: "button", class: "primary start", "data-action": "start-session" }, "Start a session"),
+  h("p", { class: "join-or" }, "or join one with its code"),
+  joinForm,
+  joinError,
+  h(
+    "div",
+    { class: "invite-actions" },
+    h("button", { type: "button", "data-action": "close-sing" }, "Cancel"),
+  ),
+);
+joinForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const code = parseCode(joinInput.value);
+  joinError.hidden = code !== null;
+  if (!code) return;
+  singDialog.close();
+  navigate(`/s/${code}`);
 });
+joinInput.addEventListener("input", () => (joinError.hidden = true));
 
-app.append(index, h("main", { class: "songs" }, [...songEls.values()]), aboutPage, sessionBar, inviteDialog);
+// Tapping the backdrop closes a dialog.
+for (const dialog of [inviteDialog, singDialog]) {
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+}
+
+app.append(
+  index,
+  h("main", { class: "songs" }, [...songEls.values()]),
+  aboutPage,
+  sessionBar,
+  inviteDialog,
+  singDialog,
+);
 
 // --- printing -------------------------------------------------------------
 //
@@ -483,6 +542,9 @@ function leaveSession() {
   session = null;
   document.body.classList.remove("in-session");
   sessionBar.hidden = true;
+  startButton.dataset.action = "sing-together";
+  startButton.removeAttribute("aria-label");
+  startButton.replaceChildren("Sing together");
   applyNow(false);
 }
 
@@ -492,6 +554,12 @@ function renderSessionBar() {
   sessionStatus.className = `session-status ${session.status}`;
   sessionStatus.title = session.status === "open" ? "Connected" : "Reconnecting…";
   sessionCode.textContent = session.code.toUpperCase();
+  startButton.dataset.action = "invite";
+  startButton.setAttribute("aria-label", `Singing session ${session.code.toUpperCase()}: invite people`);
+  startButton.replaceChildren(
+    h("span", { class: `session-status ${session.status}` }),
+    h("span", { class: "session-code" }, session.code.toUpperCase()),
+  );
   const n = session.count;
   sessionCount.textContent = n ? `${n} ${n === 1 ? "person" : "people"}` : "";
 
@@ -650,7 +718,16 @@ document.addEventListener("click", (event) => {
   }
 
   const action = target.closest<HTMLElement>("[data-action]")?.dataset.action;
-  if (action === "start-session") {
+  if (action === "sing-together") {
+    joinInput.value = "";
+    joinError.hidden = true;
+    singDialog.showModal();
+    return;
+  } else if (action === "close-sing") {
+    singDialog.close();
+    return;
+  } else if (action === "start-session") {
+    singDialog.close();
     navigate(`/s/${newCode()}`);
     showInvite();
     return;

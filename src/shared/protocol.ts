@@ -27,6 +27,16 @@ export function isValidCode(code: string): boolean {
   return /^[a-z0-9]{4,16}$/.test(code);
 }
 
+/**
+ * A session code from what someone typed or pasted: the code in any case,
+ * with stray spaces or dashes, or a whole session link. Null if it isn't one.
+ */
+export function parseCode(input: string): string | null {
+  const fromLink = /\/s\/([a-z0-9]+)/i.exec(input);
+  const code = (fromLink ? fromLink[1] : input).toLowerCase().replace(/[\s-]/g, "");
+  return isValidCode(code) ? code : null;
+}
+
 export function newCode(length = 5): string {
   const bytes = crypto.getRandomValues(new Uint8Array(length));
   return [...bytes].map((b) => CODE_CHARS[b % CODE_CHARS.length]).join("");
