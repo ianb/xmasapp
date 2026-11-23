@@ -28,8 +28,3 @@ And may all your Christmases
 May all your Christmases
 May all your Christmases
 May all your Christmases be white
-
-I'm dreaming of a white
-Christmas with you
-Jingle Bells
-All the way, all the way
