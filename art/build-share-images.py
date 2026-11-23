@@ -6,11 +6,15 @@ Requires ImageMagick and macOS's Georgia font. Run it after editing art.json
 and commit the images. Songs without art use public/og-image.png.
 
     python3 art/build-share-images.py [song-id ...]
+
+An entry may have "crop": [left, top, width, height], as fractions of the
+whole image, to focus on part of it.
 """
+
+import argparse
 
 import json
 import subprocess
-import sys
 import tempfile
 import urllib.request
 from pathlib import Path
@@ -76,9 +80,13 @@ def title_size(tmp, text, width):
     return 32
 
 
-def build(song_id, art, tmp):
+def build(song_id, art, tmp, out):
     src = tmp / f"{song_id}-src.jpg"
     download(art["image"], src)
+    if "crop" in art:
+        x, y, w, h = art["crop"]
+        iw, ih = size(src)
+        magick(src, "-crop", f"{round(w * iw)}x{round(h * ih)}+{round(x * iw)}+{round(y * ih)}", "+repage", src)
     sw, sh = size(src)
     area_h = H - BAR
     art_w = min(MAX_ART_W, round(sw * area_h / sh))
@@ -102,18 +110,22 @@ def build(song_id, art, tmp):
         y += size(path)[1] + gap
     cmd += ["-fill", RED, "-draw", f"rectangle 0,{H - BAR} {W // 2 - 1},{H}",
             "-fill", GREEN, "-draw", f"rectangle {W // 2},{H - BAR} {W},{H}",
-            "-strip", "-quality", 82, OUT / f"{song_id}.jpg"]
+            "-strip", "-quality", 82, out / f"{song_id}.jpg"]
     magick(*cmd)
-    print(f"public/og/{song_id}.jpg")
+    print(out / f"{song_id}.jpg")
 
 
 def main():
-    arts = json.loads((ROOT / "art" / "art.json").read_text())
-    wanted = sys.argv[1:] or list(arts)
-    OUT.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("songs", nargs="*")
+    parser.add_argument("--art", type=Path, default=ROOT / "art" / "art.json", help="to preview other choices")
+    parser.add_argument("--out", type=Path, default=OUT)
+    args = parser.parse_args()
+    arts = json.loads(args.art.read_text())
+    args.out.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as d:
-        for song_id in wanted:
-            build(song_id, arts[song_id], Path(d))
+        for song_id in args.songs or list(arts):
+            build(song_id, arts[song_id], Path(d), args.out)
 
 
 if __name__ == "__main__":
