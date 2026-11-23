@@ -51,6 +51,18 @@ Each session is a Durable Object (`src/worker/session.ts`) holding the current
 song and verse, using hibernating WebSockets. The message types are in
 `src/shared/protocol.ts`. A session that nobody joins for a week is deleted.
 
+## Printing
+
+`/print` builds a songbook from your favorites, or from all songs if you have
+none starred. It has a contents page with page numbers, and choices for regular
+pages (two columns) or a folded booklet, on Letter or A4 paper. Pressing Cmd/Ctrl+P
+anywhere in the app prints that songbook.
+
+Browsers can't paginate well enough for this, so `src/client/print.ts` measures
+each song at its printed size and packs songs into columns stanza by stanza. For
+a booklet it puts the pages on sheets in fold order. You can set the options in
+the URL, e.g. `/print?format=booklet&paper=a4&songs=all`.
+
 ## Development
 
 ```sh

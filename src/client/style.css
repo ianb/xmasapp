@@ -525,86 +525,324 @@ dialog.invite h2 {
   }
 }
 
-/* --- print: a songbook with a table of contents and every song ------------ */
+/* --- print view (screen) ----------------------------------------------- */
+
+.print-view {
+  display: none;
+}
+
+body[data-view="print"] #app {
+  display: none;
+}
+
+body[data-view="print"] .print-view {
+  display: block;
+}
+
+.print-controls {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+}
+
+.print-controls fieldset {
+  border: none;
+  margin: 0.75rem 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+}
+
+.print-controls legend {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  padding: 0;
+}
+
+.print-controls label {
+  cursor: pointer;
+}
+
+.print-controls label:has(input:disabled) {
+  color: var(--muted);
+  cursor: default;
+}
+
+.print-note,
+.print-help {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.print-summary {
+  margin: 1rem 0 0.25rem;
+  font-weight: 600;
+}
+
+.print-help {
+  margin: 0.25rem 0;
+}
+
+.print-button {
+  margin-top: 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.6rem;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.print-preview {
+  padding: 1rem 1rem 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.print-preview .print-book {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.print-preview .p-sheet {
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.25);
+  position: relative;
+}
+
+.print-preview .p-sheet::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* A dashed line where a booklet sheet folds. */
+.print-preview .format-booklet .p-page + .p-page {
+  border-left: 1px dashed #ccc;
+}
+
+/* --- the printed book (both preview and print) ---------------------------- */
+
+.print-measure {
+  position: absolute;
+  top: 0;
+  left: -10000px;
+  visibility: hidden;
+}
+
+.print-book {
+  color: #000;
+  font-family: var(--font-body);
+  line-height: 1.3;
+}
+
+.print-book.format-pages {
+  font-size: 10.5pt;
+}
+
+.print-book.format-booklet {
+  font-size: 10pt;
+}
+
+.p-sheet {
+  display: flex;
+  background: #fff;
+  overflow: hidden;
+}
+
+.p-page {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+}
+
+.p-columns {
+  display: grid;
+  align-items: start;
+}
+
+.p-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 7pt;
+}
+
+.print-book .stanza {
+  margin: 0;
+  padding: 0;
+  cursor: auto;
+  break-inside: avoid;
+}
+
+.print-book .stanza.chorus {
+  margin-left: 0.15em;
+  padding-left: 0.6em;
+  border-left: 2px solid #000;
+  border-radius: 0;
+}
+
+.print-book .stanza.active {
+  background: none;
+  box-shadow: none;
+}
+
+.print-book .stanza-label,
+.print-book .line em {
+  color: #000;
+}
+
+.print-book .stanza-label {
+  font-size: 0.7em;
+}
+
+.p-title {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1.2;
+  break-after: avoid;
+}
+
+.p-title.continued {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #555;
+}
+
+.p-continued {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.p-number {
+  color: #b3261e;
+}
+
+.p-folio {
+  position: absolute;
+  bottom: 0.25in;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 8.5pt;
+  color: #555;
+}
+
+.p-toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 0.6em;
+  margin-bottom: 0.8em;
+  border-bottom: 2px solid #b3261e;
+}
+
+.p-toc-header h1 {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 2em;
+  color: #b3261e;
+}
+
+.p-toc-header p {
+  margin: 0.2em 0 0;
+  font-family: var(--font-ui);
+  color: #555;
+}
+
+.p-qr {
+  width: 0.9in;
+  flex: none;
+}
+
+.p-qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.p-toc-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4em;
+  padding: 0.12em 0;
+}
+
+.p-toc-line .p-number {
+  min-width: 1.8em;
+  text-align: right;
+}
+
+.p-leader {
+  flex: 1;
+  border-bottom: 1px dotted #888;
+  transform: translateY(-0.25em);
+}
+
+.p-toc-page {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- print --------------------------------------------------------------- */
 
 @media print {
   body {
     background: #fff;
-    color: #000;
-    font-size: 11pt;
   }
 
-  #app {
-    max-width: none;
+  /* Whatever page you're on, print the songbook. */
+  #app,
+  .print-controls,
+  dialog {
+    display: none !important;
+  }
+
+  .print-view {
+    display: block !important;
+  }
+
+  .print-preview {
+    display: block;
     padding: 0;
+    zoom: 1 !important;
   }
 
-  body:not([data-view="index"]) .index,
-  .song:not(.current) {
+  .print-preview .print-book {
     display: block;
   }
 
-  .about-page,
-  .index-footer {
-    display: none !important;
-  }
-
-  .favorites,
-  .session-bar,
-  .session-hint,
-  .start-session,
-  .back,
-  .favorite,
-  .about {
-    display: none !important;
-  }
-
-  .index {
+  .print-preview .p-sheet {
+    box-shadow: none;
     break-after: page;
   }
 
-  .app-title {
-    color: #000;
+  .print-preview .p-sheet:last-child {
+    break-after: auto;
   }
 
-  .song-list a {
-    padding: 0.1rem 0;
-    border: none;
+  .print-preview .p-sheet::after {
+    display: none;
   }
 
-  .song {
-    break-inside: avoid;
-    margin-bottom: 2rem;
-  }
-
-  .song-header {
-    position: static;
-    margin: 0 0 0.5rem;
-    padding: 0;
-    background: none;
-    border: none;
-  }
-
-  .song-title {
-    text-align: left;
-    font-size: 14pt;
-  }
-
-  .layout-columns .lyrics {
-    columns: 2;
-  }
-
-  .chorus {
-    border-left-color: #000;
-  }
-
-  .stanza.active {
-    background: none;
-    box-shadow: none;
-  }
-
-  .stanza-label,
-  .line em {
-    color: #000;
+  .print-preview .format-booklet .p-page + .p-page {
+    border-left: none;
   }
 }

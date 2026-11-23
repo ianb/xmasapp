@@ -1,9 +1,11 @@
 import "./style.css";
 import { registerSW } from "virtual:pwa-register";
 import { Favorites } from "./favorites";
+import { buildBook, loadSettings, paperLabel, saveSettings, type PrintSettings } from "./print";
 import { qrSvg } from "./qr";
 import { SessionConnection } from "./session";
-import { loadSongs, type Song, type Stanza } from "./songs";
+import { h, renderStanza } from "./dom";
+import { loadSongs, type Song } from "./songs";
 import { newCode, type NowSinging } from "../shared/protocol";
 
 const songs = loadSongs(
@@ -12,50 +14,10 @@ const songs = loadSongs(
 const songsById = new Map(songs.map((s) => [s.id, s]));
 const favorites = new Favorites();
 
-// --- tiny DOM helper ------------------------------------------------------
-
-type Child = Node | string | null | undefined | false;
-
-function h<K extends keyof HTMLElementTagNameMap>(
-  tag: K,
-  attrs: Record<string, string | boolean | undefined> = {},
-  ...children: (Child | Child[])[]
-): HTMLElementTagNameMap[K] {
-  const el = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (v === undefined || v === false) continue;
-    el.setAttribute(k, v === true ? "" : v);
-  }
-  for (const c of children.flat()) {
-    if (c) el.append(c);
-  }
-  return el;
-}
-
-/** Render a lyric line: *cues* and (x3) repeat markers get cue styling. */
-function inline(text: string): (Node | string)[] {
-  return text.split(/(\*[^*]+\*|\(x\d+\))/).map((part) => {
-    if (part.length > 2 && part.startsWith("*") && part.endsWith("*")) {
-      return h("em", {}, part.slice(1, -1));
-    }
-    const repeat = /^\(x(\d+)\)$/.exec(part);
-    return repeat ? h("em", { class: "repeat", title: `Repeat ${repeat[1]} times` }, `\u00d7${repeat[1]}`) : part;
-  });
-}
-
 // --- rendering ------------------------------------------------------------
 
 const songPath = (song: Song) => `/song/${song.id}`;
 const star = (on: boolean) => (on ? "★" : "☆");
-
-function renderStanza(stanza: Stanza, index: number): HTMLElement {
-  return h(
-    "div",
-    { class: stanza.chorus ? "stanza chorus" : "stanza", "data-stanza": String(index) },
-    stanza.chorus && h("div", { class: "stanza-label" }, "Chorus"),
-    stanza.lines.map((line) => h("div", { class: line.indent ? "line indent" : "line" }, inline(line.text))),
-  );
-}
 
 function favoriteButton(song: Song): HTMLButtonElement {
   const on = favorites.has(song.id);
@@ -200,7 +162,13 @@ const index = h(
   ),
   favoriteSection,
   h("section", { class: "all-songs" }, h("h2", {}, "All songs"), h("ul", { class: "song-list" }, songs.map(songLink))),
-  h("footer", { class: "index-footer" }, h("a", { href: "/about" }, "About this app")),
+  h(
+    "footer",
+    { class: "index-footer" },
+    h("a", { href: "/print" }, "Print a songbook"),
+    " \u00b7 ",
+    h("a", { href: "/about" }, "About this app"),
+  ),
 );
 const aboutPage = renderAbout();
 const songEls = new Map(songs.map((s) => [s.id, renderSong(s)]));
@@ -249,6 +217,139 @@ inviteDialog.addEventListener("click", (e) => {
 });
 
 app.append(index, h("main", { class: "songs" }, [...songEls.values()]), aboutPage, sessionBar, inviteDialog);
+
+// --- printing -------------------------------------------------------------
+//
+// The print view lives outside #app because its preview pages are wider than
+// the app column. Printing from anywhere prints the songbook it describes.
+
+let printSettings = loadSettings();
+// /print?format=booklet&paper=a4&songs=all overrides the saved settings (not saved).
+{
+  const params = new URLSearchParams(location.search);
+  const pick = <T extends string>(key: string, values: readonly T[]) => {
+    const v = params.get(key) as T | null;
+    return v && values.includes(v) ? v : undefined;
+  };
+  printSettings = {
+    songs: pick("songs", ["favorites", "all"] as const) ?? printSettings.songs,
+    format: pick("format", ["pages", "booklet"] as const) ?? printSettings.format,
+    paper: pick("paper", ["letter", "a4"] as const) ?? printSettings.paper,
+  };
+}
+const pageStyle = h("style", {});
+document.head.append(pageStyle);
+const printSummary = h("p", { class: "print-summary" });
+const bookletHelp = h(
+  "p",
+  { class: "print-help" },
+  "Print double-sided and choose ",
+  h("strong", {}, "flip on short edge"),
+  ". Stack the sheets in order, fold them in half, and staple along the fold.",
+);
+const favoritesNote = h("span", { class: "print-note" });
+const printHolder = h("div", { class: "print-preview" });
+
+function choice<K extends keyof PrintSettings>(key: K, value: PrintSettings[K], label: Node | string) {
+  return h(
+    "label",
+    {},
+    h("input", { type: "radio", name: `print-${key}`, value, "data-print-setting": key }),
+    " ",
+    label,
+  );
+}
+
+const favoritesLabel = h("span", {});
+const printView = h(
+  "div",
+  { class: "print-view" },
+  h(
+    "div",
+    { class: "print-controls" },
+    h(
+      "header",
+      { class: "song-header" },
+      h("a", { class: "back", href: "/", "aria-label": "Back to song list" }, "\u2039 Songs"),
+      h("h2", { class: "song-title" }, "Print a songbook"),
+      h("span", { class: "header-spacer" }),
+    ),
+    h(
+      "fieldset",
+      {},
+      h("legend", {}, "Songs"),
+      choice("songs", "favorites", favoritesLabel),
+      choice("songs", "all", `All songs (${songs.length})`),
+      favoritesNote,
+    ),
+    h(
+      "fieldset",
+      {},
+      h("legend", {}, "Format"),
+      choice("format", "pages", "Pages"),
+      choice("format", "booklet", "Folded booklet"),
+    ),
+    h(
+      "fieldset",
+      {},
+      h("legend", {}, "Paper"),
+      choice("paper", "letter", "Letter"),
+      choice("paper", "a4", "A4"),
+    ),
+    printSummary,
+    bookletHelp,
+    h("p", { class: "print-help" }, "If your browser asks, set margins to none and scale to 100%."),
+    h("button", { type: "button", class: "print-button", "data-action": "print" }, "Print"),
+  ),
+  printHolder,
+);
+document.body.append(printView);
+
+function renderPrint() {
+  const favs = songs.filter((s) => favorites.has(s.id));
+  const useFavorites = printSettings.songs === "favorites" && favs.length > 0;
+  const list = useFavorites ? favs : songs;
+  const book = buildBook(list, printSettings);
+  printHolder.replaceChildren(book.el);
+  pageStyle.textContent = book.pageCss;
+
+  favoritesLabel.textContent = `Favorites (${favs.length})`;
+  favoritesNote.textContent = favs.length ? "" : "Star songs to choose them; until then, all songs print.";
+  for (const input of printView.querySelectorAll<HTMLInputElement>("[data-print-setting]")) {
+    input.checked = printSettings[input.dataset.printSetting as keyof PrintSettings] === input.value;
+    if (input.value === "favorites") input.disabled = favs.length === 0;
+  }
+  const paper = paperLabel(printSettings.paper);
+  const n = list.length;
+  printSummary.textContent =
+    printSettings.format === "booklet"
+      ? `${n} songs, ${book.pageCount} pages: ${book.sheetCount} sheets of ${paper} paper, printed on both sides.`
+      : `${n} songs on ${book.pageCount} pages of ${paper} paper.`;
+  bookletHelp.hidden = printSettings.format !== "booklet";
+  fitPreview();
+}
+
+/** Shrink the on-screen preview to fit narrow windows. */
+function fitPreview() {
+  const sheet = printHolder.querySelector<HTMLElement>(".p-sheet");
+  if (!sheet) return;
+  const available = Math.min(window.innerWidth, document.documentElement.clientWidth) - 32;
+  printHolder.style.zoom = String(Math.min(1, available / sheet.offsetWidth));
+}
+
+printView.addEventListener("change", (event) => {
+  const input = event.target as HTMLInputElement;
+  const key = input.dataset.printSetting as keyof PrintSettings | undefined;
+  if (!key) return;
+  printSettings = { ...printSettings, [key]: input.value };
+  saveSettings(printSettings);
+  renderPrint();
+});
+window.addEventListener("resize", () => {
+  if (document.body.dataset.view === "print") fitPreview();
+});
+// Printing from any page prints the songbook, built fresh with current favorites.
+window.addEventListener("beforeprint", renderPrint);
 
 function refreshFavorites() {
   const favs = songs.filter((s) => favorites.has(s.id));
@@ -450,10 +551,10 @@ function route() {
   if (location.pathname !== location.pathname.toLowerCase()) {
     history.replaceState(history.state, "", location.pathname.toLowerCase() + location.search);
   }
-  const m = /^(?:\/s\/([a-z0-9]{4,16}))?(?:\/song\/([^/]+)|\/(about))?\/?$/.exec(location.pathname);
+  const m = /^(?:\/s\/([a-z0-9]{4,16}))?(?:\/song\/([^/]+)|\/(about|print))?\/?$/.exec(location.pathname);
   const code = m?.[1];
   const song = m?.[2] ? songsById.get(m[2]) : undefined;
-  const about = !!m?.[3];
+  const page = (m?.[3] as Page | undefined) ?? null;
   if (!m || (m[2] && !song)) {
     history.replaceState(null, "", code ? `/s/${code}` : "/");
   }
@@ -462,7 +563,7 @@ function route() {
   } else if (session) {
     leaveSession();
   }
-  show(song ?? null, about);
+  show(song ?? null, page);
   // Navigating away from what the group is singing means you're browsing on your own.
   const now = getNow();
   if (session && following && now && current?.id !== now.songId && !navigatingToNow) {
@@ -471,12 +572,15 @@ function route() {
   applyNow(true);
 }
 
-function show(song: Song | null, about = false) {
+type Page = "about" | "print";
+
+function show(song: Song | null, page: Page | null = null) {
   if (current) songEls.get(current.id)!.classList.remove("current");
   current = song;
-  document.body.dataset.view = song ? "song" : about ? "about" : "index";
-  if (about) {
-    document.title = "About \u2013 Christmas Carols";
+  document.body.dataset.view = song ? "song" : (page ?? "index");
+  if (page) {
+    document.title = `${page === "about" ? "About" : "Print a songbook"} \u2013 Christmas Carols`;
+    if (page === "print") renderPrint();
     window.scrollTo(0, 0);
   } else if (song) {
     songEls.get(song.id)!.classList.add("current");
@@ -535,6 +639,9 @@ document.addEventListener("click", (event) => {
     return;
   } else if (action === "copy-link") {
     void copyLink();
+    return;
+  } else if (action === "print") {
+    window.print();
     return;
   } else if (action === "close-invite") {
     inviteDialog.close();
