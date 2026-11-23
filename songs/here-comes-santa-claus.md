@@ -1,0 +1,51 @@
+---
+title: Here Comes Santa Claus
+about: https://en.wikipedia.org/wiki/Here_Comes_Santa_Claus
+---
+
+Here comes Santa Claus,
+Here comes Santa Claus,
+Right down Santa Claus Lane,
+Vixen and Blitzen and all his reindeer
+Pullin' on the reins.
+Bells are ringin', children singin',
+All is merry and bright.
+So hang your stockings and say your prayers,
+'Cause Santa Claus comes tonight.
+
+Here comes Santa Claus,
+Here comes Santa Claus,
+Right down Santa Claus Lane,
+He's got a bag that's filled with toys
+For boys and girls again.
+Hear those sleigh bells jingle jangle,
+Oh what a beautiful sight,
+So jump in bed, and cover your head,
+'Cause Santa Claus comes tonight.
+
+Here comes Santa Claus,
+Here comes Santa Claus,
+Right down Santa Claus Lane,
+He'll come around when chimes ring out,
+It's Christmas time again.
+Peace on earth will come to all,
+If we just follow the light,
+So let's give thanks to the Lord above
+'Cause Santa Claus comes tonight.
+
+Here comes Santa Claus,
+Here comes Santa Claus,
+Right down Santa Claus Lane,
+Vixen and Blitzen and all his reindeer
+Pullin' on the reins.
+Bells are ringin', children singin',
+All is merry and bright,
+So jump in bed, and cover your head,
+'Cause Santa Claus comes tonight.
+
+Peace on earth will come to all,
+If we just follow the light,
+So let's give thanks to the Lord above
+'Cause Santa Claus comes tonight,
+So let's give thanks to the Lord above
+'Cause Santa Claus comes tonight.

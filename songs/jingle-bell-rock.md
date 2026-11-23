@@ -1,0 +1,26 @@
+---
+title: Jingle Bell Rock
+about: https://en.wikipedia.org/wiki/Jingle_Bell_Rock
+---
+
+Jingle bell, jingle bell, jingle bell rock
+Jingle bells swing and jingle bells ring
+Snowing and blowing up bushels of fun
+Now the jingle hop has begun.
+
+Jingle bell (x3)
+rock
+Jingle bells chime in jingle bell time
+Dancing and prancing in Jingle bell Square
+In the frosty air.
+
+What a bright time, its the right time
+To rock the night away
+Jingle bell time is a swell time
+To go gliding in a one-horse sleigh.
+
+Giddy-up jingle horse, pick up your feet
+Jingle around the clock
+Mix and a-mingle in the jingling feet
+That's the jingle bell (x3)
+rock.
