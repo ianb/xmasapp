@@ -1,6 +1,8 @@
 ---
 title: Jingle Bells
 about: https://en.wikipedia.org/wiki/Jingle_Bells
+tune: E4q E4q E4h | E4q E4q E4h | E4q G4q C4q. D4e | E4w | F4q F4q F4q. F4e | F4q E4q E4q E4e E4e | E4q D4q D4q E4q | D4h G4h
+tempo: 132
 ---
 
 Dashing through the snow

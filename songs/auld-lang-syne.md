@@ -1,6 +1,8 @@
 ---
 title: Auld Lang Syne
 about: https://en.wikipedia.org/wiki/Auld_Lang_Syne
+tune: C4q | F4q. F4e F4q A4q | G4q. F4e G4q A4e G4e | F4q. F4e A4q C5q | D5h.
+tempo: 92
 ---
 
 Should old acquaintance be forgot,

@@ -1,6 +1,8 @@
 ---
 title: Angels We Have Heard on High
 about: https://en.wikipedia.org/wiki/Angels_We_Have_Heard_on_High
+tune: E4q E4q E4q G4q | G4q. F4e E4h | E4q D4q E4q G4q | E4q. D4e C4h
+tempo: 108
 ---
 
 Angels we have heard on high

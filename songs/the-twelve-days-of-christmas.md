@@ -1,6 +1,8 @@
 ---
 title: The Twelve Days of Christmas
 about: https://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)
+tune: G4e G4e | C5q. C5e C5q | B4e C5e D5e E5e F5e D5e | E5q. F5e G5q A5e F5e | E5e C5e D5q C5q
+tempo: 112
 ---
 
 On the first day of Christmas,

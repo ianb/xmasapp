@@ -12,6 +12,8 @@ Each song is a text file in [`songs/`](songs/):
 title: Silent Night
 about: https://en.wikipedia.org/wiki/Silent_Night
 layout: columns        # optional: columns (2 columns on wide screens/print) or longlines
+tune: G4q. A4e G4q E4h. | G4q. A4e G4q E4h.   # optional: the opening of the melody
+tempo: 84              # optional: quarter notes per minute, default 100
 ---
 
 First line of a stanza
@@ -34,6 +36,13 @@ House style, enforced by `npm test`:
 - Write repeats as `(x3)`. They show as a small "×3" cue.
 - Titles are in title case ("Frosty the Snowman", not "Frosty The Snowman").
 The file name is the song's URL: `/song/silent-night`.
+
+A song with a `tune` gets a "Hear how it goes" button at the bottom that plays
+the opening with a simple synthesized tone, to remind people how it goes. Notes
+are a pitch and octave (`C4` is middle C, `#` sharp, `b` flat) or `r` for a
+rest, followed by a length: `w` whole, `h` half, `q` quarter, `e` eighth, `s`
+sixteenth, with `.` for dotted. `|` bar lines are just for reading. Keep it to
+a line or two, between G3 and A5.
 
 ## Singing together
 

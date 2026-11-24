@@ -2,6 +2,8 @@
 title: Hark! The Herald Angels Sing
 about: https://en.wikipedia.org/wiki/Hark!_The_Herald_Angels_Sing
 layout: columns
+tune: D4q G4q G4q. F#4e | G4q B4q B4q A4q | D5q D5q D5q. C5e | B4q A4q B4h
+tempo: 104
 ---
 
 Hark! The Herald Angels sing,

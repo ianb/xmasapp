@@ -1,6 +1,8 @@
 ---
 title: Deck the Halls
 about: https://en.wikipedia.org/wiki/Deck_the_Halls
+tune: G4q. F4e E4q D4q | C4q D4q E4q C4q | D4e E4e F4e D4e E4q. D4e | C4q B3q C4h
+tempo: 120
 ---
 
 Deck the halls with boughs of holly

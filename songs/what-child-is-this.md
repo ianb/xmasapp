@@ -1,6 +1,8 @@
 ---
 title: What Child Is This?
 about: https://en.wikipedia.org/wiki/What_Child_Is_This%3F
+tune: A4e | C5q D5e E5e. F5s E5e | D5q B4e G4e. A4s B4e | C5q A4e A4e. G#4s A4e | B4q G#4e E4q
+tempo: 120
 ---
 
 What child is this, who, laid to rest,

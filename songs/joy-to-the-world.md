@@ -1,6 +1,8 @@
 ---
 title: Joy to the World
 about: https://en.wikipedia.org/wiki/Joy_to_the_World
+tune: C5q B4e. A4s G4q. F4e | E4q D4q C4q. G4e | A4q. A4e B4q. B4e | C5h.
+tempo: 100
 ---
 
 Joy to the world! the Lord is come;

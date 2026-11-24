@@ -29,6 +29,21 @@ export interface Song {
   about?: string;
   layout: Layout;
   stanzas: Stanza[];
+  /** The opening of the melody, to remind people how the song goes. */
+  tune?: Tune;
+}
+
+export interface Note {
+  /** MIDI note number (60 is middle C), or null for a rest. */
+  pitch: number | null;
+  /** Length in beats, where a quarter note is one beat. */
+  beats: number;
+}
+
+export interface Tune {
+  /** Quarter notes per minute. */
+  tempo: number;
+  notes: Note[];
 }
 
 /**
@@ -38,6 +53,8 @@ export interface Song {
  *     title: Silent Night
  *     about: https://...
  *     layout: columns | longlines   (optional)
+ *     tune: G4q. A4e G4q E4h. | G4q. A4e G4q E4h.   (optional, see parseTune)
+ *     tempo: 90                     (optional, quarter notes per minute)
  *     ---
  *
  *     First stanza line
@@ -87,7 +104,43 @@ export function parseSong(id: string, source: string): Song {
     });
   }
 
-  return { id, title: typography(meta.title), about: meta.about || undefined, layout, stanzas };
+  let tune: Tune | undefined;
+  if (meta.tune) {
+    const tempo = meta.tempo ? Number(meta.tempo) : 100;
+    if (!(tempo > 0)) throw new Error(`Song ${id} has a bad tempo ${meta.tempo}`);
+    try {
+      tune = { tempo, notes: parseTune(meta.tune) };
+    } catch (e) {
+      throw new Error(`Song ${id}: ${(e as Error).message}`);
+    }
+  }
+
+  return { id, title: typography(meta.title), about: meta.about || undefined, layout, stanzas, tune };
+}
+
+const STEPS: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+const LENGTHS: Record<string, number> = { w: 4, h: 2, q: 1, e: 0.5, s: 0.25 };
+
+/**
+ * Parse a tune: notes separated by spaces, with | bar lines for readability.
+ * A note is a pitch and octave (C4 is middle C; # sharp, b flat) or r for a
+ * rest, then its length: w whole, h half, q quarter, e eighth, s sixteenth,
+ * with . for dotted. "F#4q." is a dotted quarter F sharp above middle C.
+ */
+export function parseTune(text: string): Note[] {
+  const notes: Note[] = [];
+  for (const token of text.split(/\s+/)) {
+    if (!token || token === "|") continue;
+    const m = /^(?:([A-G])([#b]?)(\d)|r)([whqes])(\.?)$/.exec(token);
+    if (!m) throw new Error(`can't read note "${token}" in tune`);
+    const [, step, accidental, octave, length, dot] = m;
+    const pitch = step
+      ? 12 * (Number(octave) + 1) + STEPS[step] + (accidental === "#" ? 1 : accidental === "b" ? -1 : 0)
+      : null;
+    notes.push({ pitch, beats: LENGTHS[length] * (dot ? 1.5 : 1) });
+  }
+  if (!notes.length) throw new Error("tune has no notes");
+  return notes;
 }
 
 /** Curly quotes, em dashes and ellipses from plain ASCII punctuation. */

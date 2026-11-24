@@ -1,6 +1,8 @@
 ---
 title: O Christmas Tree
 about: https://en.wikipedia.org/wiki/O_Christmas_Tree
+tune: D4q | G4e. G4s G4q. A4e | B4e. B4s B4q. B4e | A4e B4e C5q F#4q | A4q G4q
+tempo: 96
 ---
 
 O Christmas Tree, O Christmas Tree,

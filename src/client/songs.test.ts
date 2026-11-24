@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { loadSongs, parseSong, typography } from "./songs";
+import { loadSongs, parseSong, parseTune, typography } from "./songs";
 
 describe("parseSong", () => {
   it("parses header, stanzas, chorus and indented lines", () => {
@@ -45,6 +45,23 @@ describe("typography", () => {
   });
 });
 
+describe("parseTune", () => {
+  it("reads pitches, octaves, accidentals, lengths and dots", () => {
+    expect(parseTune("C4q | A4e F#4h. Bb3s rw")).toEqual([
+      { pitch: 60, beats: 1 },
+      { pitch: 69, beats: 0.5 },
+      { pitch: 66, beats: 3 },
+      { pitch: 58, beats: 0.25 },
+      { pitch: null, beats: 4 },
+    ]);
+  });
+  it("rejects notes it can't read", () => {
+    expect(() => parseTune("C4q H4q")).toThrow(/H4q/);
+    expect(() => parseTune("C4")).toThrow();
+    expect(() => parseTune("|")).toThrow();
+  });
+});
+
 describe("songs/*.md", () => {
   const dir = new URL("../../songs/", import.meta.url);
   const files = Object.fromEntries(
@@ -56,6 +73,20 @@ describe("songs/*.md", () => {
     expect(songs.length).toBeGreaterThan(30);
     for (const song of songs) {
       expect(song.stanzas.length, song.id).toBeGreaterThan(0);
+    }
+  });
+
+  it("tunes are short openings in a comfortable range", () => {
+    for (const song of songs.filter((s) => s.tune)) {
+      const { tempo, notes } = song.tune!;
+      const seconds = (notes.reduce((sum, n) => sum + n.beats, 0) * 60) / tempo;
+      expect(seconds, song.id).toBeLessThan(20);
+      for (const n of notes) {
+        if (n.pitch === null) continue;
+        // G3 to A5
+        expect(n.pitch, song.id).toBeGreaterThanOrEqual(55);
+        expect(n.pitch, song.id).toBeLessThanOrEqual(81);
+      }
     }
   });
 

@@ -3,6 +3,7 @@ import { registerSW } from "virtual:pwa-register";
 import { Favorites } from "./favorites";
 import { buildBook, loadSettings, paperLabel, saveSettings, type PrintSettings } from "./print";
 import { qrSvg } from "./qr";
+import { playTune } from "./tune";
 import { SessionConnection } from "./session";
 import { h, renderStanza } from "./dom";
 import { loadSongs, type Art, type Song } from "./songs";
@@ -79,13 +80,36 @@ function renderSong(song: Song): HTMLElement {
     ),
     h("p", { class: "session-hint" }, "Tap a verse to show everyone where you are."),
     h("div", { class: "lyrics" }, song.stanzas.map(renderStanza)),
-    song.about &&
+    (song.tune || song.about) &&
       h(
         "footer",
         { class: "about" },
-        h("a", { href: song.about, target: "_blank", rel: "noopener" }, "About this song"),
+        song.tune &&
+          h("button", { type: "button", class: "play-tune", "data-action": "play-tune" }, PLAY_LABEL),
+        song.about && h("a", { href: song.about, target: "_blank", rel: "noopener" }, "About this song"),
       ),
   );
+}
+
+// --- hearing the tune -------------------------------------------------------
+
+const PLAY_LABEL = "\u25b6 Hear how it goes";
+let stopTune: (() => void) | null = null;
+
+function toggleTune(button: HTMLElement) {
+  if (stopTune) {
+    const wasThis = button.classList.contains("playing");
+    stopTune();
+    if (wasThis) return;
+  }
+  if (!current?.tune) return;
+  button.classList.add("playing");
+  button.textContent = "\u25a0 Stop";
+  stopTune = playTune(current.tune, () => {
+    button.classList.remove("playing");
+    button.textContent = PLAY_LABEL;
+    stopTune = null;
+  });
 }
 
 function songLink(song: Song): HTMLElement {
@@ -686,6 +710,7 @@ function route() {
 type Page = "about" | "print";
 
 function show(song: Song | null, page: Page | null = null) {
+  stopTune?.();
   if (current) songEls.get(current.id)!.classList.remove("current");
   current = song;
   document.body.dataset.view = song ? "song" : (page ?? "index");
@@ -738,7 +763,10 @@ document.addEventListener("click", (event) => {
   }
 
   const action = target.closest<HTMLElement>("[data-action]")?.dataset.action;
-  if (action === "sing-together") {
+  if (action === "play-tune") {
+    toggleTune(target.closest<HTMLElement>("[data-action]")!);
+    return;
+  } else if (action === "sing-together") {
     joinInput.value = "";
     joinError.hidden = true;
     singDialog.showModal();

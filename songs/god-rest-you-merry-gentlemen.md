@@ -1,6 +1,8 @@
 ---
 title: God Rest You Merry Gentlemen
 about: https://en.wikipedia.org/wiki/God_Rest_Ye_Merry,_Gentlemen
+tune: E4q | E4q B4q B4q A4q | G4q F#4q E4q D4q | E4q F#4q G4q A4q | B4h.
+tempo: 112
 ---
 
 God rest you merry, gentlemen,
