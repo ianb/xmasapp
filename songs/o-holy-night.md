@@ -2,7 +2,7 @@
 title: O Holy Night
 about: https://en.wikipedia.org/wiki/O_Holy_Night
 layout: longlines
-tune: E4e | E4q.+q G4e G4q.+q G4e | A4q A4e F4q A4e C5h. | G4q G4e E4q D4e C4q. E4q F4e | G4q. F4q D4e C4h. | rh. | E4q. E4q E4e G4q.+q G4e | A4q A4e F4q A4e C5h. | G4q G4e F#4q E4e B4q. G4q A4e | B4q. C5q B4e E4h.
+tune: E4e | E4q E4e G4q.+q G4e | A4q A4e F4q A4e C5h. | G4q G4e E4q D4e C4q. E4q F4e | G4q. F4q D4e C4h. | rh. | E4q. E4q E4e G4q.+q G4e | A4q A4e F4q A4e C5h. | G4q G4e F#4q E4e B4q. G4q A4e | B4q. C5q B4e E4h.
 tempo: 84
 ---
 
