@@ -1,7 +1,7 @@
 ---
 title: We Three Kings of Orient Are
 about: https://en.wikipedia.org/wiki/We_Three_Kings_of_Orient_Are
-tune: B4q A4e | G4q E4e | F#4e G4e F#4e | E4q. | B4q A4e | G4q E4e | F#4e G4e F#4e | E4q.
+tune: B4q A4e G4q E4e F#4e G4e F#4e E4q re B4q A4e G4q E4e F#4e G4e F#4e E4q re G4q G4e A4q A4e B4q B4e D5e C5e B4e A4e B4e A4e G4q F#4e E4q re F#4q A4e G4q G4e G4q D4e G4q E4e G4q re G4q G4e G4q D4e G4q E4e G4q re G4q G4e A4q B4e C5q B4e A4q B4e G4q G4e G4q D4e G4q E4e G4q.
 tempo: 100
 ---
 

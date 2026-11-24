@@ -1,6 +1,8 @@
 ---
 title: Angels from the Realms of Glory
 about: https://en.wikipedia.org/wiki/Angels_from_the_Realms_of_Glory
+tune: F4q D4q Bb4q F4q D5q. C5e Bb4q F4q G4q G4q F4q Bb4q F4q Eb4q D4h F4q D4q Bb4q F4q D5q. C5e Bb4q A4q Bb4q A4q G4q A4e Bb4e A4q G4q F4h C5q. C5e A4q F4q D5q. C5e Bb4q G4q Eb5q D5q C5q Bb4q Bb4q A4q Bb4h
+tempo: 108
 ---
 
 Angels from the realms of glory

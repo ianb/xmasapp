@@ -2,8 +2,8 @@
 title: Good King Wenceslas
 about: https://en.wikipedia.org/wiki/Good_King_Wenceslas
 layout: longlines
-tune: G4q G4q G4q A4q | G4q G4q D4h | E4q D4q E4q F#4q | G4h G4h
-tempo: 112
+tune: A4q A4q A4q B4q A4q A4q E4h F#4q E4q F#4q Ab4q A4h A4h A4q A4q A4q B4q A4q A4q E4h F#4q E4q F#4q Ab4q A4h A4h E5q D5q C#5q B4q C#5q B4q A4h F#4q E4q F#4q Ab4q A4h A4h E4q E4q F#4q Ab4q A4q A4q B4h E5q D5q C#5q B4q A4h D5h A4w
+tempo: 120
 ---
 
 Good King Wenceslas looked out, on the Feast of Stephen,

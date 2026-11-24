@@ -47,17 +47,19 @@ describe("typography", () => {
 
 describe("parseTune", () => {
   it("reads pitches, octaves, accidentals, lengths and dots", () => {
-    expect(parseTune("C4q | A4e F#4h. Bb3s rw")).toEqual([
+    expect(parseTune("C4q | A4e F#4h. Bb3s rw C4h+e.")).toEqual([
       { pitch: 60, beats: 1 },
       { pitch: 69, beats: 0.5 },
       { pitch: 66, beats: 3 },
       { pitch: 58, beats: 0.25 },
       { pitch: null, beats: 4 },
+      { pitch: 60, beats: 2.75 },
     ]);
   });
   it("rejects notes it can't read", () => {
     expect(() => parseTune("C4q H4q")).toThrow(/H4q/);
     expect(() => parseTune("C4")).toThrow();
+    expect(() => parseTune("C4q+")).toThrow();
     expect(() => parseTune("|")).toThrow();
   });
 });
@@ -76,11 +78,11 @@ describe("songs/*.md", () => {
     }
   });
 
-  it("tunes are short openings in a comfortable range", () => {
+  it("tunes are at most a verse and chorus, in a comfortable range", () => {
     for (const song of songs.filter((s) => s.tune)) {
       const { tempo, notes } = song.tune!;
       const seconds = (notes.reduce((sum, n) => sum + n.beats, 0) * 60) / tempo;
-      expect(seconds, song.id).toBeLessThan(20);
+      expect(seconds, song.id).toBeLessThan(60);
       for (const n of notes) {
         if (n.pitch === null) continue;
         // G3 to A5

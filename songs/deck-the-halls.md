@@ -1,8 +1,8 @@
 ---
 title: Deck the Halls
 about: https://en.wikipedia.org/wiki/Deck_the_Halls
-tune: G4q. F4e E4q D4q | C4q D4q E4q C4q | D4e E4e F4e D4e E4q. D4e | C4q B3q C4h
-tempo: 120
+tune: G4q. F4e E4q D4q | C4q D4q E4q C4q | D4e E4e F4e D4e E4q. D4e | C4q B3q C4h | G4q. F4e E4q D4q | C4q D4q E4q C4q | D4e E4e F4e D4e E4q. D4e | C4q B3q C4h | D4q. E4e F4q D4q | E4q. F4e G4q D4q | E4e F#4e G4q A4e B4e C5q | B4q A4q G4h | G4q. F4e E4q D4q | C4q D4q E4q C4q | A4e A4e A4e A4e G4q. F4e | E4q D4q C4h
+tempo: 126
 ---
 
 Deck the halls with boughs of holly

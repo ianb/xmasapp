@@ -1,8 +1,8 @@
 ---
 title: O Come, All Ye Faithful
 about: https://en.wikipedia.org/wiki/Adeste_Fideles
-tune: G4q | G4h D4q G4q | A4h D4h | B4q A4q B4q C5q | B4h A4q
-tempo: 100
+tune: G4q G4h D4q G4q A4h D4h B4q A4q B4q C5q B4h A4q G4q G4h F#4q E4q F#4q G4q A4q B4q F#4h E4q. D4e D4w D5h C5q B4q C5h B4h A4q B4q G4q A4q F#4h D4q G4q F#4q G4q A4q G4h D4q B4q B4q A4q B4q C5q B4h A4q B4q C5q B4q A4q G4q F#4h G4q C5q B4h A4q. G4e G4w
+tempo: 108
 ---
 
 O come, all ye faithful,

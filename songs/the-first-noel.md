@@ -1,8 +1,8 @@
 ---
 title: The First Noël
 about: https://en.wikipedia.org/wiki/The_First_Nowell
-tune: E4e D4e | C4q. D4e E4e F4e | G4h A4e B4e | C5q B4q A4q | G4h.
-tempo: 100
+tune: F#4e E4e D4q. E4e F#4e G4e A4h B4e C#5e D5q C#5q B4q A4h B4e C#5e D5q C#5q B4q A4q B4q C#5q D5q A4q G4q F#4h F#4e E4e D4q. E4e F#4e G4e A4h B4e C#5e D5q C#5q B4q A4h B4e C#5e D5q C#5q B4q A4q B4q C#5q D5q A4q G4q F#4h F#4e E4e D4q. E4e F#4e G4e A4h D5e C#5e B4h B4q A4h A4q D5q C#5q B4q A4q B4q C#5q D5q A4q G4q F#4h
+tempo: 126
 ---
 
 The first Noel, the angels say

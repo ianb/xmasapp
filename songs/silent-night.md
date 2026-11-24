@@ -1,8 +1,8 @@
 ---
 title: Silent Night
 about: https://en.wikipedia.org/wiki/Silent_Night_%28song%29
-tune: G4q. A4e G4q E4h. | G4q. A4e G4q E4h. | D5h D5q B4h. | C5h C5q G4h.
-tempo: 84
+tune: G4e. A4s G4e E4q. G4e. A4s G4e E4q. D5q D5e B4q. C5q C5e G4q. A4q A4e C5e. B4s A4e G4e. A4s G4e E4q. A4q A4e C5e. B4s A4e G4e. A4s G4e E4q. D5q D5e F5e. D5s B4e C5q. E5q re C5e. G4s E4e G4e. F4s D4e C4h+e re
+tempo: 100
 ---
 
 Silent night, holy night

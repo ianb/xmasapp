@@ -1,6 +1,8 @@
 ---
 title: O Little Town of Bethlehem
 about: https://en.wikipedia.org/wiki/O_Little_Town_of_Bethlehem
+tune: B4q B4q B4q Bb4q B4q D5q C5q E4q A4q G4q F#4e G4e A4q D4q B4h. B4q B4q B4q E5q D5q D5q C5q E4q A4q G4q F#4e G4e B4q A4q G4h. B4q B4q B4q A4q G4q F#4h F#4q F#4q E4q F#4q G4q A4q B4h. B4q B4q B4q Bb4q B4q D5q C5q E4q E5q D5q G4q B4q. A4e G4h.
+tempo: 100
 ---
 
 O little town of Bethlehem

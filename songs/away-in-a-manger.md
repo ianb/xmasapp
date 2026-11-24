@@ -2,6 +2,8 @@
 title: Away in a Manger
 about: https://en.wikipedia.org/wiki/Away_in_a_Manger
 layout: longlines
+tune: C4q F4q F4q G4e A4e F4q F4q A4e Bb4e C5q C5q D5q Bb4h G4e A4e Bb4q Bb4q C5q A4q A4q F4e A4e G4q D4q F4q E4h C4q F4q F4q G4e A4e F4q F4q A4e Bb4e C5q C5q D5q Bb4h G4e A4e Bb4q Bb4q C5q A4q A4q F4e A4e G4q D4q E4q F4h
+tempo: 104
 ---
 
 Away in a manger, no crib for a bed,

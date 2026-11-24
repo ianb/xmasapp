@@ -1,7 +1,7 @@
 ---
 title: Jingle Bells
 about: https://en.wikipedia.org/wiki/Jingle_Bells
-tune: E4q E4q E4h | E4q E4q E4h | E4q G4q C4q. D4e | E4w | F4q F4q F4q. F4e | F4q E4q E4q E4e E4e | E4q D4q D4q E4q | D4h G4h
+tune: E5q E5q E5h | E5q E5q E5h | E5q G5q C5q. D5e | E5w | F5q F5q F5q. F5e | F5q E5q E5q E5e E5e | E5q D5q D5q E5q | D5h G5h | E5q E5q E5h | E5q E5q E5h | E5q G5q C5q. D5e | E5w | F5q F5q F5q. F5e | F5q E5q E5q E5e E5e | G5q G5q F5q D5q | C5w
 tempo: 132
 ---
 

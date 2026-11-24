@@ -1,7 +1,7 @@
 ---
 title: Joy to the World
 about: https://en.wikipedia.org/wiki/Joy_to_the_World
-tune: C5q B4e. A4s G4q. F4e | E4q D4q C4q. G4e | A4q. A4e B4q. B4e | C5h.
+tune: D5q C#5e. B4s A4q. G4e F#4q E4q D4q. A4e B4q. B4e C#5q. C#5e D5h.+e D5e D5e C#5e B4e A4e A4e. G4s F#4e D5e D5e C#5e B4e A4e A4e. G4s F#4e F#4e F#4e F#4e F#4e F#4s G4s A4q. G4s F#4s E4e E4e E4e E4s F#4s G4q. F#4s E4s F#4e D5q B4e A4e. G4s F#4e G4e F#4q E4q D4h
 tempo: 100
 ---
 

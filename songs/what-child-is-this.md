@@ -1,7 +1,7 @@
 ---
 title: What Child Is This?
 about: https://en.wikipedia.org/wiki/What_Child_Is_This%3F
-tune: A4e | C5q D5e E5e. F5s E5e | D5q B4e G4e. A4s B4e | C5q A4e A4e. G#4s A4e | B4q G#4e E4q
+tune: E4e G4q A4e B4e. C5s B4e A4q F#4e D4e. E4s F#4e G4q E4e E4e. Eb4s E4e F#4q. B3q E4e G4q A4e B4e. C5s B4e A4q F#4e D4e. E4s F#4e G4e. F#4s E4e Eb4e. C#4s Eb4e E4h+e re D5q. D5e. C#5s B4e A4q F#4e D4e. E4s F#4e G4q E4e E4e. Eb4s E4e F#4q Eb4e B3q re D5q. D5e. C5s B4e A4q F#4e D4e. E4s F#4e G4e. F#4s E4e Eb4e. C#4s Eb4e E4h+e re
 tempo: 120
 ---
 

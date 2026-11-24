@@ -125,19 +125,23 @@ const LENGTHS: Record<string, number> = { w: 4, h: 2, q: 1, e: 0.5, s: 0.25 };
  * Parse a tune: notes separated by spaces, with | bar lines for readability.
  * A note is a pitch and octave (C4 is middle C; # sharp, b flat) or r for a
  * rest, then its length: w whole, h half, q quarter, e eighth, s sixteenth,
- * with . for dotted. "F#4q." is a dotted quarter F sharp above middle C.
+ * with . for dotted, and + to tie lengths together. "F#4q." is a dotted
+ * quarter F sharp above middle C; "E4h+e" is held for a half and an eighth.
  */
 export function parseTune(text: string): Note[] {
   const notes: Note[] = [];
   for (const token of text.split(/\s+/)) {
     if (!token || token === "|") continue;
-    const m = /^(?:([A-G])([#b]?)(\d)|r)([whqes])(\.?)$/.exec(token);
+    const m = /^(?:([A-G])([#b]?)(\d)|r)((?:[whqes]\.?)(?:\+[whqes]\.?)*)$/.exec(token);
     if (!m) throw new Error(`can't read note "${token}" in tune`);
-    const [, step, accidental, octave, length, dot] = m;
+    const [, step, accidental, octave, lengths] = m;
     const pitch = step
       ? 12 * (Number(octave) + 1) + STEPS[step] + (accidental === "#" ? 1 : accidental === "b" ? -1 : 0)
       : null;
-    notes.push({ pitch, beats: LENGTHS[length] * (dot ? 1.5 : 1) });
+    const beats = lengths
+      .split("+")
+      .reduce((sum, l) => sum + LENGTHS[l[0]] * (l.endsWith(".") ? 1.5 : 1), 0);
+    notes.push({ pitch, beats });
   }
   if (!notes.length) throw new Error("tune has no notes");
   return notes;

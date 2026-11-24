@@ -41,8 +41,11 @@ A song with a `tune` gets a "Hear how it goes" button at the bottom that plays
 the opening with a simple synthesized tone, to remind people how it goes. Notes
 are a pitch and octave (`C4` is middle C, `#` sharp, `b` flat) or `r` for a
 rest, followed by a length: `w` whole, `h` half, `q` quarter, `e` eighth, `s`
-sixteenth, with `.` for dotted. `|` bar lines are just for reading. Keep it to
-a line or two, between G3 and A5.
+sixteenth, with `.` for dotted and `+` to tie lengths (`E4h+e`). `|` bar lines
+are just for reading. Keep it to the first verse and chorus (under a minute),
+between G3 and A5. Most tunes were converted from public domain scores on
+Wikipedia and the [Mutopia Project](https://www.mutopiaproject.org/), using
+the familiar US tune where there's more than one.
 
 ## Singing together
 

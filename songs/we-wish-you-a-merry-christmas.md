@@ -1,8 +1,8 @@
 ---
 title: We Wish You a Merry Christmas
 about: https://en.wikipedia.org/wiki/We_Wish_You_a_Merry_Christmas
-tune: D4q | G4q G4e A4e G4e F#4e | E4q E4q E4q | A4q A4e B4e A4e G4e | F#4q D4q D4q | B4q B4e C5e B4e A4e | G4q E4q D4e D4e | E4q A4q F#4q | G4h
-tempo: 120
+tune: D4q | G4q G4e A4e G4e F#4e | E4q E4q E4q | A4q A4e B4e A4e G4e | F#4q D4q D4q | B4q B4e C5e B4e A4e | G4q E4q D4e D4e | E4q A4q F#4q | G4h D4q | G4q G4q G4q | F#4h F#4q | G4q F#4q E4q | D4h A4q | B4q A4q G4q | D5q D4q D4e D4e | E4q A4q F#4q | G4h
+tempo: 126
 ---
 
 We wish you a Merry Christmas (x3)
