@@ -2,8 +2,8 @@
 title: O Holy Night
 about: https://en.wikipedia.org/wiki/O_Holy_Night
 layout: longlines
-tune: E4s E4q.+s G4s G4q.+s G4s A4e. A4s F4e. A4s C5h G4e rs G4s E4e. D4s C4q E4e. F4s G4q F4e. D4s C4h rh rh E4q E4e. E4s G4q.+s G4s A4e. A4s F4e. A4s C5h G4e rs G4s F#4e. E4s B4q G4e. A4s B4q C5e. B4s E4h
-tempo: 76
+tune: E4e | E4q.+q G4e G4q.+q G4e | A4q A4e F4q A4e C5h. | G4q G4e E4q D4e C4q. E4q F4e | G4q. F4q D4e C4h. | rh. | E4q. E4q E4e G4q.+q G4e | A4q A4e F4q A4e C5h. | G4q G4e F#4q E4e B4q. G4q A4e | B4q. C5q B4e E4h.
+tempo: 84
 ---
 
 O holy night! The stars are brightly shining,
