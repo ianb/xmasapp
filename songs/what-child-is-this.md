@@ -2,7 +2,7 @@
 title: What Child Is This?
 about: https://en.wikipedia.org/wiki/What_Child_Is_This%3F
 tune: E4e G4q A4e B4e. C5s B4e A4q F#4e D4e. E4s F#4e G4q E4e E4e. Eb4s E4e F#4q. B3q E4e G4q A4e B4e. C5s B4e A4q F#4e D4e. E4s F#4e G4e. F#4s E4e Eb4e. C#4s Eb4e E4h+e re D5q. D5e. C#5s B4e A4q F#4e D4e. E4s F#4e G4q E4e E4e. Eb4s E4e F#4q Eb4e B3q re D5q. D5e. C5s B4e A4q F#4e D4e. E4s F#4e G4e. F#4s E4e Eb4e. C#4s Eb4e E4h+e re
-tempo: 120
+tempo: 108
 ---
 
 What child is this, who, laid to rest,

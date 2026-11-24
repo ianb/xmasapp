@@ -2,7 +2,7 @@
 title: It Came Upon the Midnight Clear
 about: https://en.wikipedia.org/wiki/It_Came_Upon_the_Midnight_Clear
 tune: F4e D5q A4e C5e Bb4e G4e F4q G4e F4q F4e G4e A4e Bb4e Bb4e C5e D5e C5h+e F4e D5q A4e C5e Bb4e G4e F4q G4e F4q F4e G4q G4e A4e G4e F4e Bb4h+e D5e D5q D4e D4e E4e F#4e G4e G4e A4e Bb4q D5e C5e Bb4e A4e G4e A4e G4e F4h+e F4e D5q A4e C5e Bb4e G4e F4q G4e F4q F4e G4q G4e A4e G4e F4e Bb4h+e re
-tempo: 116
+tempo: 80
 ---
 
 It came upon a midnight clear,
